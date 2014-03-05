@@ -33,7 +33,7 @@ form_elements = {
 		}
 	},
 	"step2": {
-		"name" : "Step 1 - Calculate project",
+		"name" : "Step 2 - Calculate project",
 		"fields": {
 			"number_of_sheets": {
 				"label": "No. of sheets",

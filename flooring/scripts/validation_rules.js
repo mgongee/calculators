@@ -14,6 +14,10 @@
 				"step1[number_of_buildings]": {
 					required: true,
 					digits: true
+				},
+				"step1[waste]": {
+					required: true,
+					digits: true
 				}
 			},
 			messages: {
