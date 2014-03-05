@@ -132,8 +132,10 @@ form_fill = function(form_data, project_data) {
 				$("#" + field_full_name).val(field_value)
 			}
 			else if (field_type === "list") {
+				
 				$("#" + field_full_name + " option").filter(function() {
-					return $(this).text() == field_value; 
+					console.log("fill list:",$(this).val(),field_value)
+					return $(this).val() == field_value; 
 				}).prop('selected', true);
 			}
 		}

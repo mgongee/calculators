@@ -42,7 +42,7 @@
 
     <div class="container">
 		<div class="page-header">
-			<h1>Flooring Calculator</h1>
+			<h1><a href="index.php?route=index">Flooring Calculator</a></h1>
 		</div>
 		
 		<div class="calculator-template">

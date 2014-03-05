@@ -42,35 +42,54 @@ class FlooringController extends CalculatorController{
 	protected function pageEdit() {
 		global $T;
 		
+		$action = "error";
+		
 		if (isset($_POST['project_id'])) {
-			//echo("<pre>" . print_r($_POST, 1) . "</pre>");die();
+			$action = 'save';
 			$projectId = $_POST['project_id'];
-			$result = ProjectManager::updateFromForm($projectId,$_POST);
-			
-			if ($result) {
-				$T['success'] = true;
-				$this->addSuccessMessage('Project successfully saved');
-				
-			}
-			else {
-				$T['success'] = false;
-				$this->addErrorMessage('Failed to save project');	
-			}
 		}
 		else if(isset($_GET['id'])) {
+			$action = 'edit';
 			$projectId = $_GET['id'];
-			$project = ProjectManager::getById($projectId);
-			
-			if ($project) {
-				$T['success'] = true;
-				$T['project'] = $project;
-			}
-			else {
-				$T['success'] = false;
-				$this->addErrorMessage('Failed to load project with specified id = ' . $projectId);	
-			}	
 		}
+			//echo("<pre>" . print_r($_POST, 1) . "</pre>");die();
 
+		$project = ProjectManager::getById($projectId);
+		
+		if ($project) {
+			$T['project'] = $project;
+			
+			switch ($action) :
+				case "edit":
+					$T['success'] = true;
+					break;
+					
+				case "save":
+					$result = ProjectManager::updateFromForm($projectId,$_POST);
+
+					if ($result) {
+						$project = ProjectManager::getById($projectId); //reload the project as it has beed updated
+						$T['project'] = $project;
+						$T['success'] = true;
+						$this->addSuccessMessage('Project successfully saved');
+
+					}
+					else {
+						$T['success'] = false;
+						$this->addErrorMessage('Failed to save project');	
+					}
+					break;
+				default:
+						$T['success'] = false;
+						$this->addErrorMessage('Some error occured');	
+			endswitch;
+		
+		}
+		else {
+			$T['success'] = false;
+			$this->addErrorMessage('Failed to load project with specified id = ' . $projectId);	
+		}
+		
 		$templateName = __FUNCTION__;
 		return $this->compose($templateName);
 	}

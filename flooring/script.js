@@ -53,12 +53,17 @@ $(document).ready(function(){
 	 */
 	$.import_js('scripts/form_create.js');
 	
+	/**
+	 * If form is present
+	 */
 	if ($('#fieldWrapper').length) {
 		$form = $('#fieldWrapper');
-		if ($('#projectData'.length)) {
+		if ($('#projectData').length) { // if project data is specified, create form to edit the project
+			console.log('eidt');
 			create_form_edit($form,form_elements);
 		}
-		else {
+		else { //  if project data is not specified, create form to start new project
+			console.log('new');
 			create_form_add($form,form_elements);
 		}
 	}
