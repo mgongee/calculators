@@ -1,0 +1,22 @@
+/* 
+    Document   : styles
+    Created on : 02.03.2014, 20:01:23
+    Author     : mgongee
+    Description:
+        Styles for the flooring calculator
+*/
+
+div.step {
+	padding:20px;
+	height: 600px;
+}
+
+.input-field {
+	margin-right: 10px;
+}
+
+.input-label {
+	margin-right: 10px;
+}
+	
+
