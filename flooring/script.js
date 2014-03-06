@@ -1,15 +1,5 @@
 $(document).ready(function(){
 	
-	/**
-	 * tag 'select' with list of projects
-	 */
-	$( "select#project_id" ).change(function() {
-		var val = $(this).val()
-		if (val > 0) {
-			window.location.href = "?route=edit&id=" + $(this).val();
-		}
-	});
-	
 	(function($)
 	{
 		/*
@@ -54,6 +44,25 @@ $(document).ready(function(){
 	$.import_js('scripts/form_create.js');
 	
 	/**
+	 * Load form validation rules into "validation_rules" variable
+	 */
+	$.import_js('scripts/validation_rules.js');
+	
+	/*********** Code for Index page ************/
+		
+	/**
+	 * tag 'select' with list of projects
+	 */
+	$( "select#project_id" ).change(function() {
+		var val = $(this).val()
+		if (val > 0) {
+			window.location.href = "?route=edit&id=" + $(this).val();
+		}
+	});
+	
+	
+	/*********** Code for Edit page ************/
+	/**
 	 * If form is present
 	 */
 	if ($('#fieldWrapper').length) {
@@ -68,6 +77,69 @@ $(document).ready(function(){
 		}
 	}
 	
-	$.import_js('scripts/validation_rules.js');
+	$("#calcForm").formwizard({
+		formPluginEnabled: false,
+		validationEnabled: true,
+		focusFirstInput : true,
+		validationOptions : validation_rules
+	});
 	
+	/**
+	 * Add new area on button click
+	 */
+	$("#add_area_button").click(
+			add_area
+	);
+		
+	/**
+	 * Remove added area on button click
+	 */
+	$("#add_areas_target").on('click', '.remove_area_button', function() {
+		delete_area($(this))
+	});
+	
+	
+	/**
+	 * Update area size when width is changed
+	 */
+	$(".add_area_form").on('keyup', '.area_width',function() {
+		calculate_area_size($(this),'width')
+	});
+	
+	/**
+	 * Update area size when length is changed
+	 */
+	$(".add_area_form").on('keyup', '.area_length',function() {
+		calculate_area_size($(this),'length')
+	});
+	
+	
+	/**
+	 * Update added area size when width is changed
+	 */
+	$("#add_areas_target").on('keyup', '.area_width',function() {
+		calculate_area_size($(this),'width')
+	});
+	
+	/**
+	 * Update added area size when length is changed
+	 */
+	$("#add_areas_target").on('keyup', '.area_length',function() {
+		calculate_area_size($(this),'length')
+	});
+	
+	
+	/**
+	 * Update area dimensions
+	 */
+	$(".add_area_form").on('keyup', '.area_size',function() {
+		update_area_dimensions($(this))
+	});
+	
+	/**
+	 * Update added area dimensions
+	 */
+	$("#add_areas_target").on('keyup', '.area_size',function() {
+		update_area_dimensions($(this))
+	});
 });

@@ -18,5 +18,8 @@ div.step {
 .input-label {
 	margin-right: 10px;
 }
-	
+
+.areas_table th {
+	padding: 5px;
+}
 

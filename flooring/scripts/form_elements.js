@@ -33,7 +33,12 @@ form_elements = {
 		}
 	},
 	"step2": {
-		"name" : "Step 2 - Calculate project",
+		"name" : "Step 2 - Adding areas",
+		"fields": {},
+		"template": "step2"
+	},
+	"step3": {
+		"name" : "Step 3 - Calculated project",
 		"fields": {
 			"number_of_sheets": {
 				"label": "No. of sheets",

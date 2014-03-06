@@ -1,3 +1,11 @@
+<script>
+	$(document).ready(function(){
+		$("#data").click(function(){
+			console.log($("#calcForm").formwizard("state"));
+		}) 
+	});
+</script>
+
 <?php if ($success): ?>
 
 <div id="projectData" style="display:none"><?php echo($project['project_data']); ?></div>
@@ -16,7 +24,8 @@
 			<input class="navigation_button btn btn-lg btn-success" id="next" value="Next" type="submit" />
 		</div>
 	</div>
-	<p id="data"></p>
+	<p id="data">Click me</p>
+	
 </form>
 <?php else: ?>
 	Failed to load project.
