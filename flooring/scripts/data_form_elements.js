@@ -12,7 +12,8 @@ form_elements = {
 			},
 			"number_of_buildings": {
 				"label": "No. of buildings",
-				"type": "text"
+				"type": "text",
+				"default_value": "1"
 			},
 			"type_of_frame": {
 				"label": "Type of frame",
@@ -24,7 +25,8 @@ form_elements = {
 			},
 			"waste": {
 				"label": "Waste %",
-				"type": "text"
+				"type": "text",
+				"default_value": "5"
 			},
 			"sheet_size": {
 				"label": "Sheet size",
@@ -44,20 +46,20 @@ form_elements = {
 				"label": "No. of sheets",
 				"type": "text"
 			},
-			"number_of_fasteners_per_sheet": {
-				"label": "No. of fasteners per sheet",
+			"number_of_fasteners": {
+				"label": "No. of fasteners",
 				"type": "text"
 			},
-			"amount_of_epoxy_per_sheet": {
-				"label": "Amount of epoxy per sheet joint",
+			"amount_of_epoxy": {
+				"label": "Amount of epoxy",
 				"type": "text",
 				"units" : {
 					"0-1000" : "mL",
 					"1000-100000" : "L",
 				}
 			},
-			"amount_of_constr_adhesive_per_sheet": {
-				"label": "Amount of construction adhesive per sheet",
+			"amount_of_constr_adhesive": {
+				"label": "Amount of construction adhesive",
 				"type": "text",
 				"units" : {
 					"0-300" : "mL",
