@@ -6,6 +6,6 @@ $config = array(
 	'mysql_user' => 'calculator_user',
 	'mysql_password' => '123',
 	'table_prefix' => 'clc_',
-	'theme' => 'bootstrap', // use 'legacy' or 'bootstrap'
+	'theme' => 'olddesign', // use 'olddesign' or 'bootstrap'
 	'assets_path' => '../common/'// path to common JS, CSS files
 );

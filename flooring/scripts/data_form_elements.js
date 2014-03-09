@@ -53,18 +53,12 @@ form_elements = {
 			"amount_of_epoxy": {
 				"label": "Amount of epoxy",
 				"type": "text",
-				"units" : {
-					"0-1000" : "mL",
-					"1000-100000" : "L",
-				}
+				"units" : "mL"
 			},
 			"amount_of_constr_adhesive": {
 				"label": "Amount of construction adhesive",
 				"type": "text",
-				"units" : {
-					"0-300" : "mL",
-					"300-100000" : "tubes",
-				}
+				"units" : "mL"
 			}
 		}
 	}

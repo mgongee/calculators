@@ -56,7 +56,6 @@ create_form_tags_and_steps = function($form, form_data) {
 			}
 		}
 		
-		
 		/* Add step fields*/ 
 		html += "<div class=\"row\">"
 				+	"<div class=\"col-md-6\">"
@@ -69,6 +68,7 @@ create_form_tags_and_steps = function($form, form_data) {
 	html += "</div>";
 	
 	$form.html(html);
+
 };
 
 
@@ -126,6 +126,10 @@ prepare_step_fields = function(step, step_fields_data) {
 		/* Create units tag */
 		if (typeof field_units !== "undefined") {
 			step_fields_html += "<span class=\"units\" id=\"units_" + field_name +"\">mL</span>";
+			// create hidden input to store units type
+			
+			var units_field_name = step + "[" + field_name + "_units]";
+			step_fields_html += "<input type=\"hidden\" name=\"" + units_field_name + "\" id=\"" + units_field_name + "\"  value=\"" + field_units + "\" />";
 		}
 
 		step_fields_html += "</div>";
@@ -163,4 +167,8 @@ fill_form_fields = function(form_data, project_data) {
 			}
 		}
 	}
+	
+		
+	/* Load areas for flooring calculator */
+	load_areas(project_data["step2"]);
 };

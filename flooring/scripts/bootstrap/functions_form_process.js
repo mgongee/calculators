@@ -7,22 +7,58 @@
  * Adds new area to project
  */
 add_area = function(){
-   var fields_count = $("#add_areas_target tr.area_entry").length;
-   var area_width = $("#add_area\\[width\\]").val();
-   var area_length = $("#add_area\\[length\\]").val();
-   var area_size = $("#add_area\\[size\\]").val();
+	var area_width = $("#add_area\\[width\\]").val();
+	var area_length = $("#add_area\\[length\\]").val();
+	var area_size = $("#add_area\\[size\\]").val();
 
-   var new_area_field = $("#template_addarea tbody").html().toString();
+	var new_area_field = $("#template_addarea tbody").html().toString();
 
-   var new_area_field = new_area_field
-	   .replace(new RegExp("_LABEL_",'g'),'Floor ' + fields_count)
-	   .replace(new RegExp("_STEP_",'g'),"step2")
-	   .replace(new RegExp("_FIELDNAME_",'g'),"areas")
-	   .replace(new RegExp("_ID_",'g'),fields_count)
-	   .replace(new RegExp("_WIDTH_",'g'),area_width)
-	   .replace(new RegExp("_LENGTH_",'g'),area_length)
-	   .replace(new RegExp("_SIZE_",'g'),area_size);
-   $("#add_areas_target tbody").append(new_area_field);
+	var max_field_number = 0;
+	
+	$("#add_areas_target").find("input.area_width").each(function(){
+		var field_number = parseInt($(this).attr("number"));
+		
+		if (field_number > max_field_number) {
+			max_field_number = field_number;
+		}
+	});
+	
+	var field_number = +max_field_number + 1;
+	
+	var new_area_field = new_area_field
+		.replace(new RegExp("_LABEL_",'g'), field_number)
+		.replace(new RegExp("_STEP_",'g'),"step2")
+		.replace(new RegExp("_FIELDNAME_",'g'),"areas")
+		.replace(new RegExp("_ID_",'g'),field_number)
+		.replace(new RegExp("_WIDTH_",'g'),area_width)
+		.replace(new RegExp("_LENGTH_",'g'),area_length)
+		.replace(new RegExp("_SIZE_",'g'),area_size);
+$("#add_areas_target tbody").append(new_area_field);
+};
+
+/**
+ * Load saved areas to project
+ */
+load_areas = function(step_data){
+		
+	areas = step_data["areas"];
+	for (var area_number in areas) {
+		var area = areas[area_number];
+
+		var new_area_field = $("#template_addarea tbody").html().toString();
+
+		var new_area_field = new_area_field
+			.replace(new RegExp("_LABEL_",'g'),area_number)
+			.replace(new RegExp("_STEP_",'g'),"step2")
+			.replace(new RegExp("_FIELDNAME_",'g'),"areas")
+			.replace(new RegExp("_ID_",'g'),area_number)
+			.replace(new RegExp("_WIDTH_",'g'),area["width"])
+			.replace(new RegExp("_LENGTH_",'g'),area["length"])
+			.replace(new RegExp("_SIZE_",'g'),area["size"]);
+		$("#add_areas_target tbody").append(new_area_field);
+	}
+
+	$("#step2\\[total_area_size\\]").val(step_data["total_area_size"]);
 };
 
 /**
@@ -57,8 +93,8 @@ calculate_area_size = function($this,mode){
 		var size = this_dimension * another_dimension;
 		
 		// note that dimensions are fillen in millimeters, and area is filles in square meters,
-		// so the square must be divided by 100*100
-		size = size * 0.0001;
+		// so the square must be divided by 1000*1000
+		size = size * 0.000001;
 		
 		size = +size.toFixed(2);
 		
@@ -77,8 +113,8 @@ update_area_dimensions = function($this){
 	var size = $this.val();
 	
 	// note that dimensions are fillen in millimeters, and area is filles in square meters,
-	// so the square must be multiplied by 100*100
-	size = size * 10000;
+	// so the square must be multiplied by 1000*1000
+	size = size * 1000000;
 	
 	var width_field_name = field_name.replace(new RegExp("\\[size\\]",'g'),"[width]").replace(new RegExp("\\[",'g'),"\\[").replace(new RegExp("\\]",'g'),"\\]");
 	var length_field_name = field_name.replace(new RegExp("\\[size\\]",'g'),"[length]").replace(new RegExp("\\[",'g'),"\\[").replace(new RegExp("\\]",'g'),"\\]");
@@ -107,12 +143,11 @@ calculate_total_area = function(){
 	new_size = 0;
 	$("#add_areas_target").find(".area_size").each(function(){
 		part_size = $(this).val();
-		console.log($(this).attr("id"),part_size);
 		if (is_float(part_size)) {
 			new_size += parseFloat(part_size);
 		}
 	});
-	console.log("new size", new_size);
+	new_size = new_size.toFixed(2);
 	$("#add_areas_target .total_area_size").val(new_size);
 };
 

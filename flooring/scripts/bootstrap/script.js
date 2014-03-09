@@ -41,22 +41,22 @@ $(document).ready(function(){
 	/**
 	 * Load service functions
 	 */
-	$.import_js('scripts/functions_service.js');
+	$.import_js('scripts/bootstrap/functions_service.js');
 	
 	/**
 	 * Load form create & fill functions
 	 */
-	$.import_js('scripts/functions_form_create.js');
+	$.import_js('scripts/bootstrap/functions_form_create.js');
 	
 	/**
 	 * Load form processing functions
 	 */
-	$.import_js('scripts/functions_form_process.js');
+	$.import_js('scripts/bootstrap/functions_form_process.js');
 	
 	/**
 	 * Load form calculation functions
 	 */
-	$.import_js('scripts/functions_form_calculation.js');
+	$.import_js('scripts/bootstrap/functions_form_calculation.js');
 	
 	
 	/**

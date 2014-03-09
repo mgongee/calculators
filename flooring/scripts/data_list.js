@@ -15,8 +15,8 @@ list_data = {
 };
 
 sheet_size = { // in square meters
-	"16mm_x_600mm_x_2400mm" : 144,
-	"16mm_x_1200mm_x_2400mm" : 288
+	"16mm_x_600mm_x_2400mm" : 1.44,
+	"16mm_x_1200mm_x_2400mm" : 2.88
 }
 
 number_of_fasteners_per_sheet = {

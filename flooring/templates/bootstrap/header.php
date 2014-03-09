@@ -12,7 +12,7 @@
  	
     
 	<!-- CSS for this calculator -->
-	<link href="styles.css" rel="stylesheet" />
+	<link href="templates/bootstrap/styles.css" rel="stylesheet" />
 	
 	
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -28,7 +28,7 @@
     <script src="<?php echo $CONF['assets_path']; ?>bootstrap/js/jquery.form.wizard.js"></script>
 	
 	<!-- JS for this calculator -->
-	<script src="script.js"></script>
+	<script src="scripts/bootstrap/script.js"></script>
 	
 	
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
