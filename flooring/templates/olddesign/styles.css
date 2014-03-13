@@ -55,10 +55,6 @@ label.error {
 	padding: 10px;
 }
 
-.button_back {
-	float: left;
-}
-
 .button_forward {
 	float: right;
 }
@@ -81,4 +77,191 @@ label.error {
 .area_button {
 	padding: 3px;
 	margin-top: 19px;
+}
+
+.button_back {
+	position: absolute;
+	left:-74px;
+	background-image: url("images/backbut.jpg");
+    background-repeat: no-repeat;
+    background-size: 68px auto;
+    height: 65px;
+    width: 68px;
+	border: none;
+	cursor: pointer;
+}
+
+
+.button_forward {
+	position: absolute;
+	right: -30px;
+	background-image: url("images/Nextbutl.jpg");
+    background-repeat: no-repeat;
+    background-size: 150px 60px;
+	width: 150px;
+    height: 60px;
+    border: none;
+	cursor: pointer;
+}
+
+
+.step {
+	height: 200px;
+}
+
+#go_to_estimation {
+	position: absolute;
+	right: -30px;
+	top: 310px;
+}
+
+/**** Estimation page ***/
+
+#middle_wrapper {
+	padding: 20px 0px 0px 20px;
+}
+
+div#estimation_left_table {
+	width: 390px;
+	background-color:#647684;
+	font-size: 12px;
+	float:left;
+	margin-right:20px;
+}
+
+div#estimation_left_table p, div#estimation_low_left_table p{
+	font-size: 14px;
+	margin-left: 10px;
+	color:white;
+}
+
+table#estimation_values {
+	color: #FFFFFF;
+	width: 100%;
+}
+
+table#estimation_values th {
+	background-color: #808080;
+	color: #DDDDDD;
+}
+
+table#estimation_values td{
+	padding-left:5px;
+}
+
+table#estimation_values tfoot{
+    font-size: 13px;
+    font-weight: bold;
+}
+
+table#estimation_values tfoot td{
+    padding-top: 20px;	
+}
+
+
+div#estimation_right_table {
+	background-color: #EEEEEE;
+	float: left;
+	font-size: 12px;
+	width: 546px;
+}
+
+table#project_data {
+	width: 100%;
+}
+
+div#estimation_low_right_table {
+	color: #FFFFFF;
+    float: right;
+    font-size: 12px;
+    height: 300px;
+    margin-right: 20px;
+    margin-top: 10px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-right: 5px;
+    padding-top: 10px;
+    width: 543px;
+}
+
+
+div#bill_header {
+	background-color: #647684;
+	color: #ffffff;
+	height: 21px;
+    padding: 10px;
+}
+
+
+div#quantities_buttons{ 
+	float:right;
+	text-align: right;
+}
+div.header2 {
+	float:left;
+	font-size:16px;
+	font-weight: bold;
+}
+
+a.bill_header_link_button, a.make_report_button {
+	display: block;
+    float: left;
+    margin-left: 10px;
+	background-color: #DDDDDD;
+	padding:3px;
+}
+
+table#bill_of_quantities {
+	color:black;
+}
+
+a.bill_delete_button {
+	background-color: #CCCCCC;
+	color: #ffffff;
+	padding:3px;
+	font-weight: bold;
+}
+
+table#bill_of_quantities tfoot {
+	font-weight: bold;
+}
+
+table#bill_of_quantities tfoot td {
+	padding-top:10px;
+	text-align: right;
+}
+
+
+
+div#estimation_low_left_table {
+	width: 390px;
+	clear: left;
+	background-color:#647684;
+	font-size: 12px;
+	float:left;
+	margin: 20px 20px 0px 0px;
+	color:white;
+}
+
+table#labour_rates_data {
+	width: 100%;
+	color: white;
+
+}
+
+table#labour_rates_data th {
+	background-color: #808080;
+	color: #DDDDDD;
+}
+table#labour_rates_data td {
+	padding-left: 5px;
+}
+
+div#estimation_reports_table {
+	float:right;
+	clear:right;
+	width: 390px;
+	font-size: 12px;
+	float:left;
+	margin: 0px 20px 0px 0px;
 }

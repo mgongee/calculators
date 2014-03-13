@@ -2,6 +2,9 @@
  * There are functions that creates forms
  */
 
+
+/*********** Code for Edit page ************/
+
 /**
  * Create form tags and fill lists with options
  * @param {jQuery selection} $form
@@ -45,8 +48,8 @@ create_form_tags_and_steps = function($form, form_data) {
 
 		/* Load template if provided*/
 		if (typeof form_data[step]["template"] !== 'undefined') {
-			template_name = form_data[step]["template"];
-			$template = $("#template_" + template_name);
+			var template_name = form_data[step]["template"];
+			var $template = $("#template_" + template_name);
 			if ($template.length > 0) {
 				html += $template.html();
 			}
@@ -57,7 +60,18 @@ create_form_tags_and_steps = function($form, form_data) {
 				+		step_fields_html
 				+ "</div>";
 
+		/* Load appendix if provided*/
+		if (typeof form_data[step]["appendix"] !== 'undefined') {
+			template_name = form_data[step]["appendix"];
+			$template = $("#template_" + template_name);
+			if ($template.length > 0) {
+				html += $template.html();
+			}
+		}
+		
 		html += "</div>";
+		
+		
 	}
 	
 	$form.html(html);
@@ -90,6 +104,18 @@ prepare_step_fields = function(step, step_fields_data) {
 			var default_value = "";
 		}
 		
+		if (typeof step_fields_data[field_name]["editable"] !== 'undefined') {
+			var editable = step_fields_data[field_name]["editable"];
+		}
+		else {
+			var editable = true;
+		}
+		
+		if (!editable) {
+			editable = "readonly=\"true\"";
+		}
+		else editable = "";
+		
 		step_fields_html += "<label class=\"input-label\" for=\"" + field_full_name + "\">" + field_label  + "</label>";
 		
 		step_fields_html += "";
@@ -97,14 +123,14 @@ prepare_step_fields = function(step, step_fields_data) {
 		/* create Field tag */
 		
 		if (field_type === "text") {
-			step_fields_html += "<input name=\"" + field_full_name + "\" class=\"input-field field_text\" id=\"" + field_full_name + "\" type=\"text\" size=\"7\" value=\"" + default_value + "\"/>";
+			step_fields_html += "<input " + editable + " name=\"" + field_full_name + "\" class=\"input-field field_text\" id=\"" + field_full_name + "\" type=\"text\" size=\"7\" value=\"" + default_value + "\"/>";
 		}
 		else if (field_type === "list") {
-			var field_list_items = list_data[step + "_" + field_name];
+			var field_list_items = window.list_data[step + "_" + field_name];
 			
 			step_fields_html += "<select id=\"" + field_full_name + "\" name=\"" + field_full_name + "\" class=\"form-control field_text\">";
 			
-			for (item in field_list_items) {
+			for (var item in field_list_items) {
 				var item_name = field_list_items[item];
 				step_fields_html += "<option value=\"" + item + "\">" + item_name + "</option>";
 			}
@@ -143,7 +169,7 @@ fill_form_fields = function(form_data, project_data) {
 		var step_fields_data = form_data[step]["fields"];
 		var project_fields_data = project_data[step];
 		
-		for (field_name in step_fields_data) {
+		for (var field_name in step_fields_data) {
 			var field_full_name = step + "\\[" + field_name + "\\]";
 			var field_type = step_fields_data[field_name]["type"];
 			var field_value = project_fields_data[field_name];

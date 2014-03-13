@@ -18,15 +18,16 @@
 			<input type="hidden" name="project_id" value="<?php echo $project['project_id']; ?>">
 			<input type="hidden" name="manager_name" value="<?php echo $project['manager_name']; ?>">
 			<input type="hidden" name="project_type" id="project_type" value="flooring" />
+			<input type="hidden" name="action" id="action" value="save">
 
 			<div id="fieldWrapper">
 			</div>
 			<div id="navigation" style="padding-top:40px;clear:both"> 							
 				<div class="col-lg-4">
-					<input class="navigation_button button_back" id="back" value="Back" type="reset" />
+					<input class="navigation_button button_back" id="back" value="" type="reset" />
 				</div>
 				<div class="col-lg-4">
-					<input class="navigation_button button_forward" id="next" value="Next" type="submit" />
+					<input class="navigation_button button_forward" id="next" value="" type="submit" />
 				</div>
 			</div>
 			<p id="data"></p>
@@ -117,4 +118,9 @@
 			</tr>	
 		</tbody>
 	</table>
+	<div id="template_step3_button">
+		<a href="#" id="go_to_estimation">
+			<img width="195" border="0" height="22" name="Go to Estimation Page" alt="Go to Estimation Page" src="templates/olddesign/images/goto_estimation_but.jpg">
+		</a>
+	</div>
 </div>

@@ -1,4 +1,4 @@
-form_elements = {
+window.form_elements = {
 	"step1": {
 		"name" : "Step 1 - Input project data",
 		"fields": {
@@ -44,22 +44,50 @@ form_elements = {
 		"fields": {
 			"number_of_sheets": {
 				"label": "No. of sheets",
-				"type": "text"
+				"type": "text",
+				"editable": false
 			},
 			"number_of_fasteners": {
 				"label": "No. of fasteners",
-				"type": "text"
+				"type": "text",
+				"editable": false
 			},
 			"amount_of_epoxy": {
 				"label": "Amount of epoxy",
 				"type": "text",
-				"units" : "mL"
+				"units" : "mL",
+				"editable": false
 			},
 			"amount_of_constr_adhesive": {
 				"label": "Amount of construction adhesive",
 				"type": "text",
-				"units" : "mL"
+				"units" : "mL",
+				"editable": false
 			}
-		}
+		},
+		"appendix": "step3_button"
+	}
+};
+
+window.estimation_elements = {
+	"total_area_size": {
+		"label": "Total floor area",
+		"type": "text",
+		"units": "m2"
+	},
+	"waste": {
+		"label": "Percentage of Material Waste",
+		"type": "text",
+		"units": "%"
+	},
+	"number_of_buildings": {
+		"label": "Total number of buildings",
+		"type": "text",
+		"units": ""
+	},
+	"type_of_frame": {
+		"label": "Type of frame",
+		"type": "list",
+		"units": ""
 	}
 };

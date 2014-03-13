@@ -3,9 +3,14 @@
  */
 
 calculate_project = function(step_name) {
-	for (var field_name in calculation_rules) {
-		calculated_value = calculation_rules[field_name]();
-		console.log("calc",calculated_value ,field_name )
-		$("#" + step_name + "\\[" + field_name + "\\]").val(calculated_value);
+	for (var field_name in window.calculation_rules) {
+		var calculated_value = window.calculation_rules[field_name]();
+		if (isNaN(calculated_value)) {
+			$("#" + step_name + "\\[" + field_name + "\\]").val("0");
+		}
+		else {
+			$("#" + step_name + "\\[" + field_name + "\\]").val(calculated_value);
+		}
+		
 	}
 };

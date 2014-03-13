@@ -43,7 +43,7 @@ class ProjectManager {
 			throw new Exception(sprintf('error inserting in DB: %s in %s. SQL QUERY: %s', $DB->ErrorMsg(), __METHOD__, $sql));
 		}
 		else {
-			return true;
+			return $DB->Insert_ID();
 		}
 	}
 	

@@ -57,7 +57,12 @@ $(document).ready(function(){
 	 * Load form calculation functions
 	 */
 	$.import_js('scripts/olddesign/functions_form_calculation.js');
-	
+
+	/**
+	 * Load estimation functions
+	 */
+	$.import_js('scripts/olddesign/functions_form_estimation.js');
+
 	
 	/**
 	 * Load form validation rules into "validation_rules" variable
@@ -68,6 +73,7 @@ $(document).ready(function(){
 	 * Load project calculation rules into "calculation_rules" variable
 	 */
 	$.import_js('scripts/data_calculation_rules.js');
+	
 	
 	/*********** Code for Index page ************/
 		
@@ -88,12 +94,12 @@ $(document).ready(function(){
 	 * If form is present
 	 */
 	if ($('#fieldWrapper').length) {
-		$form = $('#fieldWrapper');
+		var $form = $('#fieldWrapper');
 		if ($('#projectData').length) { // if project data is specified, create form to edit the project
-			create_form_to_edit_project($form,form_elements);
+			create_form_to_edit_project($form, window.form_elements);
 		}
 		else { //  if project data is not specified, create form to start new project
-			create_form_to_add_project($form,form_elements);
+			create_form_to_add_project($form, window.form_elements);
 		}
 	}
 	
@@ -101,7 +107,10 @@ $(document).ready(function(){
 		formPluginEnabled: false,
 		validationEnabled: true,
 		focusFirstInput : true,
-		validationOptions : validation_rules
+		validationOptions : validation_rules,
+		textSubmit: "",
+		textNext: "",
+		textBack: ""
 	});
 	
 	/**
@@ -175,11 +184,92 @@ $(document).ready(function(){
 		calculate_total_area();
 	});
 	
+	/**
+	 * Next step button
+	 */
 	$("#next").click(function(){
 		var formState = $("#calcForm").formwizard("state");
 		if (formState["isLastStep"]) {
 			calculate_project(formState["currentStep"]);
 		}
-		console.log(formState,formState["isLastStep"]);
+	});
+	
+	/**
+	 * Go to estimation page
+	 */
+	$("#go_to_estimation").click(function(){
+		var formState = $("#calcForm").formwizard("state");
+		if (formState["isLastStep"]) {
+			$("#action").val("estimate");
+			$("#next").click();
+		}
+	});
+	
+	/*********** Code for Estimate page ************/
+	
+	/**
+	 * If table	 is present
+	 */
+	if ($('#estimation_values').length) {
+		estimate_project();
+		create_bill_list();
+		calculate_labour_rate();
+		calculate_total_bill();
+	}
+	
+	/**
+	 * Add new bill entry on button click
+	 */
+	$("#button_add_item").click(function(){
+			add_bill_item();
+			calculate_total_bill();
+	});
+	
+	/**
+	 * Remove bill item on button click
+	 */
+	$("#bill_of_quantities").on('click', '.bill_delete_button', function() {
+		delete_bill_item($(this));
+		calculate_total_bill();
+	});
+	
+	$("#button_show_cost").click(function() {
+		$("th.cost_unit").show();
+		$(".bill_item_cost").show();
+	});
+	
+	$("#button_hide_cost").click(function() {
+		$("th.cost_unit").hide();
+		$(".bill_item_cost").hide();
+	});
+	
+	/**
+	 * Update total cost when data is changed
+	 * in the 'Bill of Quantites' zone
+	 */
+	$("#bill_of_quantities").on('keyup', '.bill_item_quantity',function() {
+		calculate_total_bill();
+	});
+	$("#bill_of_quantities").on('keyup', '.bill_item_cost',function() {
+		calculate_total_bill();
+	});
+	
+	/**
+	 * Update labour cost when data is changed
+	 * in the 'Calculate labour rates' zone
+	 */
+	$("#labour_rates_data").on('keyup', "#labour\\[flooring\\]",function() {
+		calculate_labour_rate();
+		calculate_total_bill();
+	});
+	$("#labour_rates_data").on('keyup', "#labour\\[floor_finish\\]",function() {
+		calculate_labour_rate();
+		calculate_total_bill();
+	});
+	
+	$(".make_report_button").click(function(){
+		var report_type = $(this).attr("id");
+		$("#report_type").val(report_type);
+		$("#estimationForm").submit();
 	});
 });

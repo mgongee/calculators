@@ -1,4 +1,4 @@
-validation_rules =  {
+window.validation_rules =  {
 	rules: {
 		"step1[project_name]": "required",
 		"step1[number_of_buildings]": {

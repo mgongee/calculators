@@ -1,7 +1,8 @@
 /**
- * There are functions that related to processing changes in the creasted form
+ * There are functions that related to processing changes in the created form
  */
 
+/*********** Code for Estimate page ************/
 
 /**
  * Adds new area to project
@@ -15,6 +16,7 @@ add_area = function(){
 
 	var max_field_number = 0;
 	
+	/* Calculate number of areas that already added */
 	$("#add_areas_target").find("input.area_width").each(function(){
 		var field_number = parseInt($(this).attr("number"));
 		
@@ -38,10 +40,11 @@ $("#add_areas_target tbody").append(new_area_field);
 
 /**
  * Load saved areas to project
+ * @param {Array} step_data
  */
 load_areas = function(step_data){
 		
-	areas = step_data["areas"];
+	var areas = step_data["areas"];
 	for (var area_number in areas) {
 		var area = areas[area_number];
 
@@ -140,9 +143,9 @@ update_area_dimensions = function($this){
  * Calculates total building floor area 
  */
 calculate_total_area = function(){
-	new_size = 0;
+	var new_size = 0;
 	$("#add_areas_target").find(".area_size").each(function(){
-		part_size = $(this).val();
+		var part_size = $(this).val();
 		if (is_float(part_size)) {
 			new_size += parseFloat(part_size);
 		}
@@ -151,3 +154,40 @@ calculate_total_area = function(){
 	$("#add_areas_target .total_area_size").val(new_size);
 };
 
+
+/*********** Code for Estimate page ************/
+
+
+/**
+ * Adds new item to bill
+ */
+add_bill_item = function(){
+	var max_field_number = 0;
+	var new_bill_item = $("#template_add_bill_item tbody").html().toString();
+	
+	/* Calculate number of items that already added */
+	$("#bill_of_quantities").find("input.bill_item_id").each(function(){
+		var field_number = parseInt($(this).attr("number"));
+		
+		if (field_number > max_field_number) {
+			max_field_number = field_number;
+		}
+	});
+	
+	var field_number = +max_field_number + 1;
+	
+	var new_bill_item = new_bill_item.replace(new RegExp("_ID_",'g'),field_number);
+		
+	$("#bill_of_quantities tbody").append(new_bill_item);
+	return field_number;
+};
+
+
+
+/**
+ * Removes item from bill
+ * @param {jQuery selection} $bill_item_delete_button button that was clicked
+ */
+delete_bill_item = function($bill_item_delete_button){
+   $bill_item_delete_button.parent().parent().remove();
+};
