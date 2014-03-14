@@ -4,21 +4,21 @@
 
 estimate_project = function() {
 	// get the stored project parameters
-	for (var field_name in estimation_elements) {
+	for (var field_name in window.estimation_elements) {
 
-		var field_label = estimation_elements[field_name]["label"];
+		var field_label = window.estimation_elements[field_name]["label"];
 		var field_value = get_saved_field_value(field_name);
-		var field_units = estimation_elements[field_name]["units"];
+		var field_units = window.estimation_elements[field_name]["units"];
 		
 		var estimation_row = "<tr><td>" + field_label + "</td><td>" + field_value + "</td><td>" + field_units +"</td></tr>";
 		$("table#estimation_values tbody").append(estimation_row);
-		estimation_elements[field_name]["value"] = field_value;
+		window.estimation_elements[field_name]["value"] = field_value;
 		
 	}
 	
 	// calculate total product estimation
-	var total_area_size = +estimation_elements['total_area_size']['value'];
-	var waste = +estimation_elements['waste']['value'];
+	var total_area_size = +window.estimation_elements['total_area_size']['value'];
+	var waste = +window.estimation_elements['waste']['value'];
 	var product_estimation = total_area_size * ((100 + waste)/100);
 	
 	$("#product_estimation").html(Math.round(product_estimation,2));
@@ -37,7 +37,9 @@ calculate_labour_rate = function() {
 	}
 }
 
-
+/**
+ * Calculates total bill cost and cost per sqm
+ */
 calculate_total_bill = function() {
 	var total_area_estimation = parseFloat($("#product_estimation").html());
 	var labour_cost = parseFloat($("#labour\\[subtotal\\]").val());
@@ -89,6 +91,11 @@ get_saved_field_raw_value = function(field_name) {
 	return field_value;
 };
 
+/**
+ * Gets the value stored in the JSON string (which loaded from the DB)
+ * @param {String} field_name
+ * @returns {mixed}
+ */
 get_saved_field_value = function(field_name) {
 	
 	var project_json = $("#projectData").html();
@@ -120,6 +127,9 @@ get_saved_field_value = function(field_name) {
 	}
 };
 
+/**
+ * Creates the initial bill when the age is loaded
+ */
 create_bill_list = function (){
 	
 	add_product();
@@ -128,7 +138,16 @@ create_bill_list = function (){
 	add_adhesive();
 };
 
-
+/**
+ * Sets up the bill item field (the one with the number "item_number")
+ * @param {String} item_number number of the field being set up
+ * @param {String} id_number ID of the product
+ * @param {String} item_name name of the product
+ * @param {String} quantity quantity of the product
+ * @param {String} units
+ * @param {String} cost_unit
+ * @returns {undefined}
+ */
 fill_bill_item = function(item_number, id_number, item_name, quantity, units, cost_unit){
 	$("#bill\\[" + item_number + "\\]\\[id_number\\]").val(id_number);
 	$("#bill\\[" + item_number + "\\]\\[description\\]").val(item_name);

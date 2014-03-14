@@ -16,12 +16,13 @@
 	include('..' . DIRECTORY_SEPARATOR .'common' . DIRECTORY_SEPARATOR .'adodb' . DIRECTORY_SEPARATOR .'adodb.inc.php');
 	include('..' . DIRECTORY_SEPARATOR .'common' . DIRECTORY_SEPARATOR .'project-manager.class.php');
 	include('..' . DIRECTORY_SEPARATOR .'common' . DIRECTORY_SEPARATOR .'calculator-controller.class.php');
+	include('..' . DIRECTORY_SEPARATOR .'common' . DIRECTORY_SEPARATOR .'PHPExcel' . DIRECTORY_SEPARATOR . 'PHPExcel.php');
 
 /**
  * Include calculator-specific classes
  */
 	include('classes' . DIRECTORY_SEPARATOR .'flooring-controller.class.php');
-	//include('classes' . DIRECTORY_SEPARATOR .'xls-writer.class.php');
+	include('classes' . DIRECTORY_SEPARATOR .'report-maker.class.php');
 
 /**
  * Include configuration file and initialize configuration
@@ -42,10 +43,12 @@
 	}
 
 	$_manager_name = isset($_SESSION['manager_name']) ? $_SESSION['manager_name'] : 'Jenny Razor';
+	$_manager_email = isset($_SESSION['manager_email']) ? $_SESSION['manager_email'] : 'jenny@razor.org';
 
 
 	$T = array(
 		'manager_name' => $_manager_name,
+		'manager_email' => $_manager_email,
 		'messages' => array()
 	);
 

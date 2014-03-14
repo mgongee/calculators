@@ -152,34 +152,23 @@ class FlooringController extends CalculatorController{
 			$projectId = $_POST['project_id'];
 			$reportType = $_POST['report_type'];
 			if ($reportType == "excel") {
-				$content = ReportMaker::generateReportXls($_POST);
+				$xlsReport = new ReportMakerXls($_POST);
+				
 				$filename = time() . '_' . $projectId . '.xls';
 				
-				$headers = array(
-					"Content-Type: application/vnd.ms-excel",
-					"Content-Disposition: attachment; filename=$filename",
-					"Pragma: no-cache",
-					"Expires: 0"
-				);
+				header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, charset=utf-8; encoding=UTF-8');
+				header('Content-Disposition: attachment;filename="' . $filename . '"');
+				header('Cache-Control: max-age=0');
+
+				$xlsReport->generateReport();
 			}
 			else {
-				$content = ReportMaker::generateReportDoc($_POST);
+				$docReport = new ReportMakerDoc($_POST);
 				$filename = time() . '_' . $projectId . '.doc';				
-				$headers = array(
-					"Content-type: application/vnd.ms-word",
-					"Content-Disposition: attachment;Filename=" . $filename
-				);				
+				header('Content-Type: application/msword');  
+				header('Content-Disposition: attachment;filename="' . $filename . '"');
+				$docReport->generateReport();
 			}
 		}		
-		return $this->headers($headers,$content);
 	}
-}
-
-class ReportMaker {
-	
-	public static function generateReportXls($data) {
-		echo("<pre>" . print_r($data, 1) . "</pre>");
-		die();
-	}
-	
 }

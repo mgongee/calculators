@@ -3,9 +3,10 @@
 	<form id="estimationForm" method="post" action="index.php?route=report">
 		<input type="hidden" name="project_id" value="<?php echo $project['project_id']; ?>">
 		<input type="hidden" name="manager_name" value="<?php echo $project['manager_name']; ?>">
+		<input type="hidden" name="manager_email" value="<?php echo $manager_email; ?>">
 		<input type="hidden" name="project_type" id="project_type" value="flooring" />
 		<input type="hidden" name="report_type" id="report_type" value="excel">
-		<input type="hidden" name="project_data" id="project_data" value='<?php echo(addslashes($project['project_data'])); ?>'>
+		<input type="hidden" name="project_data" id="project_data" value='<?php echo($project['project_data']); ?>'>
 
 		<div id="estimation_left_table">
 			<p>Project Estimation</p>
@@ -61,8 +62,8 @@
 				<tbody>
 				</tbody>
 				<tfoot>
-						<td colspan="2">Total cost ($) per sqm: <input id="total_cost_per_sqm" type="text" value="" size="5"/></td>
-						<td colspan="4">Total cost ($): <input id="total_cost" type="text" value="" size="5"/></td>
+						<td colspan="2">Total cost ($) per sqm: <input id="total_cost_per_sqm" name="total_cost_per_sqm" type="text" value="" size="5"/></td>
+						<td colspan="4">Total cost ($): <input id="total_cost" name="total_cost" type="text" value="" size="5"/></td>
 				</tfoot>
 			</table>
 		</div>
