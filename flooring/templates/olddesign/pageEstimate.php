@@ -1,7 +1,7 @@
 <div id="projectData" style="display:none"><?php echo($project['project_data']); ?></div>
 <div id="middle_wrapper">
 	<form id="estimationForm" method="post" action="index.php?route=report">
-		<input type="hidden" name="project_id" value="<?php echo $project['project_id']; ?>">
+		<input type="hidden" name="project_id" id="project_id" value="<?php echo $project['project_id']; ?>">
 		<input type="hidden" name="manager_name" value="<?php echo $project['manager_name']; ?>">
 		<input type="hidden" name="manager_email" value="<?php echo $manager_email; ?>">
 		<input type="hidden" name="project_type" id="project_type" value="flooring" />
@@ -29,6 +29,30 @@
 			</table>
 		</div>
 
+		<div id="cost_library" >
+			<table id="cost_table">
+				<tr>
+					<td width="44%">Select Cost Library: 
+						<select id="cost_library_id" name="cost_library_id">
+							<option value="0">Please select</option>");
+							<?php
+							foreach ($costLibraries as $libraryId => $libraryName) {
+								echo ("<option value=\"$libraryId\">$libraryName</option>");
+							}
+							?>
+						</select>
+					</td>
+					<td>
+						Project Name: <input id="new_name" name="new_name" type="text" value="<?php echo $project['project_name']; ?>" size="7">
+					</td>
+					<td>
+						<a href="javascript:return 0;" class="project_action_button" id="saveas">SAVE AS</a>
+						<a href="javascript:return 0;" class="project_action_button" id="delete">DELETE</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		
 		<div id="estimation_right_table" >
 			<table id="project_data">
 				<tr>

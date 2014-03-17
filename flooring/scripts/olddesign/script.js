@@ -272,4 +272,41 @@ $(document).ready(function(){
 		$("#report_type").val(report_type);
 		$("#estimationForm").submit();
 	});
+	
+	$(".project_action_button").click(function(){
+		var action_type = $(this).attr("id");
+		var project_id = $("#project_id").val();
+		var new_name = $("#new_name").val();
+		if (action_type == 'saveas') {
+			window.location.href = "index.php?route=saveas&new_name=" + encodeURIComponent(new_name) + "&project_id=" + project_id;
+		}
+		if (action_type == 'delete') {
+			if (confirm("Are you sure want to delete this project?")) {
+				$.post( "index.php?route=delete", {'project_id': project_id}, function( data ) {
+					if (data == "ok") {
+						alert("The project was deleted successfully");
+						window.location.href = "?route=index&messageDelete=1";
+					}
+					else {
+						alert("There was some error when deleting project.");
+					}
+					
+				});
+			}
+		}
+	});
+	
+	/**
+	 * Load cost library on select on dropdown list
+	 * tag 'select' with list of libraries
+	 */
+	$( "select#cost_library_id" ).change(function() {
+		var val = $(this).val();
+		if (val != "0") {
+			var url = "index.php?route=ajax&action=get_prices&library_name=" + val;
+			$.getJSON(url, function( data ) {
+				load_prices(data);
+			});
+		}
+	});
 });

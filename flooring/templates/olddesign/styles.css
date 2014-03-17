@@ -159,14 +159,16 @@ table#estimation_values tfoot td{
 }
 
 
-div#estimation_right_table {
+div#estimation_right_table, div#cost_library {
 	background-color: #EEEEEE;
 	float: left;
 	font-size: 12px;
 	width: 546px;
 }
 
-table#project_data {
+
+
+table#project_data, table#cost_table {
 	width: 100%;
 }
 
@@ -209,6 +211,15 @@ a.bill_header_link_button, a.make_report_button {
     margin-left: 10px;
 	background-color: #DDDDDD;
 	padding:3px;
+}
+
+a.project_action_button {
+	display: block;
+    float: left;
+    margin-left: 10px;
+	background-color: #647684;
+	color: white;
+	padding:3px;	
 }
 
 table#bill_of_quantities {

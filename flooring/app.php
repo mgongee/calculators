@@ -40,13 +40,16 @@
 	
 	foreach ($classes as $className) {
 		include 'classes' . DIRECTORY_SEPARATOR . $themeName . DIRECTORY_SEPARATOR . $className . '.class.php';
-	}
+	}	
 
+	/* Variables for settings from outside sources */
+	$_manager_id = isset($_SESSION['manager_name']) ? $_SESSION['manager_id'] : 23;
 	$_manager_name = isset($_SESSION['manager_name']) ? $_SESSION['manager_name'] : 'Jenny Razor';
 	$_manager_email = isset($_SESSION['manager_email']) ? $_SESSION['manager_email'] : 'jenny@razor.org';
 
 
 	$T = array(
+		'manager_id' => $_manager_id,
 		'manager_name' => $_manager_name,
 		'manager_email' => $_manager_email,
 		'messages' => array()

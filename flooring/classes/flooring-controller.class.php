@@ -63,15 +63,26 @@ class FlooringController extends CalculatorController{
 		}		
 		
 
+		$libraries = ProjectManager::getCostLibraries();
+		$costLibraries = array();
+
+		foreach ($libraries as $library) {
+			$costLibraries[$library['list_name']] = $library['list_name'];
+		}
 		$project = ProjectManager::getById($projectId);
 
 		if ($project) {
 			$T['project'] = $project;
+			$T['costLibraries'] = $costLibraries;
 			$T['success'] = true;
 		}
 		else {
 			$T['success'] = false;
 			$this->addErrorMessage('Failed to load project with specified id = ' . $projectId);	
+		}
+		
+		if ($T['success'] === false) {
+			throw new Exception("Some error occured");
 		}
 		
 		$templateName = __FUNCTION__;
@@ -124,10 +135,12 @@ class FlooringController extends CalculatorController{
 			}
 		}
 		else {
-			$T['success'] = false;
-			$this->addErrorMessage('Some error occured');	
+			$T['success'] = false;	
 		}
 		
+		if ($T['success'] === false) {
+			throw new Exception("Some error occured");
+		}
 		$templateName = __FUNCTION__;
 		return $this->compose($templateName);
 	}
@@ -161,6 +174,7 @@ class FlooringController extends CalculatorController{
 				header('Cache-Control: max-age=0');
 
 				$xlsReport->generateReport();
+				die();
 			}
 			else {
 				$docReport = new ReportMakerDoc($_POST);
@@ -168,7 +182,65 @@ class FlooringController extends CalculatorController{
 				header('Content-Type: application/msword');  
 				header('Content-Disposition: attachment;filename="' . $filename . '"');
 				$docReport->generateReport();
+				die();
 			}
 		}		
+	}
+	
+	protected function pageAjax() {
+		$action=$_GET['action'];
+		
+		switch ($action):
+			case 'get_prices':
+				$library_name = $_GET['library_name'];
+				$prices = ProjectManager::getPrices($library_name);
+				echo json_encode($prices);
+				break;
+			default:
+				echo '?';
+		endswitch;
+	}
+	
+	protected function pageSaveas() {
+		global $T;
+		
+		if (isset($_GET['project_id'])) {
+			$projectId = $_GET['project_id'];
+			$newName = $_GET['new_name'];
+
+			if ($projectId && $newName) {
+				$newProjectId = ProjectManager::addCopy($projectId, $newName); 
+				if ($newProjectId) {
+					header("Location: index.php?route=estimate&id=".$newProjectId);
+					die();
+				}
+			}
+			else {
+				$T['success'] = false;
+				$this->addErrorMessage('Failed to save project');
+				throw new Exception("Some error occured");
+			}
+		}
+	}
+	
+	protected function pageDelete() {
+		global $T;
+		
+		if (isset($_POST['project_id'])) {
+			$projectId = $_POST['project_id'];
+
+			$project = ProjectManager::getById($projectId);
+
+			if ($project) {
+				$result = ProjectManager::deleteById($projectId); 
+				if ($result) {
+					echo 'ok';
+					die();
+				}
+			}
+			$T['success'] = false;
+			$this->addErrorMessage('Failed to delete project');	
+			throw new Exception("Some error occured");
+		}
 	}
 }

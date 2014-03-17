@@ -166,7 +166,7 @@ add_product = function() {
 	var full_product_name = product_name + " (" + sheet_size + ", " + type_of_frame_code + ")";	
 	var quantity = get_saved_field_value("number_of_sheets");
 	var units = "each";//var units = get_saved_field_value("number_of_sheets_units");
-	var id_number = "HF16";
+	var id_number = "400080";
 
 	var cost_unit = 555;
 	
@@ -179,7 +179,7 @@ add_product = function() {
 add_fasteners = function() {
 	
 	// get item info
-	var id_number = "3243";
+	var id_number = "400084";
 	var item_name = "HardieDrive Screws 8x32";
 	var quantity = get_saved_field_value("number_of_fasteners");
 
@@ -194,7 +194,7 @@ add_fasteners = function() {
 add_epoxy = function() {
 	
 	// get item info
-	var id_number = "E-12";
+	var id_number = "400079";
 	var item_name = "Epoxy";
 	var quantity = get_saved_field_value("amount_of_epoxy");
 	var units = get_saved_field_value("amount_of_epoxy_units");
@@ -210,7 +210,7 @@ add_epoxy = function() {
 add_adhesive = function() {
 	
 	// get item info
-	var id_number = "A-vs2";
+	var id_number = "400083";
 	var item_name = "Construction Adhesive";
 	var quantity = get_saved_field_value("amount_of_constr_adhesive");
 	var units = get_saved_field_value("amount_of_constr_adhesive_units");
@@ -222,3 +222,18 @@ add_adhesive = function() {
 	fill_bill_item(item_number, id_number,item_name,quantity,units,cost_unit);
 };
 
+load_prices = function(data) {
+	for(var i in data) {
+		var product_id = data[i].pid;
+		var price = data[i].price;
+		$(".bill_item_id").each(function(){
+			var item_product_id = $(this).val();
+			if (item_product_id == product_id) {
+				var this_id = $(this).attr('id');
+				var target_id = this_id.replace(new RegExp("\\[id_number\\]",'g'),"[cost_unit]")
+						.replace(new RegExp("\\[",'g'),"\\[").replace(new RegExp("\\]",'g'),"\\]");
+				$('#' + target_id).val(price);
+			}
+		});
+	}
+};
