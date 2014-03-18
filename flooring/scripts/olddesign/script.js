@@ -371,6 +371,7 @@ $(document).ready(function(){
 	
 	/*  scroll */
 	$('#estimation_low_right_table').kinetic();
+	$('.scrolling').kinetic();
 
 	/***************** legacy code *************************/ 
 	

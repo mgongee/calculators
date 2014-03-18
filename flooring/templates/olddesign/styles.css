@@ -109,6 +109,22 @@ label.error {
 }
 
 
+.button_back2 {
+	background-color: #FFFFFF;
+	background-image: url("images/backbut.jpg");
+	background-repeat: no-repeat;
+	background-size: 48px auto;
+	border: medium none;
+	cursor: pointer;
+	height: 45px;
+	left: -2px;
+	position: absolute;
+	top: 438px;
+	width: 68px;
+	z-index: 30;
+}
+
+
 .button_forward {
 	position: absolute;
 	right: -30px;

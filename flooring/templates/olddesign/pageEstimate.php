@@ -63,7 +63,7 @@
 			</table>
 		</div>
 
-		<div id="estimation_low_right_table" >
+		<div id="estimation_low_right_table" class="scrolling" >
 			<div id="bill_header">
 				<div class="header2">Bill of Quantities</div>
 				<div id="quantities_buttons">
@@ -118,22 +118,22 @@
 			</table>
 		</div>
 
-	<div id="estimation_link_icons" >
-		<table width="345" border="0" cellpadding="2" cellspacing="2">
-		  <tr>
-			<td><a href="index.php" onMouseOver="MM_swapImage('Another','','images/doAnotherCalc_r.jpg',1)" onMouseOut="MM_swapImgRestore()"><img src="images/doAnotherCalc.jpg" alt="AnotherCalc" name="Another" width=96 height=48 border=0></a></td> 
-			<td><a href='#' onMouseOut='MM_swapImgRestore()' onMouseOver="MM_swapImage('Image18x','','images/Agility_r.jpg',1)"><img src='images/Agility.jpg' alt='Send' name='Image18x' width=96 height=48 border=0></a></td>
-			<td><a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image18','','images/reqQuote_r.jpg',1)"><img src="images/reqQuote.jpg" alt="Send" name="Image18" width=96 height=48 border=0></a></td>
-			<td><a href="../weatherboard/product_form.php" onMouseOver="MM_swapImage('CostLibrary','','images/costLib_r.jpg',1)" onMouseOut="MM_swapImgRestore()" target="_blank" ><img src="images/costLib.jpg" alt="CostLibrary" name="CostLibrary" width=96 height=48 border=0></a></td>
-		  </tr>
-		</table>
-	  </div>
-	<div id="estimation_note">
+		<div id="estimation_link_icons" >
+			<table width="345" border="0" cellpadding="2" cellspacing="2">
+			  <tr>
+				<td><a href="index.php" onMouseOver="MM_swapImage('Another','','images/doAnotherCalc_r.jpg',1)" onMouseOut="MM_swapImgRestore()"><img src="images/doAnotherCalc.jpg" alt="AnotherCalc" name="Another" width=96 height=48 border=0></a></td> 
+				<td><a href='#' onMouseOut='MM_swapImgRestore()' onMouseOver="MM_swapImage('Image18x','','images/Agility_r.jpg',1)"><img src='images/Agility.jpg' alt='Send' name='Image18x' width=96 height=48 border=0></a></td>
+				<td><a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image18','','images/reqQuote_r.jpg',1)"><img src="images/reqQuote.jpg" alt="Send" name="Image18" width=96 height=48 border=0></a></td>
+				<td><a href="../weatherboard/product_form.php" onMouseOver="MM_swapImage('CostLibrary','','images/costLib_r.jpg',1)" onMouseOut="MM_swapImgRestore()" target="_blank" ><img src="images/costLib.jpg" alt="CostLibrary" name="CostLibrary" width=96 height=48 border=0></a></td>
+			  </tr>
+			</table>
+		</div>
+		
+		<div id="estimation_note">
 			<img height="80" src="images/note.jpg">
-	</div>
+		</div>
 
-	<div id="estimation_reports_table" >
-		<div id="estimation_reports_table2" >
+		<div id="estimation_reports_table" >
 			<table>
 				<thead>
 					<tr>
@@ -153,9 +153,12 @@
 			</table>
 		</div>
 	</form>
+	
+	<div class="col-lg-4">
+		<a class="navigation_button button_back2" href="index.php?route=edit&id=<?php echo $project['project_id']; ?>"  id="go_to_edit">&nbsp;</a>
 	</div>
-</div>
 
+</div>
 <div id="templates" style="display:none">
 	<table id="template_add_bill_item">
 		<tbody>
