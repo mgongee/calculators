@@ -116,13 +116,15 @@ $(document).ready(function(){
 	});
 	
 	
-	if ($("#project_id").length = 0 ) {
-		var addPage = true;
-		var editPage = false;
-	}
-	else {
+	if ($("#project_id").length) {
+		
 		var addPage = false;
 		var editPage = true;
+	}
+	else {
+		var addPage = true;
+		var editPage = false;
+
 	}
 	/**
 	 * Add new area on button click
