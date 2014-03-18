@@ -3,6 +3,7 @@ div.col50 {
 	float:left;
 }
 
+
 .step_header {
 	color: #647684;
     font-family: Arial,Helvetica,sans-serif;
@@ -136,6 +137,7 @@ label.error {
 
 #middle_wrapper {
 	padding: 20px 0px 0px 20px;
+	position: absolute;
 }
 
 div#estimation_left_table {
@@ -212,9 +214,9 @@ div#estimation_link_icons {
 	color: #FFFFFF;
     font-size: 12px;
     width: 443px;
-	left: 153px;
-    position: relative;
-    top: -90px;
+    left: 555px;
+    position: absolute;
+    top: 370px;
 }
 
 div#bill_header {
@@ -304,14 +306,14 @@ div#estimation_reports_table {
 	clear: right;
     font-size: 12px;
     margin: 0 20px 0 0;
-    position: absolute;
+    position: absolute;   
+	left: 600px;
+    top: 299px;
     width: 390px;
 }
 
 div#estimation_reports_table2 {
-       left: 508px;
-    position: relative;
-    top: -300px;
+
 }
 
 .centered a {
@@ -338,10 +340,7 @@ div#estimation_reports_table2 {
 }
 
 #estimation_note {
-    left: -12px;
-    position: relative;
-    top: -22px;
-	left: -427px;
-    position: relative;
-    top: -164px;
+   left: 9px;
+    position: absolute;
+    top: 354px;
 }
