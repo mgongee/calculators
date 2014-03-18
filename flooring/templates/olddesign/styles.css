@@ -1,5 +1,5 @@
 div.col50 {
-	width: 46%;
+	width: 42%;
 	float:left;
 }
 
@@ -64,7 +64,7 @@ label.error {
     padding: 10px;
 	font-size: 13px;
     margin-bottom: 10px;
-    width: 390px;
+    width: 380px;
 }
 
 #load_projects select{
@@ -126,7 +126,7 @@ label.error {
 	height: 200px;
 }
 
-#go_to_estimation {
+.go_to_estimation {
 	position: absolute;
 	right: -30px;
 	top: 260px;
@@ -142,13 +142,14 @@ div#estimation_left_table {
 	width: 390px;
 	background-color:#647684;
 	font-size: 12px;
-	float:left;
 	margin-right:20px;
 }
 
 div#estimation_left_table p, div#estimation_low_left_table p{
 	font-size: 14px;
 	margin-left: 10px;
+	margin-bottom: 5px;
+    margin-top: 5px;
 	color:white;
 }
 
@@ -178,9 +179,11 @@ table#estimation_values tfoot td{
 
 div#estimation_right_table, div#cost_library {
 	background-color: #EEEEEE;
-	float: left;
 	font-size: 12px;
 	width: 546px;
+	position: relative;
+    top: -182px;
+    left: 413px;
 }
 
 
@@ -191,9 +194,8 @@ table#project_data, table#cost_table {
 
 div#estimation_low_right_table {
 	color: #FFFFFF;
-    float: right;
     font-size: 12px;
-    height: 287px;
+    height: 187px;
     margin-right: 20px;
     margin-top: 10px;
     overflow-x: hidden;
@@ -201,12 +203,18 @@ div#estimation_low_right_table {
     padding-right: 5px;
     padding-top: 10px;
     width: 543px;
+	position: relative;
+    top: -189px;
+    left: 413px;
 }
 
 div#estimation_link_icons {
-    left: 692px;
-    position: absolute;
-    top: 454px;
+	color: #FFFFFF;
+    font-size: 12px;
+    width: 443px;
+	left: 153px;
+    position: relative;
+    top: -90px;
 }
 
 div#bill_header {
@@ -274,6 +282,8 @@ div#estimation_low_left_table {
 	float:left;
 	margin: 20px 20px 0px 0px;
 	color:white;
+	position: relative;
+    top: -275px;
 }
 
 table#labour_rates_data {
@@ -291,10 +301,47 @@ table#labour_rates_data td {
 }
 
 div#estimation_reports_table {
-	float:right;
-	clear:right;
-	width: 390px;
-	font-size: 12px;
-	float:left;
-	margin: 0px 20px 0px 0px;
+	clear: right;
+    font-size: 12px;
+    margin: 0 20px 0 0;
+    position: absolute;
+    width: 390px;
+}
+
+div#estimation_reports_table2 {
+       left: 508px;
+    position: relative;
+    top: -300px;
+}
+
+.centered a {
+	display: block;
+	padding-top: 22px;
+}
+
+/** scroll */
+
+#Step1_prod_text {
+	height: 149px;
+	left: 688px;
+	position: absolute;
+	top: 333px;
+	width: 267px;
+	z-index: 56;
+	overflow: auto;
+	
+}
+
+.scrolling {
+	height: 224px;
+	overflow: auto;
+}
+
+#estimation_note {
+    left: -12px;
+    position: relative;
+    top: -22px;
+	left: -427px;
+    position: relative;
+    top: -164px;
 }

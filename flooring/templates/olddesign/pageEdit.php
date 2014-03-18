@@ -1,6 +1,5 @@
-<?php if ($success): ?>
 <div>
-	<img src="templates/olddesign/images/floor_strip.jpg" width="1000" alt="" border="0" />
+	<img width="1000" border="0" alt="" src="templates/olddesign/images/floor_strip.jpg">
 </div>
 <div id="projectData" style="display:none"><?php echo($project['project_data']); ?></div>
 <div id="middle-wrapper-div">
@@ -9,15 +8,31 @@
 		<tbody>
 			<tr>
 				<td valign="top" align="left" height="240">
-					<img width="1000" border="0" height="240" usemap="#Map2" src="templates/olddesign/images/Step1_bg_floor.jpg">
+					<img id="bg_img" src="images/Step1_bg_floor.jpg" width="1000" alt="" border="0" />
 				</td>
 			</tr>
 		</tbody>
 		</table>
 	</div>
 	<div id="step_layer" style="visibility: visible;">
+		<div id="load_projects">
+			<div style="color:#ffffff;margin-bottom: 10px;	" class="Product_headings">Load Existing Project</div>
+			<select id="load_project_id" style="width:370px; font-size:12px;" name="load_project_id">
+				<option value="">Please select previously saved files</option>");
+				<?php
+				foreach ($projectList as $projectId => $projectName) {
+					if ($projectId == $project['project_id']) {
+						echo ("<option selected=\"selected\" value=\"$projectId\">$projectName</option>");
+					}
+					else {
+						echo ("<option value=\"$projectId\">$projectName</option>");
+					}
+				}
+				?>
+			</select>
+		</div>
 		<form id="calcForm" method="post" action="index.php?route=edit">
-			<input type="hidden" name="project_id" value="<?php echo $project['project_id']; ?>">
+			<input type="hidden" name="project_id" id="project_id" value="<?php echo $project['project_id']; ?>">
 			<input type="hidden" name="manager_name" value="<?php echo $project['manager_name']; ?>">
 			<input type="hidden" name="project_type" id="project_type" value="flooring" />
 			<input type="hidden" name="action" id="action" value="save">
@@ -36,11 +51,6 @@
 		</form>
 	</div>
 </div><!-- /#middle-wrapper-div -->
-<?php else: ?>
-	Failed to load project.
-<?php endif; ?>
-
-
 
 <!--
 	Note: 
@@ -60,7 +70,7 @@
 		<div class="col50 add_area_form">
 			<h3>Add areas</h3>
 			<div class="form-group col-area">
-				<label class="input-label" "for="add_area[width]">Width (mm)</label>
+				<label class="input-label" for="add_area[width]">Width (mm)</label>
 				<input class="area_width" name="add_area[width]" id="add_area[width]" size="7" />
 			</div>
 			<div class="form-group col-area">
@@ -72,10 +82,10 @@
 				<input class="area_size" name="add_area[size]" id="add_area[size]" size="7" />
 			</div>
 			<div class="col-area">
-				<input class="area_button" id="add_area_button" value="Add Area" type="button" />
+				<a id="add_area_button" onmouseover="MM_swapImage('add_area_img','','images/ADDAREAlrgb.jpg',1)" onmouseout="MM_swapImgRestore()" href="#"><img width="110" border="0" height="21" name="add_area_img" alt="Add area" src="images/ADDAREAlrga.jpg"></a>
 			</div>		
 		</div>
-		<div class="col50">
+		<div class="col50 scrolling">
 			<table id="add_areas_target" class="areas_table field_text">
 				<thead>
 					<tr>
@@ -115,13 +125,15 @@
 					<input class="area_size" size="7" type="text" name="_STEP_[_FIELDNAME_][_ID_][size]" id="_STEP_[_FIELDNAME_][_ID_][size]" value="_SIZE_" />
 				</td>
 				<td>
-					<input class="remove_area_button" type="button" name="_STEP_[_FIELDNAME_][_ID_][delete]" id="_STEP_[_FIELDNAME_][_ID_][delete]" value="Clear" />
+					<a href="#" class="remove_area_button" name="_STEP_[_FIELDNAME_][_ID_][delete]" id="_STEP_[_FIELDNAME_][_ID_][delete]">
+						<img width="35" border="0" height="20" name="Image221" alt="Clear" src="images/clear_b.jpg">
+					</a>
 				</td>
 			</tr>	
 		</tbody>
 	</table>
 	<div id="template_step3_button">
-		<a href="#" id="go_to_estimation">
+		<a href="#" class="go_to_estimation">
 			<img width="195" border="0" height="22" name="Go to Estimation Page" alt="Go to Estimation Page" src="templates/olddesign/images/goto_estimation_but.jpg">
 		</a>
 	</div>

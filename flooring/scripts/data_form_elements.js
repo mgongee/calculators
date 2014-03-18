@@ -32,12 +32,14 @@ window.form_elements = {
 				"label": "Sheet size",
 				"type": "list"
 			}
-		}
+		},
+		"appendix": "step3_button"
 	},
 	"step2": {
 		"name" : "Step 2 - Adding areas",
 		"fields": {},
-		"template": "step2"
+		"template": "step2",
+		"appendix": "step3_button"
 	},
 	"step3": {
 		"name" : "Step 3 - Calculated project",

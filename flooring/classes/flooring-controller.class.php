@@ -17,12 +17,11 @@ class FlooringController extends CalculatorController{
 		}
 
 		$T['projectList'] = $projectList;
-		
+		$T['success'] = true;
 		
 		if (isset($_POST['action'])) { // user clicked the button on the 'add project' form
 			$projectId = ProjectManager::addFromForm($_POST); // so we must save this project
 			if ($projectId) {
-				$T['success'] = true;
 				$this->addSuccessMessage('Project successfully saved');
 				$_GET["id"] = $projectId;
 				
@@ -91,7 +90,14 @@ class FlooringController extends CalculatorController{
 		global $T;
 		
 		$action = "error";
-		
+		$projects = ProjectManager::getAll();
+		$projectList = array();
+
+		foreach ($projects as $p) {
+			$projectList[$p['project_id']] = $p['project_name'];
+		}
+		$T['projectList'] = $projectList;
+
 		if (isset($_POST['action'])) {
 			
 			if (isset($_POST['project_id'])) {
@@ -100,6 +106,7 @@ class FlooringController extends CalculatorController{
 				$result = ProjectManager::updateFromForm($projectId,$_POST);
 
 				if ($result) {
+					
 					if ($_POST["action"] == "estimate") {
 						header("Location: index.php?route=estimate&id=".$projectId);
 						//return $this->pageEstimate();

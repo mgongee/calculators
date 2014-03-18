@@ -43,8 +43,8 @@ create_form_tags_and_steps = function($form, form_data) {
 		var step_fields_html = prepare_step_fields(step, step_fields_data);
 
 		/* Add Step header */
-		html += "<div id=\"" + step + "\" class=\"step\" >"
-				+	"<h1 class=\"step_header\">" + step_name + "</h1>";
+		html += "<div id=\"" + step + "\" class=\"step\" >";
+		//		+	"<h1 class=\"step_header\">" + step_name + "</h1>";
 
 		/* Load template if provided*/
 		if (typeof form_data[step]["template"] !== 'undefined') {

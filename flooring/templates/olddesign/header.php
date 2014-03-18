@@ -13,7 +13,7 @@
 	
 		<!-- CSS for this calculator -->
 		<link href="templates/olddesign/styles.css" rel="stylesheet" />
-
+		
 		<!-- jQuery -->
 		<script src="<?php echo $CONF['assets_path']; ?>bootstrap/js/jquery.min.js"></script>
 
@@ -22,12 +22,15 @@
 		<script src="<?php echo $CONF['assets_path']; ?>bootstrap/js/jquery.validate.min.js"></script>
 		<script src="<?php echo $CONF['assets_path']; ?>bootstrap/js/jquery-ui-1.8.5.custom.min.js"></script>
 		<script src="<?php echo $CONF['assets_path']; ?>bootstrap/js/jquery.form.wizard.js"></script>
-		<script src="<?php echo $CONF['assets_path']; ?>bootstrap/js/jquery.kinetic.min.js"></script>
-		
+		<script src="<?php echo $CONF['assets_path']; ?>bootstrap/js/jquery.kinetic.min.js"></script>	
 
 		<!-- JS for this calculator -->
 		<script src="scripts/olddesign/script.js"></script>
 		
+		<!-- Legacy JS -->
+		<script type="text/javascript" id="sourcecode">
+
+		</script>
 	</head>
 <body>
 	<div id="main-wrapper-div">
