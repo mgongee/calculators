@@ -28,9 +28,8 @@
 		<script src="scripts/olddesign/script.js"></script>
 		
 		<!-- Legacy JS -->
-		<script type="text/javascript" id="sourcecode">
-
-		</script>
+		<script src="scripts/olddesign/legacy.js"></script>
+		
 	</head>
 <body>
 	<div id="main-wrapper-div">
