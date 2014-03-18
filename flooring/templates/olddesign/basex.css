@@ -1541,6 +1541,7 @@ footer a:hover {
 	position:relative;
 	text-align:center;
 	width:104px;
+	height: 100px;
 }
 #f-navigation a {
 	text-decoration:none;
@@ -1564,6 +1565,7 @@ footer a:hover {
 	magrin-top:84px;
 	position:relative;
 	text-align:center;
+	top: 75px;
 	white-space:nowrap;
 	z-index:30;
 }
@@ -4216,12 +4218,7 @@ body #colorbox {
 .ui-widget-content table td {
 	padding:2px 3px;
 }
-input[type=text] {
-	height:14px;
-}
-select {
-	height:20px;
-}
+
 .ui-dialog .ui-dialog-buttonpane button {
 	font-family:Helvetica,sans-serif;
 	background:transparency;

@@ -1,5 +1,7 @@
 <?php if ($success): ?>
-
+<div>
+	<img src="templates/olddesign/images/floor_strip.jpg" width="1000" alt="" border="0" />
+</div>
 <div id="projectData" style="display:none"><?php echo($project['project_data']); ?></div>
 <div id="middle-wrapper-div">
 	<div id="Step1main" style="position: absolute; left: 53px; top: 278px">

@@ -59,6 +59,18 @@ label.error {
 	float: right;
 }
 
+#load_projects {
+    background-color: #647684;
+    padding: 10px;
+	font-size: 13px;
+    margin-bottom: 10px;
+    width: 390px;
+}
+
+#load_projects select{
+	height: auto;
+}
+
 #step_layer {
 	height: 86px;
     left: 124px;
@@ -67,6 +79,10 @@ label.error {
     visibility: visible;
     width: 900px;
     z-index: 49;
+}
+
+.input-field {
+	height: auto;
 }
 
 .col-area {
@@ -95,6 +111,7 @@ label.error {
 .button_forward {
 	position: absolute;
 	right: -30px;
+	top: 190px;
 	background-image: url("images/Nextbutl.jpg");
     background-repeat: no-repeat;
     background-size: 150px 60px;
@@ -112,7 +129,7 @@ label.error {
 #go_to_estimation {
 	position: absolute;
 	right: -30px;
-	top: 310px;
+	top: 260px;
 }
 
 /**** Estimation page ***/
@@ -176,7 +193,7 @@ div#estimation_low_right_table {
 	color: #FFFFFF;
     float: right;
     font-size: 12px;
-    height: 300px;
+    height: 284px;
     margin-right: 20px;
     margin-top: 10px;
     overflow-x: hidden;
@@ -186,6 +203,11 @@ div#estimation_low_right_table {
     width: 543px;
 }
 
+div#estimation_link_icons {
+    left: 692px;
+    position: absolute;
+    top: 454px;
+}
 
 div#bill_header {
 	background-color: #647684;

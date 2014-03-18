@@ -1,5 +1,15 @@
 <div id="projectData" style="display:none"><?php echo($project['project_data']); ?></div>
 <div id="middle_wrapper">
+	<div id="estimation_link_icons" >
+		<table width="345" border="0" cellpadding="2" cellspacing="2">
+		  <tr>
+			<td><a href="index.php"><img src="images/doAnotherCalc.jpg" alt="AnotherCalc" name="Another" width=96 height=48 border=0></a></td> 
+			<td><a href='#'><img src='images/Agility.jpg' alt='Send' name='Image18x' width=96 height=48 border=0></a></td>
+			<td><a href="#"><img src="images/reqQuote.jpg" alt="Send" name="Image18" width=96 height=48 border=0></a></td>
+			<td><a href="../weatherboard/product_form.php" target="_blank" ><img src="images/costLib.jpg" alt="CostLibrary" name="CostLibrary" width=96 height=48 border=0></a></td>
+		  </tr>
+		</table>
+	  </div>
 	<form id="estimationForm" method="post" action="index.php?route=report">
 		<input type="hidden" name="project_id" id="project_id" value="<?php echo $project['project_id']; ?>">
 		<input type="hidden" name="manager_name" value="<?php echo $project['manager_name']; ?>">

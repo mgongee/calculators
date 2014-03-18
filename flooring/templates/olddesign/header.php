@@ -22,6 +22,8 @@
 		<script src="<?php echo $CONF['assets_path']; ?>bootstrap/js/jquery.validate.min.js"></script>
 		<script src="<?php echo $CONF['assets_path']; ?>bootstrap/js/jquery-ui-1.8.5.custom.min.js"></script>
 		<script src="<?php echo $CONF['assets_path']; ?>bootstrap/js/jquery.form.wizard.js"></script>
+		<script src="<?php echo $CONF['assets_path']; ?>bootstrap/js/jquery.kinetic.min.js"></script>
+		
 
 		<!-- JS for this calculator -->
 		<script src="scripts/olddesign/script.js"></script>
@@ -87,7 +89,4 @@
 					<li class="menu-item2"><a href="http://www.scyon.com.au/"  target="_blank"><img src="/images/menu-item2.png" alt="" width="60"></a></li>
 				</ul>
 			</nav>
-		</div>
-		<div>
-			<img src="templates/olddesign/images/floor_strip.jpg" width="1000" alt="" border="0" />
 		</div>

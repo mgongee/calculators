@@ -80,7 +80,7 @@ $(document).ready(function(){
 	/**
 	 * tag 'select' with list of projects
 	 */
-	$( "select#project_id" ).change(function() {
+	$( "select#load_project_id" ).change(function() {
 		var val = $(this).val()
 		if (val > 0) {
 			window.location.href = "?route=edit&id=" + $(this).val();
@@ -309,4 +309,6 @@ $(document).ready(function(){
 			});
 		}
 	});
+	
+	$('#estimation_low_right_table').kinetic();
 });
