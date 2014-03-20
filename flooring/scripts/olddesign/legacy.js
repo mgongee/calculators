@@ -3,52 +3,87 @@
 
 $(document).ready(function () {
 		/*code*/
-		
-	function dialog_window(url,title) {
-    
-		idField = $(".idField");
-		descriptionField = $(".descriptionField");
-		quantityField = $(".quantityField");
-		unitField = $(".unitField");
-		costField = $(".costField");
-		totalRows = $("#data .row").length;
-		// $("#divId").attr("title","SEND THE ORDER");
-		 $("#ui-dialog-title-divId").html(title);
+	
+	
+dialog_window = function(url,title) {
+	var i = 0;
+	var tableData = {};
+	console.log('start');
+	$("input.bill_item_id").each(function(){
+		var id =  $(this).attr('id');
+		console.log('i',i);
+		var str_id = id.replace(new RegExp("\\[",'g'),"\\[").replace(new RegExp("\\]",'g'),"\\]");
+		var desc_id = str_id.replace(new RegExp("id_number",'g'),"description");
+		var quantity_id = str_id.replace(new RegExp("id_number",'g'),"quantity");
+		var unit_id = str_id.replace(new RegExp("id_number",'g'),"unit");
+		var cost_id = str_id.replace(new RegExp("id_number",'g'),"cost_unit");
 
-		tableData = {};
+		tableData[i] = {};
+		tableData[i]['id'] = Encoder.htmlEncode($("#" + str_id).val()).replace(/&/g,"-");
+		tableData[i]['description'] = Encoder.htmlEncode($("#" + desc_id).val()).replace(/&/g,"-");
+		tableData[i]['quantity'] = Encoder.htmlEncode($("#" + quantity_id).val());
+		tableData[i]['unit'] = Encoder.htmlEncode($("#" + unit_id).val());
+		tableData[i]['cost'] = Encoder.htmlEncode($("#" + cost_id).val());         
 
-		for(i=0;i<idField.length;i++){
+		i++;
+	});
+console.log('endf');
+console.log(tableData);
+	$("#ui-dialog-title-divId").html(title);
 
-		 tableData[i] = {};
-			tableData[i]['id'] = Encoder.htmlEncode(idField[i].value).replace(/&/g,"-");
-			tableData[i]['description'] = Encoder.htmlEncode(descriptionField[i].value).replace(/&/g,"-");
-			tableData[i]['quantity'] = Encoder.htmlEncode(quantityField[i].value);
-			tableData[i]['unit'] = Encoder.htmlEncode(unitField[i].value);
-			tableData[i]['cost'] = Encoder.htmlEncode(costField[i].value);         
+	xxdata = JSON.stringify(tableData);
+	console.log('koolt');
+	$.fancybox.open([{
+	  href : '#divId',
+	  title : title
+	}], {
+	  autoSize: false,
+	  width: 520,
+	  height: 380
+	});           
+console.log('mane');
+	$("#modalIframeId").attr("width","500");
+	$("#modalIframeId").attr("src",url+"?data=" + xxdata);
+
+	return false;
+}
 
 
-
+	$("#send_request_button").on('click tap', function(){
+		if ($('#new_name').val() != '') {
+			//dialog_window('sendorder.php','BILL OF QUANTITIES'); 
+			//$("#send_request_popup").dialog();
+			console.log('go');
+			dialog_window('sendorder.php','BILL OF QUANTITIES');
+			console.log('go2');
 		}
-
-		xxdata = JSON.stringify(tableData);
-	   $.fancybox.open([{
-		  href : '#divId',
-		  title : title
-	   }], {
-		  autoSize: false,
-		  width: 520,
-		  height: 380
-	   });           
-		 $("#modalIframeId").attr("width","500");
-	   $("#modalIframeId").attr("src",url+"?data=" + xxdata);
-	   return false;
-	}
+		else {
+			alert('Please fill in the project name');
+		} 	
+	});
+	
+		
+	$("#send_request_button").on('click tap', function(){
+		if ($('#new_name').val() != '') {
+			//dialog_window('sendorder.php','BILL OF QUANTITIES'); 
+			//$("#send_request_popup").dialog();
+			console.log('go');
+			dialog_window('sendorder.php','BILL OF QUANTITIES');
+			console.log('go2');
+		}
+		else {
+			alert('Please fill in the project name');
+		} 	
+	});
+	
+	
 		$('.main-navigation > ul > li').hover(
 			function () { 
 				$(this).find('ul').stop(true, true).slideDown('fast');
 				$(this).addClass('hovr');
 			},
 			function() {
+				
 				$(this).find('ul').stop(true, true).slideUp('fast');
 				$(this).removeClass('hovr');
 			}	

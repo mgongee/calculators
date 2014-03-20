@@ -123,7 +123,7 @@
 			  <tr>
 				<td><a href="index.php" onMouseOver="MM_swapImage('Another','','images/doAnotherCalc_r.jpg',1)" onMouseOut="MM_swapImgRestore()"><img src="images/doAnotherCalc.jpg" alt="AnotherCalc" name="Another" width=96 height=48 border=0></a></td> 
 				<!-- <td><a href='#' onMouseOut='MM_swapImgRestore()' onMouseOver="MM_swapImage('Image18x','','images/Agility_r.jpg',1)"><img src='images/Agility.jpg' alt='Send' name='Image18x' width=96 height=48 border=0></a></td> -->
-				<td><a href="#" id="send_request" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image18','','images/reqQuote_r.jpg',1)"><img src="images/reqQuote.jpg" alt="Send" name="Image18" width=96 height=48 border=0></a></td>
+				<td><a href="#" id="send_request_button" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image18','','images/reqQuote_r.jpg',1)"><img src="images/reqQuote.jpg" alt="Send" name="Image18" width=96 height=48 border=0></a></td>
 				<td><a href="../weatherboard/product_form.php" onMouseOver="MM_swapImage('CostLibrary','','images/costLib_r.jpg',1)" onMouseOut="MM_swapImgRestore()" target="_blank" ><img src="images/costLib.jpg" alt="CostLibrary" name="CostLibrary" width=96 height=48 border=0></a></td>
 			  </tr>
 			</table>
@@ -172,4 +172,10 @@
 			</tr>
 		</tbody>
 	</table>
+</div>
+
+<div id="send_request_popup" >
+	<div id="divId" title="SEND ORDER">
+		<iframe name="formFrame" id="modalIframeId"  z-index=99 width="0" height="480" marginWidth="0" marginHeight="0" frameBorder="0" scrolling="no"   title="Dialog Title">Your browser does not support</iframe>
+	</div>
 </div>

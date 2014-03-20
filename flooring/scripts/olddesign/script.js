@@ -417,16 +417,7 @@ $(document).ready(function(){
 			});
 		}
 	});
-	
-	$("#send_request_button").on('click tap', function(){
-		if ($('#new_name').val() != '') {
-			dialog_window('sendorder.php','BILL OF QUANTITIES'); 
-		}
-		else {
-			alert('Please fill in the project name');
-		} 	
-	});
-	
+
 	/*  scroll */
 	//$('#estimation_low_right_table').kinetic();
 	//$('.scrolling').kinetic();

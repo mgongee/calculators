@@ -381,3 +381,7 @@ div#estimation_reports_table2 {
 	-ms-touch-action: none;
 	touch-action: none;
 }
+
+#fancybox-loading, .fancybox-close, .fancybox-prev span, .fancybox-next span {
+    background-image: url("images/fancybox_sprite.png");
+}
