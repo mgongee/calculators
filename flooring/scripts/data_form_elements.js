@@ -79,15 +79,15 @@ window.estimation_elements = {
 		"type": "text",
 		"units": "m2"
 	},
-	"waste": {
-		"label": "Percentage of Material Waste",
-		"type": "text",
-		"units": "%"
-	},
 	"number_of_buildings": {
 		"label": "Total number of buildings",
 		"type": "text",
 		"units": ""
+	},	
+	"waste": {
+		"label": "Percentage of Material Waste",
+		"type": "text",
+		"units": "%"
 	},
 	"type_of_frame": {
 		"label": "Type of frame",

@@ -156,7 +156,7 @@ calculate_area_size = function($this,mode){
 update_area_dimensions = function($this){
 	var field_name = $this.attr("id").toString();
 	var size = $this.val();
-	
+		
 	// note that dimensions are fillen in millimeters, and area is filles in square meters,
 	// so the square must be multiplied by 1000*1000
 	size = size * 1000000;
@@ -176,6 +176,8 @@ update_area_dimensions = function($this){
 			var new_length = Math.round(size / width);
 			$("#" + length_field_name).val(new_length);
 		} 
+		
+		
 	}
    
 };

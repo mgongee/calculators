@@ -172,10 +172,10 @@
 				<tfoot>
 					<tr>
 						<th colspan="3">Total building floor area (m2)</th>
-						<th></th>
 						<th>
 							<input class="total_area_size" size="7" type="text" name="step2[total_area_size]" id="step2[total_area_size]" value="" />
 						</th>
+						<th></th>
 					</tr>
 				</tfoot>
 			</table>

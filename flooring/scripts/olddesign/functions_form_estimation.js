@@ -21,7 +21,7 @@ estimate_project = function() {
 	var waste = +window.estimation_elements['waste']['value'];
 	var product_estimation = total_area_size * ((100 + waste)/100);
 	
-	$("#product_estimation").html(Math.round(product_estimation,2));
+	$("#product_estimation").html(product_estimation.toFixed(2));
 };
 
 calculate_labour_rate = function() {
