@@ -46,6 +46,12 @@ label.error {
     font-weight: normal;
     line-height: 14px;
 	margin-left: 10px;
+	background-color: #FFFFE0;
+    border: 1px solid #000000;
+	padding: 3px;
+	display: block;
+	position: absolute;
+	z-index:30;
 }
 
 .form-group {
@@ -116,7 +122,7 @@ label.error {
 	background-size: 48px auto;
 	border: medium none;
 	cursor: pointer;
-	height: 45px;
+	height: 48px;
 	left: -2px;
 	position: absolute;
 	top: 438px;
@@ -359,4 +365,19 @@ div#estimation_reports_table2 {
    left: 9px;
     position: absolute;
     top: 354px;
+}
+
+#step1_banner {
+	height: 156px;
+    left: 590px;
+    position: absolute;
+    top: 322px;
+    visibility: visible;
+    width: 403px;
+    z-index: 83;
+}
+
+.ui-slider-handle {
+	-ms-touch-action: none;
+	touch-action: none;
 }

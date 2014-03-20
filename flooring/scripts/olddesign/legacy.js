@@ -4,6 +4,45 @@
 $(document).ready(function () {
 		/*code*/
 		
+	function dialog_window(url,title) {
+    
+		idField = $(".idField");
+		descriptionField = $(".descriptionField");
+		quantityField = $(".quantityField");
+		unitField = $(".unitField");
+		costField = $(".costField");
+		totalRows = $("#data .row").length;
+		// $("#divId").attr("title","SEND THE ORDER");
+		 $("#ui-dialog-title-divId").html(title);
+
+		tableData = {};
+
+		for(i=0;i<idField.length;i++){
+
+		 tableData[i] = {};
+			tableData[i]['id'] = Encoder.htmlEncode(idField[i].value).replace(/&/g,"-");
+			tableData[i]['description'] = Encoder.htmlEncode(descriptionField[i].value).replace(/&/g,"-");
+			tableData[i]['quantity'] = Encoder.htmlEncode(quantityField[i].value);
+			tableData[i]['unit'] = Encoder.htmlEncode(unitField[i].value);
+			tableData[i]['cost'] = Encoder.htmlEncode(costField[i].value);         
+
+
+
+		}
+
+		xxdata = JSON.stringify(tableData);
+	   $.fancybox.open([{
+		  href : '#divId',
+		  title : title
+	   }], {
+		  autoSize: false,
+		  width: 520,
+		  height: 380
+	   });           
+		 $("#modalIframeId").attr("width","500");
+	   $("#modalIframeId").attr("src",url+"?data=" + xxdata);
+	   return false;
+	}
 		$('.main-navigation > ul > li').hover(
 			function () { 
 				$(this).find('ul').stop(true, true).slideDown('fast');
@@ -14,6 +53,23 @@ $(document).ready(function () {
 				$(this).removeClass('hovr');
 			}	
 		);
+			
+		
+		/*f-navigation*/
+		$('#f-navigation li').each(function(){
+			$(this).hover(
+				function(){
+					$(this).find('.f-items-top').animate({marginLeft:'-40px',width:'80px'},100);
+					$(this).find('.f-items-bottom').animate({bottom:'-10px',width:'80px',marginLeft:'-40px'},100);
+				},
+				function () {
+					$(this).find(".f-items-top, .f-items-bottom").stop();
+					$(this).find('.f-items-top').animate({marginLeft:'-37px',width:'75px'},100);
+					$(this).find('.f-items-bottom').animate({bottom:'0px',width:'75px',marginLeft:'-37px'},100);
+				}
+		);
+		});
+		
 
 		
 		//var hacc = $('.mainwrappbig .jscrollpanecontainer  div.accelerate_body').innerHeight();

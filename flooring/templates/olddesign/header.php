@@ -10,24 +10,29 @@
 		<link rel="stylesheet" href="templates/olddesign/normalize.css">  
 		<link rel="stylesheet" href="templates/olddesign/basex.css">  
 		<link rel="stylesheet" href="templates/olddesign/legacy.css"/>
+		
+		<!-- CSS for jquery plugins  -->
+		<link rel="stylesheet" href="<?php echo $CONF['assets_path']; ?>/css/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
 	
-		<!-- CSS for this calculator -->
+		<!-- New CSS for this calculator -->
 		<link href="templates/olddesign/styles.css" rel="stylesheet" />
 		
 		<!-- jQuery -->
-		<script src="<?php echo $CONF['assets_path']; ?>bootstrap/js/jquery.min.js"></script>
+		<script src="<?php echo $CONF['assets_path']; ?>/js/jquery.min.js"></script>
+				
+		<!-- Include jquery plugins  -->
 
-		<!-- Include all compiled plugins (below), or include individual files as needed -->
-
-		<script src="<?php echo $CONF['assets_path']; ?>bootstrap/js/jquery.validate.min.js"></script>
-		<script src="<?php echo $CONF['assets_path']; ?>bootstrap/js/jquery-ui-1.8.5.custom.min.js"></script>
-		<script src="<?php echo $CONF['assets_path']; ?>bootstrap/js/jquery.form.wizard.js"></script>
-		<script src="<?php echo $CONF['assets_path']; ?>bootstrap/js/jquery.kinetic.min.js"></script>	
+		<script src="<?php echo $CONF['assets_path']; ?>/js/jquery.validate.min.js"></script>
+		<script src="<?php echo $CONF['assets_path']; ?>/js/jquery-ui-1.10.4.custom.min.js"></script>
+		<script src="<?php echo $CONF['assets_path']; ?>/js/jquery.form.wizard.js"></script>
+		<script src="<?php echo $CONF['assets_path']; ?>/js/jquery.kinetic.min.js"></script>	
+		<script src="<?php echo $CONF['assets_path']; ?>/js/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 		<!-- JS for this calculator -->
 		<script src="scripts/olddesign/script.js"></script>
 		
 		<!-- Legacy JS -->
+		<script src="scripts/olddesign/encoder.js"></script>
 		<script src="scripts/olddesign/legacy.js"></script>
 		
 	</head>
@@ -74,7 +79,7 @@
 							</li>
 						</ul>
 					</li>
-					<li><a href="#1" class="searcha">Search <img height="13" border="0" alt="search" src="/images/magnify.png" ></a>
+					<li><a href="#1" class="searcha">Search <img height="13" border="0" alt="search" src="images/magnify.png" ></a>
 						<ul class="searchul">
 							<li>
 								<script language="javascript">function killerrors(){return true;}window.onerror = killerrors;</script>

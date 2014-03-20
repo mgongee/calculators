@@ -35,7 +35,21 @@ add_area = function(){
 		.replace(new RegExp("_WIDTH_",'g'),area_width)
 		.replace(new RegExp("_LENGTH_",'g'),area_length)
 		.replace(new RegExp("_SIZE_",'g'),area_size);
-$("#add_areas_target tbody").append(new_area_field);
+	$("#add_areas_target tbody").append(new_area_field);
+
+	// add validation
+	$('#step2\\[areas\\]\\[' + field_number + '\\]\\[width\\]').rules( "add", {
+		required: true,
+		min: 100,
+	});
+	$('#step2\\[areas\\]\\[' + field_number + '\\]\\[length\\]').rules( "add", {
+		required: true,
+		min: 100,
+	});
+	$('#step2\\[areas\\]\\[' + field_number + '\\]\\[size\\]').rules( "add", {
+		required: true,
+		min: 0.01,
+	});
 };
 
 /**
@@ -59,9 +73,31 @@ load_areas = function(step_data){
 			.replace(new RegExp("_LENGTH_",'g'),area["length"])
 			.replace(new RegExp("_SIZE_",'g'),area["size"]);
 		$("#add_areas_target tbody").append(new_area_field);
+		
+		// due to formwizard bug, th validation must be applied only after users goes to step2
+		$("#calcForm").bind("step_shown", function(event, data){
+			if (data.currentStep == 'step2') {
+				// add validation
+				$('#step2\\[areas\\]\\[' + area_number + '\\]\\[width\\]').rules( "add", {
+					required: true,
+					min: 100,
+				});
+				$('#step2\\[areas\\]\\[' + area_number + '\\]\\[length\\]').rules( "add", {
+					required: true,
+					min: 100,
+				});
+				$('#step2\\[areas\\]\\[' + area_number + '\\]\\[size\\]').rules( "add", {
+					required: true,
+					min: 0.01,
+				});
+			}
+		});
+		
 	}
 
 	$("#step2\\[total_area_size\\]").val(step_data["total_area_size"]);
+	
+
 };
 
 /**

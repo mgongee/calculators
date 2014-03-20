@@ -107,7 +107,7 @@ $(document).ready(function(){
 		formPluginEnabled: false,
 		validationEnabled: true,
 		focusFirstInput : true,
-		validationOptions : validation_rules,
+		validationOptions : window.validation_rules,
 		textSubmit: "",
 		textNext: "",
 		textBack: "",
@@ -130,7 +130,7 @@ $(document).ready(function(){
 	 * Add new area on button click
 	 * in the 'Add Area' zone
 	 */
-	$("#add_area_button").click(function(){
+	$("#add_area_button").on('click tap', function(){
 			add_area();
 			calculate_total_area();
 	});
@@ -138,7 +138,7 @@ $(document).ready(function(){
 	/**
 	 * Remove added area on button click
 	 */
-	$("#add_areas_target").on('click', '.remove_area_button', function() {
+	$("#add_areas_target").on('click tap', '.remove_area_button', function() {
 		delete_area($(this));
 		calculate_total_area();
 	});
@@ -200,32 +200,82 @@ $(document).ready(function(){
 	/**
 	 * Next step button
 	 */
-	$("#next").click(function(){
+	
+	$("#next").on('click tap', function(){
 		var formState = $("#calcForm").formwizard("state");
+		
 		if (formState["isLastStep"]) {
 			calculate_project(formState["currentStep"]);
 		}
 	});
 	
+	var user_was_on_the_first_step = false;
+	
 	/* On next and back buttons clicks */
 	$("#calcForm").bind("step_shown", function(event, data){
 		if (!data.isFirstStep) {
+			user_was_on_the_first_step = true;
+			
+			$("#step1_banner").hide();
 			$("#back").show();
 			$("#load_projects").hide();
 			$("#Step1_prod_text").hide();
 			$(".go_to_estimation").show();
+			
+			// for step2
 			$("#bg_img").attr("src", "images/Step2floor_bg.jpg");
+			
+			// skip step3 for the Add and Edit page 
+			if (data.isLastStep) {
+				$(".go_to_estimation").click();
+			}
 			
 		}
 		else { // first step
+			$("#step1_banner").show();
 			$("#back").hide();
 			$("#load_projects").show();
 			$("#Step1_prod_text").show();
-			$(".go_to_estimation").hide();
+			if (addPage) {
+				if (!user_was_on_the_first_step) {
+					$(".go_to_estimation").hide();
+				}
+			}
 			$("#bg_img").attr("src", "images/Step1_bg_floor.jpg");
 		}
 	});
 	
+	/* terms popup*/
+	
+	var terms_confirmed = false;
+	$("#calcForm").bind("before_step_shown", function(event, data){
+		
+		if (data.currentStep == "step2") {
+			if (!terms_confirmed) {
+				$("#term_popup").dialog();
+			}
+		}
+		return false;
+	});
+	
+	$(".ui-dialog-titlebar-close").on('click tap', function() {
+		$("#term_popup").dialog("close");
+		if (!terms_confirmed) {
+			$("#back").click();
+		}
+	});
+	
+	$('#yes_arg').on('click tap',function() {
+		$("#term_popup").dialog("close");
+		terms_confirmed = true;
+	});
+	$('#no_arg').on('click tap', function() {
+		$("#term_popup").dialog("close");
+		$("#back").click();
+	});
+	
+	
+	/* startep preparations */
 	$("#back").hide();
 	if (addPage) {
 		$(".go_to_estimation").hide();
@@ -234,7 +284,7 @@ $(document).ready(function(){
 	/**
 	 * Go to estimation page
 	 */
-	$(".go_to_estimation").click(function(){
+	$(".go_to_estimation").on('click tap', function(){
 		var formState = $("#calcForm").formwizard("state");
 		$("#action").val("estimate");
 		
@@ -278,7 +328,7 @@ $(document).ready(function(){
 	/**
 	 * Add new bill entry on button click
 	 */
-	$("#button_add_item").click(function(){
+	$("#button_add_item").on('click tap', function(){
 			add_bill_item();
 			calculate_total_bill();
 	});
@@ -286,17 +336,17 @@ $(document).ready(function(){
 	/**
 	 * Remove bill item on button click
 	 */
-	$("#bill_of_quantities").on('click', '.bill_delete_button', function() {
+	$("#bill_of_quantities").on('click tap', '.bill_delete_button', function() {
 		delete_bill_item($(this));
 		calculate_total_bill();
 	});
 	
-	$("#button_show_cost").click(function() {
+	$("#button_show_cost").on('click tap',function() {
 		$("th.cost_unit").show();
 		$(".bill_item_cost").show();
 	});
 	
-	$("#button_hide_cost").click(function() {
+	$("#button_hide_cost").on('click tap',function() {
 		$("th.cost_unit").hide();
 		$(".bill_item_cost").hide();
 	});
@@ -325,13 +375,13 @@ $(document).ready(function(){
 		calculate_total_bill();
 	});
 	
-	$(".make_report_button").click(function(){
+	$(".make_report_button").on('click tap', function(){
 		var report_type = $(this).attr("id");
 		$("#report_type").val(report_type);
 		$("#estimationForm").submit();
 	});
 	
-	$(".project_action_button").click(function(){
+	$(".project_action_button").on('click tap', function(){
 		var action_type = $(this).attr("id");
 		var project_id = $("#project_id").val();
 		var new_name = $("#new_name").val();
@@ -368,9 +418,16 @@ $(document).ready(function(){
 		}
 	});
 	
+	$("#send_request_button").on('click tap', function(){
+		if ($('#new_name').val() != '') {
+			dialog_window('sendorder.php','BILL OF QUANTITIES'); 
+		}
+		else {
+			alert('Please fill in the project name');
+		} 	
+	});
 	
 	/*  scroll */
-	$('#estimation_low_right_table').kinetic();
-	$('.scrolling').kinetic();
-
+	//$('#estimation_low_right_table').kinetic();
+	//$('.scrolling').kinetic();
 });

@@ -66,6 +66,44 @@
 
 -->
 <div id="templates" style="display:none">
+	<div id="template_step1">
+		<div style="position:absolute;  width:300px; left:0px; top:70px;" class="form-group">
+			<label class="input-label" for="step1[project_name]">Project name</label><br>
+			<input type="text" name="step1[project_name]" class="input-field field_text ui-wizard-content ui-helper-reset ui-state-default" id="step1[project_name]" size="50" value="">
+		</div>
+		<div style="position:absolute;  width:300px; left:0px; top:120px;" class="form-group">
+			<label class="input-label" for="step1[product]">Select the product required</label><br>
+			<select id="step1[product]" name="step1[product]" class="form-control field_text ui-wizard-content ui-helper-reset ui-state-default valid">
+				<option value="hardieflex_flooring_16mm">HardieFlex Flooring 16 mm</option>
+			</select>
+		</div>
+		<div style="position: absolute; width: 120px; left: 250px; top: 170px; display: block;" class="form-group">
+			<label class="input-label" for="step1[number_of_buildings]">No. of buildings</label><br>
+			<input type="text" name="step1[number_of_buildings]" class="input-field field_text ui-wizard-content ui-helper-reset ui-state-default valid" id="step1[number_of_buildings]" size="8" value="1">
+		</div>
+		<div style="position: absolute; width: 180px; left: 0px; top: 170px; display: block;" class="form-group">
+			<label class="input-label" for="step1[type_of_frame]">Type of frame</label><br>
+			<select id="step1[type_of_frame]" name="step1[type_of_frame]" class="form-control field_text ui-wizard-content ui-helper-reset ui-state-default valid">
+			<option value="steel_1.2_to_1.6mm_bmt">Steel 1.2 to 1.6 mm BMT</option>
+			</select>
+		</div>
+		<div class="form-group" style="position: absolute; width: 120px; left: 250px; top: 120px; display: block;">
+			<label class="input-label" for="step1[floor_joist_space]">Floor Joist space</label><br>
+			<select id="step1[floor_joist_space]" name="step1[floor_joist_space]" class="form-control field_text ui-wizard-content ui-helper-reset ui-state-default"><option value="300mm">300 mm</option>
+			</select>
+		</div>
+		<div style="width: 300px; left: 0px; display: block; position: absolute; top: 220px;" class="form-group">
+			<label class="input-label" for="step1[sheet_size]">Sheet size</label><br>
+			<select id="step1[sheet_size]" name="step1[sheet_size]" class="form-control field_text ui-wizard-content ui-helper-reset ui-state-default">
+				<option value="16mm_x_600mm_x_2400mm">16mm x 600mm x 2400mm</option>
+				<option value="16mm_x_1200mm_x_2400mm">16mmx 1200mm x 2400mm</option>
+			</select>
+		</div>
+		<div style="position: absolute; width: 80px; left: 250px; top: 220px; display: block;" class="form-group">
+			<label class="input-label" for="step1[waste]">Waste %</label><br>
+			<input type="text" name="step1[waste]" class="input-field field_text ui-wizard-content ui-helper-reset ui-state-default" id="step1[waste]" size="8" value="5">
+		</div>
+	</div>
 	<div id="template_step2">
 		<div class="col50 add_area_form">
 			<h3>Add areas</h3>
@@ -126,7 +164,7 @@
 				</td>
 				<td>
 					<a href="#" class="remove_area_button" name="_STEP_[_FIELDNAME_][_ID_][delete]" id="_STEP_[_FIELDNAME_][_ID_][delete]">
-						<img width="35" border="0" height="20" name="Image221" alt="Clear" src="images/clear_b.jpg">
+						<img width="50" border="0" height="30" name="Image221" alt="Clear" src="images/clear_b.jpg">
 					</a>
 				</td>
 			</tr>	

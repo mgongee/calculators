@@ -4146,7 +4146,7 @@ body #colorbox {
 	height:36px;
 	cursor:pointer;
 	z-index:10000000;
-	background:url('/images/fancybox_sprite.png') 0 0;
+	background:url('images/fancybox_sprite.png') 0 0;
 	overflow:hidden;
 	text-indent:-999px;
 	border:0;
@@ -4163,7 +4163,7 @@ body #colorbox {
 	height:36px;
 	cursor:pointer;
 	z-index:10000000;
-	background:url('/images/fancybox_sprite.png') 0 0;
+	background:url('images/fancybox_sprite.png') 0 0;
 	overflow:hidden;
 	text-indent:-999px;
 	border:0;
@@ -4483,7 +4483,7 @@ a.button:hover {
 	height:36px;
 	cursor:pointer;
 	z-index:10000000;
-	background:url('/images/fancybox_sprite.png') 0 0;
+	background:url('images/fancybox_sprite.png') 0 0;
 	overflow:hidden;
 	text-indent:-999px;
 	border:0;
