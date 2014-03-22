@@ -7,18 +7,47 @@
 		<tbody>
 			<tr>
 				<td valign="top" align="left" height="240">
-					<img id="bg_img" src="images/Step1_bg_floor.jpg" width="1000" alt="" border="0" usemap="#step_map"/>
-					<map name="step_map">
-						<area shape="rect" coords="69,44,122,60" href="step1" alt="Step 1">
-						<area shape="rect" coords="123,44,179,60" href="step2" alt="Step 2">
-					</map> 
+					<img id="bg_img" src="images/Step1_bg_floor.jpg" width="1000" alt="" border="0" />
 				</td>
 			</tr>
 		</tbody>
 		</table>
 	</div>
-	<div id="step1_banner">
-		<p align="center"> <img width="313" border="0" height="99" alt="click left" src="images/Step1_icon.jpg">  </p>
+	<div id="Step1_prod_text" class="scrolling" >
+		<span class="Product_headingsSML">Hardieflex Senepa</span><br><span class="accelerate_body">A smooth fascia board which comes in a variety of widths and lengths.</span><br><br><table class="Field_text" height="123" border="0" cellpadding="0" cellspacing="0" width="190">
+		<tbody><tr>
+		  <td class="Field_text" height="12" width="26"></td>
+		  <td class="Field_text" width="89">Dimension </td>
+		</tr>
+		 <tr>  <td colspan="2" class="accelerate_body" height="2"><img src="../images/Green_line.jpg" alt="line" height="2" width="193"></td>    </tr>
+			<tr>
+		  <td class="Field_text2" height="11">9mm</td>
+		  <td class="Field_text2" height="11">10in x 8ft</td>
+		</tr>
+		<tr>      <td colspan="2" class="accelerate_body" height="2"><img src="../images/Green_line.jpg" alt="line" height="2" width="193"></td>    </tr>
+		<tr>
+		  <td class="Field_text2" height="11">12mm</td>
+		  <td class="Field_text2" height="11">10in x 8ft</td>
+		</tr>
+		<tr>
+		  <td colspan="2" class="Field_text2" height="2"><img src="../images/Green_line.jpg" alt="line" height="2" width="193"></td>
+		</tr>
+		<tr>
+		  <td class="Field_text2" height="11">12mm</td>
+		  <td class="Field_text2" height="11">12in x 8ft</td>
+		</tr>
+		<tr>
+		  <td colspan="2" class="Field_text2" height="2"><img src="../images/Green_line.jpg" alt="greenline" height="2" width="193"></td>
+		</tr>
+		<tr>
+		  <td class="Field_text2" height="11">12mm</td>
+		  <td class="Field_text2" height="11">12in x 12ft</td>
+		</tr>
+		<tr>
+		  <td colspan="2" class="Field_text2" height="2"><img src="../images/Green_line.jpg" alt="line" height="2" width="193"></td>
+		</tr>
+	</tbody>
+	</table>
 	</div>
 	<div id="step_layer" style="visibility: visible;">
 		<div id="load_projects">

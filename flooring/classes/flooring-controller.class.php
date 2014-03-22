@@ -248,4 +248,47 @@ class FlooringController extends CalculatorController{
 			throw new Exception("Some error occured");
 		}
 	}
+	
+		protected function pageTest() {
+		global $T;
+		
+	$projects = ProjectManager::getAll();
+		$projectList = array();
+
+		foreach ($projects as $project) {
+			$projectList[$project['project_id']] = $project['project_name'];
+		}
+
+		$T['projectList'] = $projectList;
+		$T['success'] = true;
+		
+		if (isset($_POST['action'])) { // user clicked the button on the 'add project' form
+			$projectId = ProjectManager::addFromForm($_POST); // so we must save this project
+			if ($projectId) {
+				$this->addSuccessMessage('Project successfully saved');
+				$_GET["id"] = $projectId;
+				
+				switch($_POST["action"]) : 
+				case "save": // if the clicked button was the "save"
+					header("Location: index.php?route=edit&id=".$projectId);
+					die();
+					break;
+				case "estimate": // if the clicked button was the "estimate"
+					header("Location: index.php?route=estimate&id=".$projectId);
+					die();
+					break;
+				endswitch;
+			}
+			else {
+				$T['success'] = false;
+				$this->addErrorMessage('Failed to save project');	
+			}
+		}
+
+		if ($T['success'] === false) {
+			throw new Exception("Some error occured");
+		}
+		$templateName = __FUNCTION__;
+		return $this->compose($templateName);
+	}
 }

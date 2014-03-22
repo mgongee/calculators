@@ -10,6 +10,7 @@
 		<link rel="stylesheet" href="templates/olddesign/normalize.css">  
 		<link rel="stylesheet" href="templates/olddesign/basex.css">  
 		<link rel="stylesheet" href="templates/olddesign/legacy.css"/>
+		<link rel="stylesheet" href="templates/olddesign/jquery.jscrollpane.css"/>
 		
 		<!-- CSS for jquery plugins  -->
 		<link rel="stylesheet" href="<?php echo $CONF['assets_path']; ?>/css/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
@@ -21,12 +22,12 @@
 		<script src="<?php echo $CONF['assets_path']; ?>/js/jquery.min.js"></script>
 				
 		<!-- Include jquery plugins  -->
-
 		<script src="<?php echo $CONF['assets_path']; ?>/js/jquery.validate.min.js"></script>
 		<script src="<?php echo $CONF['assets_path']; ?>/js/jquery-ui-1.10.4.custom.min.js"></script>
 		<script src="<?php echo $CONF['assets_path']; ?>/js/jquery.form.wizard.js"></script>
-		<script src="<?php echo $CONF['assets_path']; ?>/js/jquery.kinetic.min.js"></script>	
+		<script src="<?php echo $CONF['assets_path']; ?>/js/jquery.mousewheel.js"></script>	
 		<script src="<?php echo $CONF['assets_path']; ?>/js/jquery.fancybox.pack.js?v=2.1.5"></script>
+		<script src="<?php echo $CONF['assets_path']; ?>/js/jScrollPane-eds.js"></script>
 
 		<!-- JS for this calculator -->
 		<script src="scripts/olddesign/script.js"></script>

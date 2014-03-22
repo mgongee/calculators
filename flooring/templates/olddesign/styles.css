@@ -1,5 +1,5 @@
 div.col50 {
-	width: 42%;
+	width: 375px;
 	float:left;
 }
 
@@ -125,7 +125,7 @@ label.error {
 	height: 48px;
 	left: -2px;
 	position: absolute;
-	top: 438px;
+	top: 420px;
 	width: 68px;
 	z-index: 30;
 }
@@ -158,7 +158,7 @@ label.error {
 /**** Estimation page ***/
 
 #middle_wrapper {
-	padding: 20px 0px 0px 20px;
+	padding: 10px 0px 0px 20px;
 	position: absolute;
 }
 
@@ -206,7 +206,7 @@ div#estimation_right_table, div#cost_library {
 	font-size: 12px;
 	width: 546px;
 	position: relative;
-    top: -182px;
+    top: -172px;
     left: 413px;
 }
 
@@ -219,7 +219,7 @@ table#project_data, table#cost_table {
 div#estimation_low_right_table {
 	color: #FFFFFF;
     font-size: 12px;
-    height: 187px;
+    height: 197px;
     margin-right: 20px;
     margin-top: 10px;
     overflow-x: hidden;
@@ -228,7 +228,7 @@ div#estimation_low_right_table {
     padding-top: 10px;
     width: 543px;
 	position: relative;
-    top: -189px;
+    top: -172px;
     left: 413px;
 }
 
@@ -238,7 +238,7 @@ div#estimation_link_icons {
     width: 443px;
     left: 555px;
     position: absolute;
-    top: 370px;
+    top: 355px;
 }
 
 div#bill_header {
@@ -364,7 +364,7 @@ div#estimation_reports_table2 {
 #estimation_note {
    left: 9px;
     position: absolute;
-    top: 354px;
+    top: 341px;
 }
 
 #step1_banner {

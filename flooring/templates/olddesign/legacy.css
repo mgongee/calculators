@@ -7,7 +7,7 @@
 #Step2layer2 { position: static; width: 100%; height: 200px; overflow-y:scroll; }
 
 .jspDrag {  background-color: #647583 !important; }
-.jspArrow { background-color: #959595; background-image: url(../images/jscroll-arrows.png) !important; }
+.jspArrow { background-color: #959595; background-image: url(images/jscroll-arrows.png) !important; }
 .jspArrow.jspDisabled { background-color: #c0c0c0 !important; }
 .jspArrow.jspArrowDown { background-position: -27px 0; }
 

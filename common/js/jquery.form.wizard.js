@@ -79,7 +79,9 @@
 					.click(function() {
 						return wizard._next();
 					});
-
+			this.nextButton.on("touchstart",function() {
+						return wizard._next();
+					});
 			this.nextButtonInitinalValue = this.nextButton.val();
 			this.nextButton.val(this.options.textNext);
 
@@ -87,7 +89,9 @@
 					.click(function() {
 						wizard._back();return false;
 					});
-
+				this.backButton.on("touchstart",function() {
+							wizard._back();return false;
+					});
 				this.backButtonInitinalValue = this.backButton.val();
 				this.backButton.val(this.options.textBack);
 

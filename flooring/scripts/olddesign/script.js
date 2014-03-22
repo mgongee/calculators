@@ -130,7 +130,7 @@ $(document).ready(function(){
 	 * Add new area on button click
 	 * in the 'Add Area' zone
 	 */
-	$("#add_area_button").on('click tap', function(){
+	$("#add_area_button").on('click', function(){
 			add_area();
 			calculate_total_area();
 	});
@@ -138,7 +138,7 @@ $(document).ready(function(){
 	/**
 	 * Remove added area on button click
 	 */
-	$("#add_areas_target").on('click tap', '.remove_area_button', function() {
+	$("#add_areas_target").on('click ', '.remove_area_button', function() {
 		delete_area($(this));
 		calculate_total_area();
 	});
@@ -201,7 +201,8 @@ $(document).ready(function(){
 	 * Next step button
 	 */
 	
-	$("#next").on('click tap', function(){
+	$("#next").on('click ', function(event){
+		console.log('er',event);
 		var formState = $("#calcForm").formwizard("state");
 		
 		if (formState["isLastStep"]) {
@@ -258,18 +259,18 @@ $(document).ready(function(){
 		return false;
 	});
 	
-	$(".ui-dialog-titlebar-close").on('click tap', function() {
+	$(".ui-dialog-titlebar-close").on('click ', function() {
 		$("#term_popup").dialog("close");
 		if (!terms_confirmed) {
 			$("#back").click();
 		}
 	});
 	
-	$('#yes_arg').on('click tap',function() {
+	$('#yes_arg').on('click ',function() {
 		$("#term_popup").dialog("close");
 		terms_confirmed = true;
 	});
-	$('#no_arg').on('click tap', function() {
+	$('#no_arg').on('click ', function() {
 		$("#term_popup").dialog("close");
 		$("#back").click();
 	});
@@ -284,7 +285,7 @@ $(document).ready(function(){
 	/**
 	 * Go to estimation page
 	 */
-	$(".go_to_estimation").on('click tap', function(){
+	$(".go_to_estimation").on('click ', function(){
 		var formState = $("#calcForm").formwizard("state");
 		$("#action").val("estimate");
 		
@@ -323,12 +324,19 @@ $(document).ready(function(){
 		create_bill_list();
 		calculate_labour_rate();
 		calculate_total_bill();
+
+		var settings = {
+			showArrows: true,
+			autoReinitialise: true
+		};
+		var scrollpanes = $('.scrolling');
+		scrollpanes.jScrollPane(settings);
 	}
 	
 	/**
 	 * Add new bill entry on button click
 	 */
-	$("#button_add_item").on('click tap', function(){
+	$("#button_add_item").on('click ', function(){
 			add_bill_item();
 			calculate_total_bill();
 	});
@@ -336,17 +344,17 @@ $(document).ready(function(){
 	/**
 	 * Remove bill item on button click
 	 */
-	$("#bill_of_quantities").on('click tap', '.bill_delete_button', function() {
+	$("#bill_of_quantities").on('click ', '.bill_delete_button', function() {
 		delete_bill_item($(this));
 		calculate_total_bill();
 	});
 	
-	$("#button_show_cost").on('click tap',function() {
+	$("#button_show_cost").on('click ',function() {
 		$("th.cost_unit").show();
 		$(".bill_item_cost").show();
 	});
 	
-	$("#button_hide_cost").on('click tap',function() {
+	$("#button_hide_cost").on('click ',function() {
 		$("th.cost_unit").hide();
 		$(".bill_item_cost").hide();
 	});
@@ -375,13 +383,13 @@ $(document).ready(function(){
 		calculate_total_bill();
 	});
 	
-	$(".make_report_button").on('click tap', function(){
+	$(".make_report_button").on('click ', function(){
 		var report_type = $(this).attr("id");
 		$("#report_type").val(report_type);
 		$("#estimationForm").submit();
 	});
 	
-	$(".project_action_button").on('click tap', function(){
+	$(".project_action_button").on('click ', function(){
 		var action_type = $(this).attr("id");
 		var project_id = $("#project_id").val();
 		var new_name = $("#new_name").val();
@@ -419,6 +427,33 @@ $(document).ready(function(){
 	});
 
 	/*  scroll */
-	//$('#estimation_low_right_table').kinetic();
-	//$('.scrolling').kinetic();
+	$("#next").click(function(){	
+		var settings = {
+			showArrows: true,
+			autoReinitialise: true
+		};
+		var scrollpanes = $('.scrolling');
+		scrollpanes.jScrollPane(settings);
+	});
+	
+	
+	$('area').click(function() { 		
+		var url = $(this).attr('href'); 
+		var formState = $("#calcForm").formwizard("state");
+				
+		if (formState["currentStep"] == "step1") {
+			if (url == "step2") {
+				$("#next").trigger('click');
+			}	
+		}
+		else if (formState["currentStep"] == "step2") {
+			if (url == "step1") {
+				$("#back").trigger('click');
+			}	
+		}
+		
+		// To prevent default action 
+	  return false; 
+	});
+
 });
