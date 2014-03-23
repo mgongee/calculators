@@ -132,7 +132,7 @@ class ReportMakerXls extends ReportMaker {
 			foreach($columnContent as $columnNumber => $field) {
 			$column = $columnName[$columnNumber];
 			$cellAddress = $column . $this->row;
-				$this->setCellValue($cellAddress, $item[$field]);
+				$this->setCellValue($cellAddress, $item[$field],'sml_nm');
 			}
 			$this->row++;
 		}
