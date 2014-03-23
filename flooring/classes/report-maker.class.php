@@ -67,7 +67,7 @@ class ReportMakerXls extends ReportMaker {
 	public function __construct($data) {
 		$this->objPHPExcel = new PHPExcel();
 		$this->data = $data;
-		$this->project_data = json_decode($data["project_data"],true);
+		$this->project_data = json_decode(stripslashes($data["project_data"]),true);
 	}
 
 	public function generateReport() {
@@ -247,7 +247,7 @@ class ReportMakerDoc extends ReportMaker {
 	
 	public function __construct($data) {
 		$this->data = $data;
-		$this->project_data = json_decode($data["project_data"],true);
+		$this->project_data = json_decode(stripslashes($data["project_data"]),true);
 	}
 
 	public function generateReport() {

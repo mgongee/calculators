@@ -7,16 +7,16 @@
 		<title>Flooring Calculator</title>
 
 		<!-- Legacy CSS -->
-		<link rel="stylesheet" href="templates/olddesign/normalize.css">  
-		<link rel="stylesheet" href="templates/olddesign/basex.css">  
-		<link rel="stylesheet" href="templates/olddesign/legacy.css"/>
-		<link rel="stylesheet" href="templates/olddesign/jquery.jscrollpane.css"/>
+		<link rel="stylesheet" href="templates/normalize.css">  
+		<link rel="stylesheet" href="templates/basex.css">  
+		<link rel="stylesheet" href="templates/legacy.css"/>
+		<link rel="stylesheet" href="templates/jquery.jscrollpane.css"/>
 		
 		<!-- CSS for jquery plugins  -->
 		<link rel="stylesheet" href="<?php echo $CONF['assets_path']; ?>/css/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
 	
 		<!-- New CSS for this calculator -->
-		<link href="templates/olddesign/styles.css" rel="stylesheet" />
+		<link href="templates/styles.css" rel="stylesheet" />
 		
 		<!-- jQuery -->
 		<script src="<?php echo $CONF['assets_path']; ?>/js/jquery.min.js"></script>
@@ -30,18 +30,18 @@
 		<script src="<?php echo $CONF['assets_path']; ?>/js/jScrollPane-eds.js"></script>
 
 		<!-- JS for this calculator -->
-		<script src="scripts/olddesign/script.js"></script>
+		<script src="scripts/script.js"></script>
 		
 		<!-- Legacy JS -->
-		<script src="scripts/olddesign/encoder.js"></script>
-		<script src="scripts/olddesign/legacy.js"></script>
+		<script src="scripts/encoder.js"></script>
+		<script src="scripts/legacy.js"></script>
 		
 	</head>
 <body>
 	<div id="main-wrapper-div">
 		<div id="main-header">
-			<a class="logo" href="../main_JHaccess.php"><img src="templates/olddesign/images/logomain.jpg" alt="ACCEL" width="369"></a>  
-			<img class="mloginbg" src="templates/olddesign/images/memberlogin.jpg" width="392" alt="" border="0" />
+			<a class="logo" href="../main_JHaccess.php"><img src="templates/images/logomain.jpg" alt="ACCEL" width="369"></a>  
+			<img class="mloginbg" src="templates/images/memberlogin.jpg" width="392" alt="" border="0" />
 			<div id="member_login">
 				<span class="welc">Welcome back <?php echo $manager_name ?></span>
 				<a class="edit" href="member-self-edit.php">Edit</a>

@@ -39,7 +39,7 @@ class CalculatorController {
 		
 		ob_start();
 		
-		$templateDir = 'templates' . DIRECTORY_SEPARATOR . $CONF['theme'] . DIRECTORY_SEPARATOR;
+		$templateDir = 'templates' . DIRECTORY_SEPARATOR;
 		
 		include($templateDir . 'header.php');
 		include($templateDir . $templateName .'.php');

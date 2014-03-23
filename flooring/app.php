@@ -28,19 +28,7 @@
  * Include configuration file and initialize configuration
  */
 	include('config.inc.php');
-	$CONF = $config; // taken from config.inc.php
-
-/**
- * Determine current design theme and load theme-related classes
- */
-	$themeName = $CONF['theme'];
-	$classes = array(
-		'partials'
-	);
-	
-	foreach ($classes as $className) {
-		include 'classes' . DIRECTORY_SEPARATOR . $themeName . DIRECTORY_SEPARATOR . $className . '.class.php';
-	}	
+	$CONF = $config; // taken from config.inc.php	
 
 	/* Variables for settings from outside sources */
 	$_manager_id = isset($_SESSION['manager_name']) ? $_SESSION['manager_id'] : 23;

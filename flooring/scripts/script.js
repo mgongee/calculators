@@ -41,27 +41,27 @@ $(document).ready(function(){
 	/**
 	 * Load service functions
 	 */
-	$.import_js('scripts/olddesign/functions_service.js');
+	$.import_js('scripts/functions_service.js');
 	
 	/**
 	 * Load form create & fill functions
 	 */
-	$.import_js('scripts/olddesign/functions_form_create.js');
+	$.import_js('scripts/functions_form_create.js');
 	
 	/**
 	 * Load form processing functions
 	 */
-	$.import_js('scripts/olddesign/functions_form_process.js');
+	$.import_js('scripts/functions_form_process.js');
 	
 	/**
 	 * Load form calculation functions
 	 */
-	$.import_js('scripts/olddesign/functions_form_calculation.js');
+	$.import_js('scripts/functions_form_calculation.js');
 
 	/**
 	 * Load estimation functions
 	 */
-	$.import_js('scripts/olddesign/functions_form_estimation.js');
+	$.import_js('scripts/functions_form_estimation.js');
 
 	
 	/**
@@ -202,7 +202,6 @@ $(document).ready(function(){
 	 */
 	
 	$("#next").on('click ', function(event){
-		console.log('er',event);
 		var formState = $("#calcForm").formwizard("state");
 		
 		if (formState["isLastStep"]) {

@@ -168,7 +168,7 @@
 				<td><input class="bill_item_quantity" name="bill[_ID_][quantity]" id="bill[_ID_][quantity]" type="text" value="" size="5"/></td>
 				<td><input id="bill[_ID_][unit]" name="bill[_ID_][unit]"  type="text" value="" size="5"/></td>
 				<td><input class="bill_item_cost" id="bill[_ID_][cost_unit]" name="bill[_ID_][cost_unit]" type="text" value="" size="5"/></td>
-				<td><input class="bill_delete_button" type="button" name="bill[_ID_][delete]" id="bill[_ID_][delete]" value="CLEAR" /></td>
+				<td><a class="bill_delete_button" href="javascript:;" id="bill[_ID_][delete]" >CLEAR</a></td>
 			</tr>
 		</tbody>
 	</table>

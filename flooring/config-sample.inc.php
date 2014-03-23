@@ -6,5 +6,5 @@ $config = array(
 	'mysql_user' => 'user',
 	'mysql_password' => '1234',
 	'table_prefix' => 'clc_',
-	'theme' => 'bootstrap' // use 'legacy' or 'bootstrap'
+	'assets_path' => '../common/'// path to common JS, CSS files
 );
