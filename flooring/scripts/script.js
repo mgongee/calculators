@@ -54,12 +54,7 @@ $(document).ready(function(){
 	$.import_js('scripts/functions_form_process.js');
 	
 	/**
-	 * Load form calculation functions
-	 */
-	$.import_js('scripts/functions_form_calculation.js');
-
-	/**
-	 * Load estimation functions
+	 * Load calculation & estimation functions
 	 */
 	$.import_js('scripts/functions_form_estimation.js');
 
@@ -91,7 +86,7 @@ $(document).ready(function(){
 	/*********** Code for Edit page ************/
 	
 	/**
-	 * If form is present
+	 * If form is present (this means that current page is Add or Edit page)
 	 */
 	if ($('#fieldWrapper').length) {
 		var $form = $('#fieldWrapper');
@@ -103,6 +98,7 @@ $(document).ready(function(){
 		}
 	}
 	
+	/* Initialize from wizard */
 	$("#calcForm").formwizard({
 		formPluginEnabled: false,
 		validationEnabled: true,
@@ -116,16 +112,17 @@ $(document).ready(function(){
 	});
 	
 	
-	if ($("#project_id").length) {
-		
+	/* Determine if it is Add or Edit page */
+	if ($("#project_id").length) { // we know project ID if it was already saved in DB, so this must be Edit page
 		var addPage = false;
 		var editPage = true;
 	}
-	else {
+	else { // this is Add page
 		var addPage = true;
 		var editPage = false;
 
 	}
+	
 	/**
 	 * Add new area on button click
 	 * in the 'Add Area' zone
@@ -142,8 +139,7 @@ $(document).ready(function(){
 		delete_area($(this));
 		calculate_total_area();
 	});
-	
-	
+
 	/**
 	 * Update area size when width is changed
 	 * in the 'Add Area' zone
@@ -179,7 +175,6 @@ $(document).ready(function(){
 		calculate_total_area();
 	});
 	
-	
 	/**
 	 * Update area dimensions
 	 * in the 'Add Area' zone
@@ -200,15 +195,7 @@ $(document).ready(function(){
 	/**
 	 * Next step button
 	 */
-	
-	$("#next").on('click ', function(event){
-		var formState = $("#calcForm").formwizard("state");
 		
-		if (formState["isLastStep"]) {
-			calculate_project(formState["currentStep"]);
-		}
-	});
-	
 	var user_was_on_the_first_step = false;
 	
 	/* On next and back buttons clicks */
@@ -223,13 +210,7 @@ $(document).ready(function(){
 			$(".go_to_estimation").show();
 			
 			// for step2
-			$("#bg_img").attr("src", "images/Step2floor_bg.jpg");
-			
-			// skip step3 for the Add and Edit page 
-			if (data.isLastStep) {
-				$(".go_to_estimation").click();
-			}
-			
+			$("#bg_img").attr("src", "images/Step2floor_bg.jpg");			
 		}
 		else { // first step
 			$("#step1_banner").show();
@@ -242,6 +223,29 @@ $(document).ready(function(){
 				}
 			}
 			$("#bg_img").attr("src", "images/Step1_bg_floor.jpg");
+		}
+	});
+		
+	/* startup preparations */
+	
+	$("#back").hide();
+	if (addPage) {
+		$(".go_to_estimation").hide();
+	}
+	
+	/**
+	 * Go to estimation page
+	 */
+	$(".go_to_estimation").on('click ', function(){
+		var formState = $("#calcForm").formwizard("state");
+		$("#action").val("estimate");
+
+		if (formState["isLastStep"]) {
+			$("#next").trigger( "click" );
+		}
+		else {
+			$("#next").trigger( "click" );
+			$("#next").trigger( "click" );
 		}
 	});
 	
@@ -274,44 +278,7 @@ $(document).ready(function(){
 		$("#back").click();
 	});
 	
-	
-	/* startep preparations */
-	$("#back").hide();
-	if (addPage) {
-		$(".go_to_estimation").hide();
-	}
-	
-	/**
-	 * Go to estimation page
-	 */
-	$(".go_to_estimation").on('click ', function(){
-		var formState = $("#calcForm").formwizard("state");
-		$("#action").val("estimate");
-		
-		if (addPage) {
-			if (formState["isLastStep"]) {
-				$("#next").trigger( "click" );
-			}
-			else {
-				$("#next").trigger( "click" );
-				$("#next").trigger( "click" );
-			}
-		}
-		if (editPage) {
-			if (formState["isLastStep"]) {
-				$("#next").trigger( "click" );
-			}
-			else if (formState["currentStep"] == "step2") {
-				$("#next").trigger( "click" );
-				$("#next").trigger( "click" );
-			}
-			else if (formState["currentStep"] == "step1") {
-				$("#next").trigger( "click" );
-				$("#next").trigger( "click" );
-				$("#next").trigger( "click" );
-			}
-		}
-	});
+
 	
 	/*********** Code for Estimate page ************/
 	
@@ -319,6 +286,7 @@ $(document).ready(function(){
 	 * If table	 is present
 	 */
 	if ($('#estimation_values').length) {
+		calculate_project();
 		estimate_project();
 		create_bill_list();
 		calculate_labour_rate();

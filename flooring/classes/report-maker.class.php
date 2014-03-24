@@ -109,7 +109,7 @@ class ReportMakerXls extends ReportMaker {
 		$this->setCellValue('B20', 'Description','sml_hd');
 		$this->setCellValue('C20', 'Quantity','sml_hd');
 		$this->setCellValue('D20', 'Unit','sml_hd');
-		$this->setCellValue('E20', 'Cost/Unit($)','sml_hd'); // if hidecost = off
+		$this->setCellValue('E20', 'Cost/Unit (php)','sml_hd'); // if hidecost = off
 
 		$this->objPHPExcel->setActiveSheetIndex(0);
 	
@@ -138,11 +138,11 @@ class ReportMakerXls extends ReportMaker {
 		}
 		
 		$this->setCellValue('D'.$this->row,'Total cost:');
-		$this->setCellValue('E'.$this->row, '$' . $this->data['total_cost']);	
+		$this->setCellValue('E'.$this->row, $this->data['total_cost'] . ' php');	
 		
 		$this->row++;
 		$this->setCellValue('D'.$this->row,'Total cost per sqm:');
-		$this->setCellValue('E'.$this->row, '$' . $this->data['total_cost_per_sqm']);	
+		$this->setCellValue('E'.$this->row, $this->data['total_cost_per_sqm'] . ' php');	
 
 		$this->row += 3;
 
@@ -290,7 +290,7 @@ class ReportMakerDoc extends ReportMaker {
 		$this->b($this->data['manager_email']);
 		$this->br();
 		$this->br();
-		$this->out .=  "<table border=0><tr><td>ID Number</td><td> Description</td><td> Quantity</td><td> Unit</td><td> Cost/Unit($)</td></tr>";
+		$this->out .=  "<table border=0><tr><td>ID Number</td><td> Description</td><td> Quantity</td><td> Unit</td><td> Cost/Unit (php)</td></tr>";
 	
 	}
 	
@@ -318,10 +318,10 @@ class ReportMakerDoc extends ReportMaker {
 		$this->br();
 		
 		$this->out .= 'Total cost: ';
-		$this->b('$' . $this->data['total_cost']);	
+		$this->b($this->data['total_cost'] . ' php');	
 		$this->br();
 		$this->out .= 'Total cost per sqm:';
-		$this->b('$' . $this->data['total_cost_per_sqm']);	
+		$this->b($this->data['total_cost_per_sqm'] . ' php');	
 
 		$this->br();
 		$this->br();

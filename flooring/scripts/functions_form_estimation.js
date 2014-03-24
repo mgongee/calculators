@@ -1,9 +1,20 @@
 /**
+ * There are functions that related to project calculaton
+ */
+
+calculate_project = function(step_name) {
+	window.project_calculation = {};
+	for (var field_name in window.calculation_rules) {
+		window.calculation_rules[field_name]();
+	}
+};
+
+/**
  * There are functions that related to project estimation
  */
 
 estimate_project = function() {
-	// get the stored project parameters
+	// get the project parameters which are stored in DB
 	for (var field_name in window.estimation_elements) {
 
 		var field_label = window.estimation_elements[field_name]["label"];
@@ -39,6 +50,7 @@ calculate_labour_rate = function() {
 
 /**
  * Calculates total bill cost and cost per sqm
+ * must be called after estimate_project()
  */
 calculate_total_bill = function() {
 	var total_area_estimation = parseFloat($("#product_estimation").html());
@@ -159,20 +171,19 @@ fill_bill_item = function(item_number, id_number, item_name, quantity, units, co
 add_product = function() {
 	
 	// get product info
+	var id_number = "400080";
+	var cost_unit = 555;
 	var product_name = get_saved_field_value("product");	
 	var type_of_frame = get_saved_field_raw_value("type_of_frame");
-	var type_of_frame_code = window.type_of_frame_codes[type_of_frame];
+	var type_of_frame_code = window.calculation_numbers["type_of_frame_codes"][type_of_frame];
 	var sheet_size = get_saved_field_value("sheet_size");
 	var full_product_name = product_name + " (" + sheet_size + ", " + type_of_frame_code + ")";	
-	var quantity = get_saved_field_value("number_of_sheets");
-	var units = "each";//var units = get_saved_field_value("number_of_sheets_units");
-	var id_number = "400080";
+	var quantity = window.project_calculation["number_of_sheets"];
 
-	var cost_unit = 555;
-	
+
 	// add item into bill
 	var item_number = add_bill_item();
-	fill_bill_item(item_number, id_number,full_product_name,quantity,units,cost_unit);
+	fill_bill_item(item_number, id_number,full_product_name,quantity,"each",cost_unit);
 };
 
 
@@ -180,11 +191,10 @@ add_fasteners = function() {
 	
 	// get item info
 	var id_number = "400084";
+	var cost_unit = 21;	
 	var item_name = "HardieDrive Screws 8x32";
-	var quantity = get_saved_field_value("number_of_fasteners");
+	var quantity = window.project_calculation["number_of_fasteners"];
 
-	var cost_unit = 21;
-	
 	// add item into bill
 	var item_number = add_bill_item();
 	
@@ -195,11 +205,10 @@ add_epoxy = function() {
 	
 	// get item info
 	var id_number = "400079";
+	var cost_unit = 21;	
 	var item_name = "Epoxy";
-	var quantity = get_saved_field_value("amount_of_epoxy");
-	var units = get_saved_field_value("amount_of_epoxy_units");
-	
-	var cost_unit = 21;
+	var quantity = window.project_calculation["amount_of_epoxy"];
+	var units = window.project_calculation["amount_of_epoxy_units"];
 	
 	// add item into bill
 	var item_number = add_bill_item();
@@ -211,11 +220,10 @@ add_adhesive = function() {
 	
 	// get item info
 	var id_number = "400083";
-	var item_name = "Construction Adhesive";
-	var quantity = get_saved_field_value("amount_of_constr_adhesive");
-	var units = get_saved_field_value("amount_of_constr_adhesive_units");
-	
 	var cost_unit = 21;
+	var item_name = "Construction Adhesive";
+	var quantity = window.project_calculation["amount_of_constr_adhesive"];
+	var units = window.project_calculation["amount_of_constr_adhesive_units"];
 	
 	// add item into bill
 	var item_number = add_bill_item();

@@ -14,26 +14,24 @@ window.list_data = {
 	}
 };
 
-window.sheet_size = { // in square meters
-	"16mm_x_600mm_x_2400mm" : 1.44,
-	"16mm_x_1200mm_x_2400mm" : 2.88
-}
-
-window.number_of_fasteners_per_sheet = {
-	"16mm_x_600mm_x_2400mm" : 36,
-	"16mm_x_1200mm_x_2400mm" : 63
-}
-
-window.amount_of_epoxy_per_sheet = { // in mL
-	"16mm_x_600mm_x_2400mm" : 16,
-	"16mm_x_1200mm_x_2400mm" : 16
-}
-
-window.amount_of_constr_adhesive_per_sheet = { // in mL
-	"16mm_x_600mm_x_2400mm" : 152,
-	"16mm_x_1200mm_x_2400mm" : 305
-}
-
-window.type_of_frame_codes = {
-	"steel_1.2_to_1.6mm_bmt" : "1.2-1.6mm"
+window.calculation_numbers = {
+	"sheet_size" : { // in square meters
+		"16mm_x_600mm_x_2400mm" : 1.44,
+		"16mm_x_1200mm_x_2400mm" : 2.88
+	},
+	"number_of_fasteners_per_sheet" : {
+		"16mm_x_600mm_x_2400mm" : 36,
+		"16mm_x_1200mm_x_2400mm" : 63
+	},
+	"amount_of_epoxy_per_sheet" : { // in mL
+		"16mm_x_600mm_x_2400mm" : 16,
+		"16mm_x_1200mm_x_2400mm" : 16
+	},
+	"amount_of_constr_adhesive_per_sheet" : { // in mL
+		"16mm_x_600mm_x_2400mm" : 152,
+		"16mm_x_1200mm_x_2400mm" : 305
+	},
+	"type_of_frame_codes" : {
+		"steel_1.2_to_1.6mm_bmt" : "1.2-1.6mm"
+	}
 }

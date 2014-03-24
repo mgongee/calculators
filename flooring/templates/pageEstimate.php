@@ -86,8 +86,8 @@
 				<tbody>
 				</tbody>
 				<tfoot>
-						<td colspan="2">Total cost ($) per sqm: <input id="total_cost_per_sqm" name="total_cost_per_sqm" type="text" value="" size="5"/></td>
-						<td colspan="4">Total cost ($): <input id="total_cost" name="total_cost" type="text" value="" size="5"/></td>
+						<td colspan="2">Total cost (php) per sqm: <input id="total_cost_per_sqm" name="total_cost_per_sqm" type="text" value="" size="5"/></td>
+						<td colspan="4">Total cost (php): <input id="total_cost" name="total_cost" type="text" value="" size="5"/></td>
 				</tfoot>
 			</table>
 		</div>

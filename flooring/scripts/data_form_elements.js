@@ -42,34 +42,27 @@ window.form_elements = {
 		"fields": {},
 		"template": "step2",
 		"appendix": "step3_button"
+	}
+};
+
+window.calculation_elements = {
+	"number_of_sheets": {
+		"label": "No. of sheets",
+		"type": "text"
 	},
-	"step3": {
-		"name" : "Step 3 - Calculated project",
-		"fields": {
-			"number_of_sheets": {
-				"label": "No. of sheets",
-				"type": "text",
-				"editable": false
-			},
-			"number_of_fasteners": {
-				"label": "No. of fasteners",
-				"type": "text",
-				"editable": false
-			},
-			"amount_of_epoxy": {
-				"label": "Amount of epoxy",
-				"type": "text",
-				"units" : "mL",
-				"editable": false
-			},
-			"amount_of_constr_adhesive": {
-				"label": "Amount of construction adhesive",
-				"type": "text",
-				"units" : "mL",
-				"editable": false
-			}
-		},
-		"appendix": "step3_button"
+	"number_of_fasteners": {
+		"label": "No. of fasteners",
+		"type": "text"
+	},
+	"amount_of_epoxy": {
+		"label": "Amount of epoxy",
+		"type": "text",
+		"units" : "mL"
+	},
+	"amount_of_constr_adhesive": {
+		"label": "Amount of construction adhesive",
+		"type": "text",
+		"units" : "mL"
 	}
 };
 

@@ -174,7 +174,7 @@
 	</table>
 	<div id="template_step3_button">
 		<a href="#" class="go_to_estimation">
-			<img width="195" border="0" height="22" name="Go to Estimation Page" alt="Go to Estimation Page" src="templates/olddesign/images/goto_estimation_but.jpg">
+			<img width="195" border="0" height="22" name="Go to Estimation Page" alt="Go to Estimation Page" src="templates/images/goto_estimation_but.jpg">
 		</a>
 	</div>
 </div>
