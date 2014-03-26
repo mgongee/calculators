@@ -73,7 +73,8 @@ calculate_total_bill = function() {
 	
 	if (!isNaN(total_cost) && (total_cost > 0)) {
 		if (!isNaN(total_area_estimation) && (total_area_estimation > 0)) {
-			var total_cost_per_sqm = Math.round(total_cost / total_area_estimation,2);
+			var total_cost_per_sqm = total_cost / total_area_estimation;
+			total_cost_per_sqm = total_cost_per_sqm.toFixed(2);
 		}
 		else {
 			total_cost_per_sqm = 0;
@@ -219,7 +220,7 @@ add_epoxy = function() {
 	
 	// get item info
 	var id_number = "400079";
-	var cost_unit = 21;	
+	var cost_unit = 21 / window.project_calculation["epoxy_unit_cost_divider"];
 	var item_name = "Epoxy";
 	var quantity = window.project_calculation["amount_of_epoxy"];
 	var units = window.project_calculation["amount_of_epoxy_units"];
@@ -234,7 +235,7 @@ add_adhesive = function() {
 	
 	// get item info
 	var id_number = "400083";
-	var cost_unit = 21;
+	var cost_unit = 21 / window.project_calculation["adhesive_unit_cost_divider"];
 	var item_name = "Construction Adhesive";
 	var quantity = window.project_calculation["amount_of_constr_adhesive"];
 	var units = window.project_calculation["amount_of_constr_adhesive_units"];

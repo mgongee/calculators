@@ -4,7 +4,7 @@
 		<input type="hidden" name="project_id" id="project_id" value="<?php echo $project['project_id']; ?>">
 		<input type="hidden" name="manager_name" value="<?php echo $project['manager_name']; ?>">
 		<input type="hidden" name="manager_email" value="<?php echo $manager_email; ?>">
-		<input type="hidden" name="project_type" id="project_type" value="flooring" />
+		<input type="hidden" name="project_type" id="project_type" value="senepa" />
 		<input type="hidden" name="report_type" id="report_type" value="excel">
 		<input type="hidden" name="project_data" id="project_data" value='<?php echo($project['project_data']); ?>'>
 
@@ -19,13 +19,6 @@
 					</tr>
 				</thead>
 				<tbody></tbody>
-				<tfoot>
-					<tr>
-						<td>Product Estimation</td>
-						<td id="product_estimation"></td>
-						<td>m2</td>
-					</tr>
-				</tfoot>
 			</table>
 		</div>
 
@@ -86,7 +79,7 @@
 				<tbody>
 				</tbody>
 				<tfoot>
-						<td colspan="2">Total cost (php) per sqm: <input id="total_cost_per_sqm" name="total_cost_per_sqm" type="text" value="" size="5"/></td>
+						<td colspan="2">Total cost (php) per m: <input id="total_cost_per_m" name="total_cost_per_m" type="text" value="" size="5"/></td>
 						<td colspan="4">Total cost (php): <input id="total_cost" name="total_cost" type="text" value="" size="5"/></td>
 				</tfoot>
 			</table>
@@ -98,7 +91,7 @@
 				<thead>
 					<tr>
 						<th>Item</th>
-						<th style="width:80px">Rate per m2</th>
+						<th style="width:80px">Rate per m</th>
 					</tr>
 				</thead>
 				<tbody>

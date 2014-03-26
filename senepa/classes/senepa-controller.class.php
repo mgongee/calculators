@@ -1,15 +1,15 @@
 <?php
 
 /**
- * This is the main routing &cintroller class of the Flooring calculator
+ * This is the main routing &cintroller class of the Senepa calculator
  */
-class FlooringController extends CalculatorController{
+class SenepaController extends CalculatorController{
 	
 	
 	protected function pageIndex() {
 		global $T;
 		
-		$projects = ProjectManager::getAll();
+		$projects = ProjectManager::getAll('senepa');
 		$projectList = array();
 
 		foreach ($projects as $project) {
@@ -90,7 +90,7 @@ class FlooringController extends CalculatorController{
 		global $T;
 		
 		$action = "error";
-		$projects = ProjectManager::getAll();
+		$projects = ProjectManager::getAll('senepa');
 		$projectList = array();
 
 		foreach ($projects as $p) {

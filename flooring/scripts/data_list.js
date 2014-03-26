@@ -41,5 +41,6 @@ window.calculation_numbers = {
 	},
 	"type_of_frame_codes" : {
 		"steel_1.2_to_1.6mm_bmt" : "1.2-1.6mm"
-	}
+	},
+	"amount_of_adhesive_in_tube": 300
 }

@@ -124,72 +124,28 @@ $(document).ready(function(){
 	}
 	
 	/**
-	 * Add new area on button click
-	 * in the 'Add Area' zone
+	 * Add new length on button click
+	 * in the 'Add length' zone
 	 */
-	$("#add_area_button").on('click', function(){
-			add_area();
-			calculate_total_area();
+	$("#add_length_button").on('click', function(){
+			add_length();
+			calculate_total_length();
 	});
 		
 	/**
-	 * Remove added area on button click
+	 * Remove added length on button click
 	 */
-	$("#add_areas_target").on('click ', '.remove_area_button', function() {
-		delete_area($(this));
-		calculate_total_area();
-	});
-
-	/**
-	 * Update area size when width is changed
-	 * in the 'Add Area' zone
-	 */
-	$(".add_area_form").on('keyup', '.area_width',function() {
-		calculate_area_size($(this),'width');
-	});
-	
-	/**
-	 * Update area size when length is changed
-	 * in the 'Add Area' zone
-	 */
-	$(".add_area_form").on('keyup', '.area_length',function() {
-		calculate_area_size($(this),'length');
-	});
-	
-	
-	/**
-	 * Update added area size when width is changed
-	 * in the 'Added Areas' zone
-	 */
-	$("#add_areas_target").on('keyup', '.area_width',function() {
-		calculate_area_size($(this),'width');
-		calculate_total_area();
-	});
-	
-	/**
-	 * Update added area size when length is changed
-	 * in the 'Added Areas' zone
-	 */
-	$("#add_areas_target").on('keyup', '.area_length',function() {
-		calculate_area_size($(this),'length');
-		calculate_total_area();
-	});
-	
-	/**
-	 * Update area dimensions
-	 * in the 'Add Area' zone
-	 */
-	$(".add_area_form").on('keyup', '.area_size',function() {
-		update_area_dimensions($(this));
+	$("#add_lengths_target").on('click ', '.remove_length_button', function() {
+		delete_length($(this));
+		calculate_total_length();
 	});
 	
 	/**
 	 * Update added area dimensions
 	 * in the 'Added Areas' zone
 	 */
-	$("#add_areas_target").on('keyup', '.area_size',function() {
-		update_area_dimensions($(this)); 
-		calculate_total_area();
+	$("#add_lengths_target").on('keyup', '.length_size',function() {
+		calculate_total_length();
 	});
 	
 	/**

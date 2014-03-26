@@ -2,7 +2,8 @@
  * There are functions that related to project calculaton
  */
 
-calculate_project = function(step_name) {
+calculate_project = function() {
+
 	window.project_calculation = {};
 	for (var field_name in window.calculation_rules) {
 		window.calculation_rules[field_name]();
@@ -18,21 +19,27 @@ estimate_project = function() {
 	for (var field_name in window.estimation_elements) {
 
 		var field_label = window.estimation_elements[field_name]["label"];
-		var field_value = get_saved_field_value(field_name);
+		var source = window.estimation_elements[field_name]["source"];
+
+		if (source === "js") {
+			var field_value = window.estimation_elements[field_name]["value"];
+		}
+		else {
+			var field_value = get_saved_field_value(field_name);
+		}
+		
 		var field_units = window.estimation_elements[field_name]["units"];
+		
+		if (field_name == "total_length_size") {
+			field_value = field_value * 0.001; // from millimeters to meters
+			field_value = field_value.toFixed(2);
+		}
 		
 		var estimation_row = "<tr><td>" + field_label + "</td><td>" + field_value + "</td><td>" + field_units +"</td></tr>";
 		$("table#estimation_values tbody").append(estimation_row);
 		window.estimation_elements[field_name]["value"] = field_value;
-		
 	}
 	
-	// calculate total product estimation
-	var total_area_size = +window.estimation_elements['total_area_size']['value'];
-	var waste = +window.estimation_elements['waste']['value'];
-	var product_estimation = total_area_size * ((100 + waste)/100);
-	
-	$("#product_estimation").html(product_estimation.toFixed(2));
 };
 
 calculate_labour_rate = function() {
@@ -53,9 +60,9 @@ calculate_labour_rate = function() {
  * must be called after estimate_project()
  */
 calculate_total_bill = function() {
-	var total_area_estimation = parseFloat($("#product_estimation").html());
+	var total_length_size = +window.estimation_elements['total_length_size']['value'];
 	var labour_cost = parseFloat($("#labour\\[subtotal\\]").val());
-	var total_cost = labour_cost * total_area_estimation;
+	var total_cost = labour_cost * total_length_size;
 	
 	$("#bill_of_quantities .bill_item").each(function(){
 		var quantity = 0;
@@ -72,19 +79,20 @@ calculate_total_bill = function() {
 	});
 	
 	if (!isNaN(total_cost) && (total_cost > 0)) {
-		if (!isNaN(total_area_estimation) && (total_area_estimation > 0)) {
-			var total_cost_per_sqm = Math.round(total_cost / total_area_estimation,2);
+		if (!isNaN(total_length_size) && (total_length_size > 0)) {
+			var total_cost_per_m = total_cost / total_length_size;
+			total_cost_per_m = total_cost_per_m.toFixed(2);
 		}
 		else {
-			total_cost_per_sqm = 0;
+			total_cost_per_m = 0;
 		}
 	}
 	else {
-		total_cost_per_sqm = 0;
+		total_cost_per_m = 0;
 		total_cost = 0;
 	}
 	$("#total_cost").val(total_cost);
-	$("#total_cost_per_sqm").val(total_cost_per_sqm);
+	$("#total_cost_per_m").val(total_cost_per_m);
 }
 
 get_saved_field_raw_value = function(field_name) {
@@ -115,7 +123,7 @@ get_saved_field_value = function(field_name) {
 
 	for (var step in project_data) {
 		var project_fields_data = project_data[step];
-		
+
 		for (var project_field_name in project_fields_data) {
 			if (project_field_name === field_name) {
 
@@ -143,11 +151,10 @@ get_saved_field_value = function(field_name) {
  * Creates the initial bill when the age is loaded
  */
 create_bill_list = function (){
-	
 	add_product();
 	add_fasteners();
-	add_epoxy();
-	add_adhesive();
+	add_sealant();
+	
 };
 
 /**
@@ -172,13 +179,12 @@ add_product = function() {
 	
 	// get product info
 	var id_number = "400080";
-	var cost_unit = 555;
+	var cost_unit = 55;
 	var product_name = get_saved_field_value("product");	
-	var type_of_frame = get_saved_field_raw_value("type_of_frame");
-	var type_of_frame_code = window.calculation_numbers["type_of_frame_codes"][type_of_frame];
-	var sheet_size = get_saved_field_value("sheet_size");
-	var full_product_name = product_name + " (" + sheet_size + ", " + type_of_frame_code + ")";	
-	var quantity = window.project_calculation["number_of_sheets"];
+	var type_of_frame = get_saved_field_value("type_of_frame");
+	var product_size = get_saved_field_value("product_size");
+	var full_product_name = product_name + " (" + product_size + ", " + type_of_frame + ")";	
+	var quantity = window.project_calculation["number_of_boards"];
 
 
 	// add item into bill
@@ -190,43 +196,29 @@ add_product = function() {
 add_fasteners = function() {
 	
 	// get item info
-	var id_number = "400084";
-	var cost_unit = 21;	
-	var item_name = "HardieDrive Screws 8x32";
+	var item_product_id = window.project_calculation['fasteners_type'];
+	var item_name = window.products_data[item_product_id]["name"];
+	var cost_unit = window.products_data[item_product_id]["cost"];
 	var quantity = window.project_calculation["number_of_fasteners"];
 
 	// add item into bill
 	var item_number = add_bill_item();
 	
-	fill_bill_item(item_number, id_number,item_name,quantity,"each",cost_unit);
+	fill_bill_item(item_number, item_product_id,item_name,quantity,"each",cost_unit);
 };
 
-add_epoxy = function() {
+add_sealant = function() {
 	
 	// get item info
 	var id_number = "400079";
-	var cost_unit = 21;	
-	var item_name = "Epoxy";
-	var quantity = window.project_calculation["amount_of_epoxy"];
-	var units = window.project_calculation["amount_of_epoxy_units"];
+	var cost_unit = 210 / window.project_calculation["sealant_unit_cost_divider"];
+	var item_name = "PU Sealant";
+	var quantity = window.project_calculation["amount_of_sealant"];
+	var units = window.project_calculation["amount_of_sealant_units"];
 	
 	// add item into bill
 	var item_number = add_bill_item();
 	
-	fill_bill_item(item_number, id_number,item_name,quantity,units,cost_unit);
-};
-
-add_adhesive = function() {
-	
-	// get item info
-	var id_number = "400083";
-	var cost_unit = 21;
-	var item_name = "Construction Adhesive";
-	var quantity = window.project_calculation["amount_of_constr_adhesive"];
-	var units = window.project_calculation["amount_of_constr_adhesive_units"];
-	
-	// add item into bill
-	var item_number = add_bill_item();
 	fill_bill_item(item_number, id_number,item_name,quantity,units,cost_unit);
 };
 

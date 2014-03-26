@@ -9,6 +9,10 @@
 			<tr>
 				<td valign="top" align="left" height="240">
 					<img id="bg_img" src="images/Step1_bg_floor.jpg" width="1000" alt="" border="0" />
+					<map name="step_map">
+						<area shape="rect" coords="69,44,122,60" href="step1" alt="Step 1">
+						<area shape="rect" coords="123,44,179,60" href="step2" alt="Step 2">
+					</map> 
 				</td>
 			</tr>
 		</tbody>
@@ -66,104 +70,50 @@
 
 -->
 <div id="templates" style="display:none">
-	<div id="template_step1">
-		<div style="position:absolute;  width:300px; left:0px; top:70px;" class="form-group">
-			<label class="input-label" for="step1[project_name]">Project name</label><br>
-			<input type="text" name="step1[project_name]" class="input-field field_text ui-wizard-content ui-helper-reset ui-state-default" id="step1[project_name]" size="50" value="">
-		</div>
-		<div style="position:absolute;  width:300px; left:0px; top:120px;" class="form-group">
-			<label class="input-label" for="step1[product]">Select the product required</label><br>
-			<select id="step1[product]" name="step1[product]" class="form-control field_text ui-wizard-content ui-helper-reset ui-state-default valid">
-				<option value="hardieflex_flooring_16mm">HardieFlex Flooring 16 mm</option>
-			</select>
-		</div>
-		<div style="position: absolute; width: 120px; left: 250px; top: 170px; display: block;" class="form-group">
-			<label class="input-label" for="step1[number_of_buildings]">No. of buildings</label><br>
-			<input type="text" name="step1[number_of_buildings]" class="input-field field_text ui-wizard-content ui-helper-reset ui-state-default valid" id="step1[number_of_buildings]" size="8" value="1">
-		</div>
-		<div style="position: absolute; width: 180px; left: 0px; top: 170px; display: block;" class="form-group">
-			<label class="input-label" for="step1[type_of_frame]">Type of frame</label><br>
-			<select id="step1[type_of_frame]" name="step1[type_of_frame]" class="form-control field_text ui-wizard-content ui-helper-reset ui-state-default valid">
-			<option value="steel_1.2_to_1.6mm_bmt">Steel 1.2 to 1.6 mm BMT</option>
-			</select>
-		</div>
-		<div class="form-group" style="position: absolute; width: 120px; left: 250px; top: 120px; display: block;">
-			<label class="input-label" for="step1[floor_joist_space]">Floor Joist space</label><br>
-			<select id="step1[floor_joist_space]" name="step1[floor_joist_space]" class="form-control field_text ui-wizard-content ui-helper-reset ui-state-default"><option value="300mm">300 mm</option>
-			</select>
-		</div>
-		<div style="width: 300px; left: 0px; display: block; position: absolute; top: 220px;" class="form-group">
-			<label class="input-label" for="step1[sheet_size]">Sheet size</label><br>
-			<select id="step1[sheet_size]" name="step1[sheet_size]" class="form-control field_text ui-wizard-content ui-helper-reset ui-state-default">
-				<option value="16mm_x_600mm_x_2400mm">16mm x 600mm x 2400mm</option>
-				<option value="16mm_x_1200mm_x_2400mm">16mmx 1200mm x 2400mm</option>
-			</select>
-		</div>
-		<div style="position: absolute; width: 80px; left: 250px; top: 220px; display: block;" class="form-group">
-			<label class="input-label" for="step1[waste]">Waste %</label><br>
-			<input type="text" name="step1[waste]" class="input-field field_text ui-wizard-content ui-helper-reset ui-state-default" id="step1[waste]" size="8" value="5">
-		</div>
-	</div>
 	<div id="template_step2">
-		<div class="col50 add_area_form">
-			<h3>Add areas</h3>
+		<div class="col50 add_length_form">
+			<h3>Add lengths</h3>
 			<div class="form-group col-area">
-				<label class="input-label" for="add_area[width]">Width (mm)</label>
-				<input class="area_width" name="add_area[width]" id="add_area[width]" size="7" />
+				<label class="input-label" for="add_length[length]">Length (mm)</label>
+				<input class="add_length" name="add_length[length]" id="add_length[length]" size="7" />
 			</div>
-			<div class="form-group col-area">
-				<label class="input-label" for="add_area[length]">Length (mm)</label>
-				<input class="area_length" name="add_area[length]" id="add_area[length]" size="7" />
-			</div>
-			<div class="form-group col-area">
-				<label class="input-label" for="add_area[size]">or Size (m2)</label>
-				<input class="area_size" name="add_area[size]" id="add_area[size]" size="7" />
-			</div>
-			<div class="col-area">
-				<a id="add_area_button" onmouseover="MM_swapImage('add_area_img','','images/ADDAREAlrgb.jpg',1)" onmouseout="MM_swapImgRestore()" href="#"><img width="110" border="0" height="21" name="add_area_img" alt="Add area" src="images/ADDAREAlrga.jpg"></a>
+			<div class="col-area centered">
+				<a id="add_length_button" href="#"><img width="110" border="0" height="21" name="add_area_img" alt="Add area" src="images/ADDAREAlrga.jpg"></a>
 			</div>		
 		</div>
-		<div class="col50 scrolling">
-			<table id="add_areas_target" class="areas_table field_text">
+		<div class="col50 scrolling" style="height:200px">
+			<table id="add_lengths_target" class="lengths_table field_text">
 				<thead>
 					<tr>
 						<th>#</th>
-						<th>Width (mm)</th>
 						<th>Length (mm)</th>
-						<th>Total Area (m2)</th>
 						<th></th>
 					</tr>
 				</thead>
 				<tbody></tbody>
 				<tfoot>
 					<tr>
-						<th colspan="3">Total building floor area (m2)</th>
+						<th colspan="3">Total length (mm)</th>
 						<th>
-							<input class="total_area_size" size="7" type="text" name="step2[total_area_size]" id="step2[total_area_size]" value="" />
+							<input class="total_length_size" size="7" type="text" name="step2[total_length_size]" id="step2[total_length_size]" value="" />
 						</th>
-						<th></th>						
+						<th></th>
 					</tr>
 				</tfoot>
 			</table>
 		</div>
 	</div>
-	<table id="template_addarea">
+	<table id="template_addlength">
 		<tbody>
-			<tr class="area_entry">
+			<tr class="length_entry">
 				<td>
-					<label for="_STEP_[_FIELDNAME_][_ID_][width]">_LABEL_</label>
+					<label for="_STEP_[_FIELDNAME_][_ID_][length]">_LABEL_</label>
 				</td>
 				<td>
-					<input number="_ID_" class="area_width" size="7" type="text" name="_STEP_[_FIELDNAME_][_ID_][width]" id="_STEP_[_FIELDNAME_][_ID_][width]" value="_WIDTH_"/>
+					<input number="_ID_" class="length_size" size="7" type="text" name="_STEP_[_FIELDNAME_][_ID_][length]" id="_STEP_[_FIELDNAME_][_ID_][length]" value="_LENGTH_"/>
 				</td>
 				<td>
-					<input class="area_length" size="7" type="text" name="_STEP_[_FIELDNAME_][_ID_][length]" id="_STEP_[_FIELDNAME_][_ID_][length]" value="_LENGTH_" />
-				</td>
-				<td>
-					<input class="area_size" size="7" type="text" name="_STEP_[_FIELDNAME_][_ID_][size]" id="_STEP_[_FIELDNAME_][_ID_][size]" value="_SIZE_" />
-				</td>
-				<td>
-					<a href="#" class="remove_area_button" name="_STEP_[_FIELDNAME_][_ID_][delete]" id="_STEP_[_FIELDNAME_][_ID_][delete]">
+					<a href="#" class="remove_length_button" name="_STEP_[_FIELDNAME_][_ID_][delete]" id="_STEP_[_FIELDNAME_][_ID_][delete]">
 						<img width="50" border="0" height="30" name="Image221" alt="Clear" src="images/clear_b.jpg">
 					</a>
 				</td>

@@ -5,20 +5,18 @@
 /*********** Code for Estimate page ************/
 
 /**
- * Adds new area to project
+ * Adds new length to project
  */
-add_area = function(){
-	var area_width = $("#add_area\\[width\\]").val();
-	var area_length = $("#add_area\\[length\\]").val();
-	var area_size = area_width * area_length * 0.000001;
+add_length = function(){
+	var length_size = $("#add_length\\[length\\]").val();
 
-	if ((area_width > 99) && (area_length > 99) && (area_size > 0)) {
-		var new_area_field = $("#template_addarea tbody").html().toString();
+	if (length_size > 1) {
+		var new_length = $("#template_addlength tbody").html().toString();
 
 		var max_field_number = 0;
 
-		/* Calculate number of areas that already added */
-		$("#add_areas_target").find("input.area_width").each(function(){
+		/* Calculate number of lengths that already added */
+		$("#add_lengths_target").find("input.length_size").each(function(){
 			var field_number = parseInt($(this).attr("number"));
 
 			if (field_number > max_field_number) {
@@ -28,90 +26,72 @@ add_area = function(){
 
 		var field_number = +max_field_number + 1;
 
-		var new_area_field = new_area_field
+		var new_length = new_length
 			.replace(new RegExp("_LABEL_",'g'), field_number)
 			.replace(new RegExp("_STEP_",'g'),"step2")
-			.replace(new RegExp("_FIELDNAME_",'g'),"areas")
+			.replace(new RegExp("_FIELDNAME_",'g'),"lengths")
 			.replace(new RegExp("_ID_",'g'),field_number)
-			.replace(new RegExp("_WIDTH_",'g'),area_width)
-			.replace(new RegExp("_LENGTH_",'g'),area_length)
-			.replace(new RegExp("_SIZE_",'g'),area_size);
-		$("#add_areas_target tbody").append(new_area_field);
+			.replace(new RegExp("_LENGTH_",'g'),length_size)
+	
+		$("#add_lengths_target tbody").append(new_length);
 
 		// add validation
-		$('#step2\\[areas\\]\\[' + field_number + '\\]\\[width\\]').rules( "add", {
+		$('#step2\\[lengths\\]\\[' + field_number + '\\]\\[length\\]').rules( "add", {
 			required: true,
-			min: 100,
-		});
-		$('#step2\\[areas\\]\\[' + field_number + '\\]\\[length\\]').rules( "add", {
-			required: true,
-			min: 100,
-		});
-		$('#step2\\[areas\\]\\[' + field_number + '\\]\\[size\\]').rules( "add", {
-			required: true,
-			min: 0.01,
+			min: 1,
 		});
 	}
 	else {
-		alert('Please check area size. Minimum width and length are 100 mm');
+		alert('Please check length size. Minimum length is 1 mm');
 	}
 	
 };
 
 /**
- * Load saved areas to project
+ * Load saved lengths to project
  * @param {Array} step_data
  */
-load_areas = function(step_data){
+load_lengths = function(step_data){
 		
-	var areas = step_data["areas"];
-	for (var area_number in areas) {
-		var area = areas[area_number];
+	var lengths = step_data["lengths"];
+	for (var length_number in lengths) {
+		var length = lengths[length_number];
 
-		var new_area_field = $("#template_addarea tbody").html().toString();
+		var new_length_field = $("#template_addlength tbody").html().toString();
 
-		var new_area_field = new_area_field
-			.replace(new RegExp("_LABEL_",'g'),area_number)
+		var new_length_field = new_length_field
+			.replace(new RegExp("_LABEL_",'g'), length_number)
 			.replace(new RegExp("_STEP_",'g'),"step2")
-			.replace(new RegExp("_FIELDNAME_",'g'),"areas")
-			.replace(new RegExp("_ID_",'g'),area_number)
-			.replace(new RegExp("_WIDTH_",'g'),area["width"])
-			.replace(new RegExp("_LENGTH_",'g'),area["length"])
-			.replace(new RegExp("_SIZE_",'g'),area["size"]);
-		$("#add_areas_target tbody").append(new_area_field);
-		
+			.replace(new RegExp("_FIELDNAME_",'g'),"lengths")
+			.replace(new RegExp("_ID_",'g'),length_number)
+			.replace(new RegExp("_LENGTH_",'g'),length['length'])
+	
+		$("#add_lengths_target tbody").append(new_length_field);
+
 		// due to formwizard bug, th validation must be applied only after users goes to step2
 		$("#calcForm").bind("step_shown", function(event, data){
 			if (data.currentStep == 'step2') {
 				// add validation
-				$('#step2\\[areas\\]\\[' + area_number + '\\]\\[width\\]').rules( "add", {
+				$('#step2\\[lengths\\]\\[' + length_number + '\\]\\[length\\]').rules( "add", {
 					required: true,
-					min: 100,
-				});
-				$('#step2\\[areas\\]\\[' + area_number + '\\]\\[length\\]').rules( "add", {
-					required: true,
-					min: 100,
-				});
-				$('#step2\\[areas\\]\\[' + area_number + '\\]\\[size\\]').rules( "add", {
-					required: true,
-					min: 0.01,
+					min: 1,
 				});
 			}
 		});
 		
 	}
 
-	$("#step2\\[total_area_size\\]").val(step_data["total_area_size"]);
+	$("#step2\\[total_length_size\\]").val(step_data["total_length_size"]);
 	
 
 };
 
 /**
- * Deletes area from project
- * @param {jQuery selection} $area_button button that was clicked
+ * Deletes length from project
+ * @param {jQuery selection} $length_button button that was clicked
  */
-delete_area = function($area_button){
-   $area_button.parent().parent().remove();
+delete_length = function($length_button){
+   $length_button.parent().parent().remove();
 };
 
 /**
@@ -184,18 +164,18 @@ update_area_dimensions = function($this){
 
 
 /**
- * Calculates total building floor area 
+ * Calculates total length 
  */
-calculate_total_area = function(){
+calculate_total_length = function(){
 	var new_size = 0;
-	$("#add_areas_target").find(".area_size").each(function(){
+	$("#add_lengths_target").find(".length_size").each(function(){
 		var part_size = $(this).val();
 		if (is_float(part_size)) {
 			new_size += parseFloat(part_size);
 		}
 	});
 	new_size = new_size.toFixed(2);
-	$("#add_areas_target .total_area_size").val(new_size);
+	$("#add_lengths_target .total_length_size").val(new_size);
 };
 
 

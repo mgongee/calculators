@@ -192,6 +192,6 @@ fill_form_fields = function(form_data, project_data) {
 	}
 	
 		
-	/* Load areas for flooring calculator */
-	load_areas(project_data["step2"]);
+	/* Load lengths for senepa calculator */
+	load_lengths(project_data["step2"]);
 };
