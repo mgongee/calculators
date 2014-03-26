@@ -28,10 +28,32 @@ window.calculation_rules =  {
 	"amount_of_epoxy": function() {
 		/* Get initial parameters */
 		var sheet_type = get_saved_field_raw_value('sheet_size');	
-		var number_of_sheets = window.project_calculation['number_of_sheets'];	
 		
 		/* Calculate value */
-		var amount_of_epoxy = window.calculation_numbers["amount_of_epoxy_per_sheet"][sheet_type] * number_of_sheets;
+		var sheet_height = window.calculation_numbers["sheet_height"][sheet_type]; // in mm
+		var sheet_width = window.calculation_numbers["sheet_width"][sheet_type];  // in mm
+		var areas = get_saved_areas();
+		
+		var total_join_length = 0;
+		for (var i in areas) {
+			var wall_height = areas[i]["length"];  // in mm
+			var wall_width = areas[i]["width"];  // in mm
+			
+			// no of Vertical Joins (nV)	 =   ceil (Ww / Ws) – 1
+			// no of Hoirizontal  Joins(nH)  =   ceil (Hw / Hs) – 1
+			var nVJoins = Math.ceil( wall_height / sheet_height ) - 1;
+			var nHJoins = Math.ceil( wall_width / sheet_width ) - 1;
+			
+			// Total Join Length = nV x Hw + nH x Ww	
+			var wall_total = (nVJoins * wall_height) + (nHJoins * wall_width);
+			
+			total_join_length += wall_total;
+		}
+		
+		var epoxy_per_joint = window.calculation_numbers["amount_of_epoxy_per_sheet"][sheet_type]; // per meter
+		epoxy_per_joint = epoxy_per_joint * 0.001; // per millimeter
+		
+		var amount_of_epoxy = epoxy_per_joint * total_join_length;
 		
 		/* Set appropriate units */
 		var unit = 'L';

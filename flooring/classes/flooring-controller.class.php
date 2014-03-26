@@ -9,7 +9,7 @@ class FlooringController extends CalculatorController{
 	protected function pageIndex() {
 		global $T;
 		
-		$projects = ProjectManager::getAll();
+		$projects = ProjectManager::getAll('flooring');
 		$projectList = array();
 
 		foreach ($projects as $project) {
@@ -90,7 +90,7 @@ class FlooringController extends CalculatorController{
 		global $T;
 		
 		$action = "error";
-		$projects = ProjectManager::getAll();
+		$projects = ProjectManager::getAll('flooring');
 		$projectList = array();
 
 		foreach ($projects as $p) {
@@ -173,11 +173,18 @@ class FlooringController extends CalculatorController{
 				$xlsReport = new ReportMakerXls($_POST);
 				
 				$filename = time() . '_' . $projectId . '.xls';
-				
+			/** For Excel 2007	
 				header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, charset=utf-8; encoding=UTF-8');
-				header('Content-Disposition: attachment;filename="' . $filename . '"');
+				header('Content-Disposition: attachment;filename=' . $filename);
 				header('Cache-Control: max-age=0');
-
+			*/
+				
+			/** For Excel 97 */
+				header('Content-Type: application/vnd.ms-excel, charset=utf-8; encoding=UTF-8');
+				header('Content-Disposition: attachment;filename=' . $filename);
+				header('Cache-Control: max-age=0');
+				
+				
 				$xlsReport->generateReport();
 				die();
 			}

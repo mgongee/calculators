@@ -27,10 +27,10 @@
 /**
  * Include configuration file and initialize configuration
  */
-	include('config.inc.php');
+	include('..' . DIRECTORY_SEPARATOR . 'common' . DIRECTORY_SEPARATOR . 'config.inc.php');
 	$CONF = $config; // taken from config.inc.php	
 
-	/* Variables for settings from outside sources */
+/* Variables for settings from outside sources */
 	$_manager_id = isset($_SESSION['manager_name']) ? $_SESSION['manager_id'] : 23;
 	$_manager_name = isset($_SESSION['manager_name']) ? $_SESSION['manager_name'] : 'Jenny Razor';
 	$_manager_email = isset($_SESSION['manager_email']) ? $_SESSION['manager_email'] : 'jenny@razor.org';

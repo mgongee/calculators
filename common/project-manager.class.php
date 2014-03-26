@@ -148,7 +148,6 @@ class ProjectManager {
 			'project_type' => $formData['project_type'],
 		);
 		
-		
 		$stepData = array();
 		
 		foreach ($formData as $stepName => $formStepData) {
@@ -188,12 +187,12 @@ class ProjectManager {
 		return ProjectManager::update($projectId,$data);
 	}
 	
-	static public function getAll() {
+	static public function getAll($type) {
 		global $DB, $CONF;
 		$tableName = $CONF['table_prefix'] . 'project';
 		
 		$rows = array();
-		$rs = $DB->Execute("SELECT * FROM `$tableName`");
+		$rs = $DB->Execute("SELECT * FROM `$tableName` WHERE project_type = '" . $type . "'" );
 		while ($array = $rs->FetchRow()) {
 			$rows[] = $array;
 		}

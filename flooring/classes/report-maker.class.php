@@ -221,7 +221,13 @@ class ReportMakerXls extends ReportMaker {
 	}
 	
 	private function out() {
+		/** For Excel 2007	
 		$objWriter = PHPExcel_IOFactory::createWriter($this->objPHPExcel, 'Excel2007');
+		$objWriter->save('php://output');
+		 */
+		
+		/** For Excel 97 */
+		$objWriter = PHPExcel_IOFactory::createWriter($this->objPHPExcel, 'Excel5');
 		$objWriter->save('php://output');
 	}
 	

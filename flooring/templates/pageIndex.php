@@ -34,7 +34,7 @@
 		</div>
 
 		<form id="calcForm" method="post" action="index.php">
-			<input type="hidden" name="manager_name" value="Joan Rowling">
+			<input type="hidden" name="manager_name" value="<?php echo $manager_name?>">
 			<input type="hidden" name="project_type" id="project_type" value="flooring" />
 			<input type="hidden" name="action" id="action" value="save">
 

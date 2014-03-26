@@ -9,6 +9,10 @@
 			<tr>
 				<td valign="top" align="left" height="240">
 					<img id="bg_img" src="images/Step1_bg_floor.jpg" width="1000" alt="" border="0" />
+					<map name="step_map">
+						<area shape="rect" coords="69,44,122,60" href="step1" alt="Step 1">
+						<area shape="rect" coords="123,44,179,60" href="step2" alt="Step 2">
+					</map> 					
 				</td>
 			</tr>
 		</tbody>

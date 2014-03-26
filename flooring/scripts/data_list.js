@@ -15,15 +15,23 @@ window.list_data = {
 };
 
 window.calculation_numbers = {
-	"sheet_size" : { // in square meters
+	"sheet_size" : {						// in square meters
 		"16mm_x_600mm_x_2400mm" : 1.44,
 		"16mm_x_1200mm_x_2400mm" : 2.88
+	},
+	"sheet_height" : {						// in millimeters
+		"16mm_x_600mm_x_2400mm" : 2400,
+		"16mm_x_1200mm_x_2400mm" : 2400
+	},
+	"sheet_width" : {						// in millimeters
+		"16mm_x_600mm_x_2400mm" : 600,
+		"16mm_x_1200mm_x_2400mm" : 1200
 	},
 	"number_of_fasteners_per_sheet" : {
 		"16mm_x_600mm_x_2400mm" : 36,
 		"16mm_x_1200mm_x_2400mm" : 63
 	},
-	"amount_of_epoxy_per_sheet" : { // in mL
+	"amount_of_epoxy_per_sheet" : {			// in mL
 		"16mm_x_600mm_x_2400mm" : 16,
 		"16mm_x_1200mm_x_2400mm" : 16
 	},

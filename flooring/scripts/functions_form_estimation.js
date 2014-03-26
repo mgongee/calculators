@@ -139,6 +139,20 @@ get_saved_field_value = function(field_name) {
 	}
 };
 
+
+/**
+ * Gets the areas stored in the JSON string (which loaded from the DB)
+ * @param {String} field_name
+ * @returns {mixed}
+ */
+get_saved_areas = function() {
+	
+	var project_json = $("#projectData").html();
+	var project_data = jQuery.parseJSON(project_json);
+
+	return project_data["step2"]["areas"];
+};
+
 /**
  * Creates the initial bill when the age is loaded
  */
