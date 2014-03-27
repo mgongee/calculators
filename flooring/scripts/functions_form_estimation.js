@@ -71,6 +71,8 @@ calculate_total_bill = function() {
 		total_cost += parseFloat(quantity * cost);
 	});
 	
+	total_cost = total_cost.toFixed(2);
+	
 	if (!isNaN(total_cost) && (total_cost > 0)) {
 		if (!isNaN(total_area_estimation) && (total_area_estimation > 0)) {
 			var total_cost_per_sqm = total_cost / total_area_estimation;

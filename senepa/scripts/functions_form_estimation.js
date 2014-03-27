@@ -78,6 +78,8 @@ calculate_total_bill = function() {
 		total_cost += parseFloat(quantity * cost);
 	});
 	
+	total_cost = total_cost.toFixed(2);
+	
 	if (!isNaN(total_cost) && (total_cost > 0)) {
 		if (!isNaN(total_length_size) && (total_length_size > 0)) {
 			var total_cost_per_m = total_cost / total_length_size;
