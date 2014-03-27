@@ -172,7 +172,7 @@ class FlooringController extends CalculatorController{
 			if ($reportType == "excel") {
 				$xlsReport = new ReportMakerXls($_POST);
 				
-				$filename = time() . '_' . $projectId . '.xls';
+				$filename = 'flooring_' . $projectId . '_' . time() . '.xls';
 			/** For Excel 2007	
 				header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, charset=utf-8; encoding=UTF-8');
 				header('Content-Disposition: attachment;filename=' . $filename);
@@ -190,7 +190,7 @@ class FlooringController extends CalculatorController{
 			}
 			else {
 				$docReport = new ReportMakerDoc($_POST);
-				$filename = time() . '_' . $projectId . '.doc';				
+				$filename = 'flooring_' . $projectId . '_' . time() . '.doc';
 				header('Content-Type: application/msword');  
 				header('Content-Disposition: attachment;filename="' . $filename . '"');
 				$docReport->generateReport();

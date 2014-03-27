@@ -172,18 +172,24 @@ class SenepaController extends CalculatorController{
 			if ($reportType == "excel") {
 				$xlsReport = new ReportMakerXls($_POST);
 				
-				$filename = time() . '_' . $projectId . '.xls';
-				
+				$filename = 'senepa_' . $projectId . '_' . time() . '.xls';
+			/** For Excel 2007		
 				header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, charset=utf-8; encoding=UTF-8');
 				header('Content-Disposition: attachment;filename="' . $filename . '"');
 				header('Cache-Control: max-age=0');
-
+				*/
+				
+				/** For Excel 97 */
+				header('Content-Type: application/vnd.ms-excel, charset=utf-8; encoding=UTF-8');
+				header('Content-Disposition: attachment;filename=' . $filename);
+				header('Cache-Control: max-age=0');
+			
 				$xlsReport->generateReport();
 				die();
 			}
 			else {
 				$docReport = new ReportMakerDoc($_POST);
-				$filename = time() . '_' . $projectId . '.doc';				
+				$filename = 'senepa_' . $projectId . '_' . time() . '.doc';
 				header('Content-Type: application/msword');  
 				header('Content-Disposition: attachment;filename="' . $filename . '"');
 				$docReport->generateReport();

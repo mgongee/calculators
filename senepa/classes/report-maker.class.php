@@ -6,17 +6,20 @@ class ReportMaker {
 		
 	protected $productCodes = array(
 		"product" => array(
-			"hardieflex_flooring_16mm" => "HardieFlex Flooring 16 mm"
+			"hardieflex_senepa" => "Hardieflex Senepa"
 		),
 		"type_of_frame" => array(
-			"steel_1.2_to_1.6mm_bmt" => "Steel 1.2 to 1.6 mm BMT"
+			"steel_0.55_to_1.66mm_bmt" => "Steel 0.55 to 1.66 mm BMT",
+			"timber" => "Timber"	
 		),
-		"floor_joist_space" => array(
-			"300mm" => "300 mm"
+		"fasteners_spacing" => array(
+			"300" => "300 mm"
 		),
-		"sheet_size" => array(
-			"16mm_x_600mm_x_2400mm" => "16mm x 600mm x 2400mm",
-			"16mm_x_1200mm_x_2400mm" => "16mmx 1200mm x 2400mm"
+		"product_size" => array(
+			"9mm_x_254mm_x_2438mm" => "9mm x 254mm x 2438mm",
+			"12mm_x_254mm_x_2438mm" => "12mm x 254mm x 2438mm",
+			"12mm_x_305mm_x_2438mm" => "12mm x 305mm x 2438mm",
+			"12mm_x_305mm_x_3360mm" => "12mm x 305mm x 3360mm",
 		)
 	);
 	
@@ -141,63 +144,55 @@ class ReportMakerXls extends ReportMaker {
 		$this->setCellValue('E'.$this->row, $this->data['total_cost'] . ' php');	
 		
 		$this->row++;
-		$this->setCellValue('D'.$this->row,'Total cost per sqm:');
-		$this->setCellValue('E'.$this->row, $this->data['total_cost_per_sqm'] . ' php');	
+		$this->setCellValue('D'.$this->row,'Total cost per m:');
+		$this->setCellValue('E'.$this->row, $this->data['total_cost_per_m'] . ' php');	
 
 		$this->row += 3;
 
-		$this->setCellValue('A'.$this->row, 'STEP_1 Floor Information','sml_hd');
+		$this->setCellValue('A'.$this->row, 'STEP_1 Product Information','sml_hd');
 
 		$this->row++;
 		$this->setCellValue('A'.$this->row, 'Product Name','sml_hd');
-		$this->setCellValue('B'.$this->row, 'Number of buildings','sml_hd');
-		$this->setCellValue('C'.$this->row, 'Sheet size','sml_hd');
-		$this->setCellValue('D'.$this->row, 'Joist','sml_hd');
-		$this->setCellValue('E'.$this->row, 'Type of Frame','sml_hd');
-		$this->setCellValue('F'.$this->row, 'Waste','sml_hd');
+		$this->setCellValue('B'.$this->row, 'Product Size','sml_hd');
+		$this->setCellValue('C'.$this->row, 'Fastener spacing','sml_hd');
+		$this->setCellValue('D'.$this->row, 'Type of Frame','sml_hd');
+		$this->setCellValue('E'.$this->row, 'Allowance','sml_hd');
 
 		$this->row++;
 		$productCode = $this->project_data["step1"]["product"];
 		$productName = $this->productCodes['product'][$productCode];
 		$this->setCellValue('A'.$this->row,$productName,'sml_nm');
 		
-		$numberOfBuildings = $this->project_data["step1"]["number_of_buildings"];
-		$this->setCellValue('B'.$this->row,$numberOfBuildings,'sml_nm');
+		$productSizeCode = $this->project_data["step1"]["product_size"];
+		$productSize = $this->productCodes['product_size'][$productSizeCode];
+		$this->setCellValue('B'.$this->row,$productSize,'sml_nm');
 		
-		$productCode = $this->project_data["step1"]["sheet_size"];
-		$productName = $this->productCodes['sheet_size'][$productCode];
-		$this->setCellValue('C'.$this->row,$productName,'sml_nm');
+		$fasteners = "300 mm, staggered";
+		$this->setCellValue('C'.$this->row,$fasteners,'sml_nm');
 		
-		$productCode = $this->project_data["step1"]["floor_joist_space"];
-		$productName = $this->productCodes['floor_joist_space'][$productCode];
-		$this->setCellValue('D'.$this->row,$productName,'sml_nm');
+		$typeOfFrameCode = $this->project_data["step1"]["type_of_frame"];
+		$typeOfFrameName = $this->productCodes['type_of_frame'][$typeOfFrameCode];
+		$this->setCellValue('D'.$this->row,$typeOfFrameName,'sml_nm');
 		
-		$productCode = $this->project_data["step1"]["type_of_frame"];
-		$productName = $this->productCodes['type_of_frame'][$productCode];
-		$this->setCellValue('E'.$this->row,$productName,'sml_nm');
-		
-		$waste = $this->project_data["step1"]["waste"];
-		$this->setCellValue('F'.$this->row,$waste,'sml_nm');
+		$allowance = $this->project_data["step1"]["allowance"];
+		$this->setCellValue('E'.$this->row,$allowance,'sml_nm');
 
 
 		$this->row += 3;
-		$this->setCellValue('A'.$this->row," STEP_2  Floor Area ",'sml_hd');
+		$this->setCellValue('A'.$this->row," STEP_2  Length Area ",'sml_hd');
 
 		$this->row++;
-		$this->setCellValue('A'.$this->row,'Width(mm)','sml_hd');
-		$this->setCellValue('B'.$this->row,'Length(mm)','sml_hd');
-		$this->setCellValue('C'.$this->row,'Area(m2)','sml_hd');
-
-		foreach($this->project_data["step2"]["areas"] as $key => $area) {
+		$this->setCellValue('A'.$this->row,'Length(mm)','sml_hd');
+		
+		foreach($this->project_data["step2"]["lengths"] as $key => $length) {
 			$this->row++;
-			$this->setCellValue('A'.$this->row,$area["width"],'sml_nm');
-			$this->setCellValue('B'.$this->row,$area["length"],'sml_nm');
-			$this->setCellValue('C'.$this->row,$area["size"],'sml_nm');
+			$this->setCellValue('B'.$this->row,$length["length"],'sml_nm');
 		}
 		
 		$this->row += 2;
-		$this->setCellValue('B'.$this->row,'Total Area(m2)','sml_hd');
-		$this->setCellValue('C'.$this->row,$this->project_data["step2"]["total_area_size"],'sml_hd');
+		$totalLength = round($this->project_data["step2"]["total_length_size"] * 0.001,3);
+		$this->setCellValue('B'.$this->row,'Total length(m)','sml_hd');
+		$this->setCellValue('C'.$this->row,$totalLength,'sml_hd');
 	}
 	
 	private function formatList() {
@@ -221,7 +216,7 @@ class ReportMakerXls extends ReportMaker {
 	}
 	
 	private function out() {
-		$objWriter = PHPExcel_IOFactory::createWriter($this->objPHPExcel, 'Excel2007');
+		$objWriter = PHPExcel_IOFactory::createWriter($this->objPHPExcel, 'Excel5');
 		$objWriter->save('php://output');
 	}
 	
@@ -320,8 +315,8 @@ class ReportMakerDoc extends ReportMaker {
 		$this->out .= 'Total cost: ';
 		$this->b($this->data['total_cost'] . ' php');	
 		$this->br();
-		$this->out .= 'Total cost per sqm:';
-		$this->b($this->data['total_cost_per_sqm'] . ' php');	
+		$this->out .= 'Total cost per m:';
+		$this->b($this->data['total_cost_per_m'] . ' php');	
 
 		$this->br();
 		$this->br();
@@ -330,7 +325,7 @@ class ReportMakerDoc extends ReportMaker {
 		$this->out .= 'All James Hardie products must be installed and maintained in strict accordance to the James Hardie installation instructions';
 		$this->br();
 		$this->br();
-		$this->b('STEP 1: Floor Information');
+		$this->b('STEP 1: Product Information');
 		$this->br();
 		$this->br();
 		$this->b('Product Name: ');
@@ -338,49 +333,40 @@ class ReportMakerDoc extends ReportMaker {
 		$productName = $this->productCodes['product'][$productCode];
 		$this->out .= $productName;
 		$this->br();
-		
-		$this->b('Number of buildings: ');
-		$numberOfBuildings = $this->project_data["step1"]["number_of_buildings"];
-		$this->out .= $numberOfBuildings;
+			
+		$this->b('Product size: ');
+		$productSizeCode = $this->project_data["step1"]["product_size"];
+		$productSize = $this->productCodes['product_size'][$productSizeCode];
+		$this->out .= $productSize;
 		$this->br();
 		
-		$this->b('Sheet size: ');
-		$productCode = $this->project_data["step1"]["sheet_size"];
-		$productName = $this->productCodes['sheet_size'][$productCode];
-		$this->out .= $productName;
-		$this->br();
-		
-		$this->b('Joist: ');
-		$productCode = $this->project_data["step1"]["floor_joist_space"];
-		$productName = $this->productCodes['floor_joist_space'][$productCode];
-		$this->out .= $productName;
+		$this->b('Fasteners spacing: ');
+		$fasteners =  "300 mm, staggered";
+		$this->out .= $fasteners;
 		$this->br();
 		
 		$this->b('Type of Frame: ');
-		$productCode = $this->project_data["step1"]["type_of_frame"];
-		$productName = $this->productCodes['type_of_frame'][$productCode];
-		$this->out .= $productName;
+		$typeOfFrameCode = $this->project_data["step1"]["type_of_frame"];
+		$typeOfFrameName = $this->productCodes['type_of_frame'][$typeOfFrameCode];
+		$this->out .= $typeOfFrameName;
 		$this->br();
 		
-		$this->b('Waste: ');
-		$waste = $this->project_data["step1"]["waste"];
-		$this->out .= $waste;
+		$this->b('Allowance: ');
+		$allowance = $this->project_data["step1"]["allowance"];
+		$this->out .= $allowance;
+	
 		$this->br();
 		$this->br();
 		$this->br();
 
-		$this->b(" STEP 2: Floor Area ");
+		$this->b(" STEP 2: Length Info ");
 		$this->br();
 		$this->br();
 		
-		foreach($this->project_data["step2"]["areas"] as $key => $area) {
+		foreach($this->project_data["step2"]["lengths"] as $key => $length) {
 			
-			$this->b('Width(mm): ');
-			$this->out .= $area["width"];
-			$this->b(', Length(mm): ');
-			$this->out .= $area["length"];
-			$this->b(', Area(m2): ');
-			$this->out .= $area["size"];
+			$this->b('Length(mm): ');
+			$this->out .= $length["length"];
 			$this->br();
 		
 		}
@@ -388,8 +374,9 @@ class ReportMakerDoc extends ReportMaker {
 		$this->br();
 		$this->br();
 		
-		$this->b('Total Area(m2)');
-		$this->out .= $this->project_data["step2"]["total_area_size"];
+		$this->b('Total length(m): ');
+		$totalLength = round($this->project_data["step2"]["total_length_size"] * 0.001,3);
+		$this->out .= $totalLength;
 	}
 	
 	
