@@ -419,7 +419,7 @@ class ReportMakerDoc extends ReportMaker {
 			$i++;
 			$this->out .= '<b>Wall ' . $i . "</b>: <br>Width " . $wall["width"] . 'mm ' 
 					. ', Length: ' . $wall["length"]. 'mm '
-					. ', Size: '. $wall["size"]. 'mm ';
+					. ', Size: '. $wall["size"]. 'm2 ';
 			$this->br();	
 			$this->br();
 			
@@ -427,9 +427,9 @@ class ReportMakerDoc extends ReportMaker {
 				$j = 0;
 				foreach($this->project_data["step2"]["openings"][$key] as $key2 => $opening) {
 					$j++;
-					$this->out .= '<b>Opening ' . $j . "</b>: <br>Width " . $opening["width"] . 'mm '
+					$this->out .= '-------<b>Opening ' . $j . "</b>: Width^ " . $opening["width"] . 'mm '
 					. ', Height: ' . $opening["height"] . 'mm '
-					. ', Size: '. $opening["size"] . 'mm ';
+					. ', Size: '. $opening["size"] . 'm2 ';
 					$this->br();
 					$this->br();
 				}
@@ -447,9 +447,9 @@ class ReportMakerDoc extends ReportMaker {
 		foreach($this->project_data["step3"]["gables"] as $key => $gable) {
 			$i++;
 			$this->row++;
-			$this->out .= '<b>Gable ' . $i . "</b>: Width" . $gable["base"] . 'mm '
+			$this->out .= '<b>Gable ' . $i . "</b>: Width: " . $gable["base"] . 'mm '
 					. ', Height: ' . $gable["height"] . 'mm '
-					. ', Size: '. $gable["size"] . 'mm ';
+					. ', Size: '. $gable["size"] . 'm2 ';
 			$this->br();	
 			
 		}
