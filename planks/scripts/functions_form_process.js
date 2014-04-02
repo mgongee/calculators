@@ -135,7 +135,7 @@ load_openings = function(step_data, wall_number){
 		$("#add_openings_target\\[" + wall_number + "\\] tbody.openings").append(new_opening_field);
 	}
 	
-	$("#step2\\[total_opening_area\\]\\[" + wall_number + "\\]").val(
+	$("#step2\\[total_opening_area\\]\\[" + wall_number + "\\]").attr("value",
 		step_data["total_opening_area"][wall_number]
 	);
 };
