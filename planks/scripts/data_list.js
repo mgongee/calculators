@@ -5,7 +5,7 @@ window.list_data = {
 	},
 	"step1_type_of_frame": {
 		"steel_0.55_to_1.66mm_bmt" : "Steel 0.55 to 1.66 mm BMT",
-		"timber" : "Timber",
+		//"timber" : "Timber",
 		"masonry_substrate" : "Masonry Substrate"
 	},
 	"step1_wind_zone": {

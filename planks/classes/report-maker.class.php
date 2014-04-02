@@ -427,7 +427,7 @@ class ReportMakerDoc extends ReportMaker {
 				$j = 0;
 				foreach($this->project_data["step2"]["openings"][$key] as $key2 => $opening) {
 					$j++;
-					$this->out .= '-------<b>Opening ' . $j . "</b>: Width^ " . $opening["width"] . 'mm '
+					$this->out .= '-------<b>Opening ' . $j . "</b>: Width: " . $opening["width"] . 'mm '
 					. ', Height: ' . $opening["height"] . 'mm '
 					. ', Size: '. $opening["size"] . 'm2 ';
 					$this->br();
