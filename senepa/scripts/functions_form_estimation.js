@@ -75,7 +75,9 @@ calculate_total_bill = function() {
 			cost = parseFloat($(this).val());
 		});
 		
-		total_cost += parseFloat(quantity * cost);
+		if (!isNaN(cost) && !isNaN(quantity)) {
+			total_cost += parseFloat(quantity * cost);
+		}
 	});
 	
 	total_cost = total_cost.toFixed(2);

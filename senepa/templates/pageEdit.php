@@ -1,5 +1,5 @@
 <div>
-	<img width="1000" border="0" alt="" src="templates/olddesign/images/floor_strip.jpg">
+	<img width="1000" border="0" alt="" src="templates/images/floor_strip.jpg">
 </div>
 <div id="projectData" style="display:none"><?php echo($project['project_data']); ?></div>
 <div id="middle-wrapper-div">

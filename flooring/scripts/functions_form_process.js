@@ -2,7 +2,7 @@
  * There are functions that related to processing changes in the created form
  */
 
-/*********** Code for Estimate page ************/
+/*********** Code for Add / Edit page ************/
 
 /**
  * Adds new area to project

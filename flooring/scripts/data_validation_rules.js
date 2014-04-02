@@ -29,11 +29,6 @@ window.validation_rules =  {
 			number: true,
 			min: 0.01
 		},
-		"add_area[size]": {
-			required: false,
-			number: true,
-			min: 0.01
-		}
 	},
 	messages: {
 		"step1[project_name]": "Please enter project name",

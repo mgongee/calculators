@@ -27,7 +27,7 @@ window.calculation_numbers = {
 		"12mm_x_305mm_x_2438mm" : 400033,
 		"12mm_x_305mm_x_3360mm" : 400033
 	},
-	"fastener_type_for_timber" : 4000326,
+	"fastener_type_for_timber" : 400036,
 	"number_of_fasteners_per_board" : {
 		"9mm_x_254mm_x_2438mm" : 14,
 		"12mm_x_254mm_x_2438mm" : 14,
