@@ -1,0 +1,424 @@
+div.col50 {
+	width: 430px;
+	float:left;
+}
+
+
+.step_header {
+	color: #647684;
+    font-family: Arial,Helvetica,sans-serif;
+	background-color: #FFFFFF;
+    font-size: 18px;
+    position: absolute;
+    top: -72px;
+}
+
+.field_text {
+    color: #647684;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 8px;
+}
+
+.units {
+    color: #647684;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 8px;
+	padding-left: 10px;
+}
+
+.input-label {
+	color: #647684;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 14px;
+	margin-right: 20px;
+}
+
+label.error {
+	color: red;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 14px;
+	margin-left: 10px;
+	background-color: #FFFFE0;
+    border: 1px solid #000000;
+	padding: 3px;
+	display: block;
+	position: absolute;
+	z-index:30;
+}
+
+.form-group {
+	margin-bottom: 6px;
+}
+
+.navigation_button {
+	padding: 10px;
+}
+
+.button_forward {
+	float: right;
+}
+
+#load_projects {
+    background-color: #647684;
+    padding: 10px;
+	font-size: 13px;
+    margin-bottom: 10px;
+    width: 380px;
+}
+
+#load_projects select{
+	height: auto;
+}
+
+#step_layer {
+	height: 86px;
+    left: 124px;
+    position: absolute;
+    top: 348px;
+    visibility: visible;
+    width: 900px;
+    z-index: 49;
+}
+
+.input-field {
+	height: auto;
+}
+
+.col-area {
+	width: 124px;
+	float:left;
+}
+
+.area_button {
+	padding: 3px;
+	margin-top: 19px;
+}
+
+.button_back {
+	position: absolute;
+	left:-74px;
+	background-image: url("images/backbut.jpg");
+    background-repeat: no-repeat;
+    background-size: 68px auto;
+    height: 65px;
+    width: 68px;
+	border: none;
+	cursor: pointer;
+}
+
+
+.button_back2 {
+	background-color: #FFFFFF;
+	background-image: url("images/backbut.jpg");
+	background-repeat: no-repeat;
+	background-size: 48px auto;
+	border: medium none;
+	cursor: pointer;
+	height: 48px;
+	left: -2px;
+	position: absolute;
+	top: 420px;
+	width: 68px;
+	z-index: 30;
+}
+
+
+.button_forward {
+	position: absolute;
+	right: -30px;
+	top: 190px;
+	background-image: url("images/Nextbutl.jpg");
+    background-repeat: no-repeat;
+    background-size: 150px 60px;
+	width: 150px;
+    height: 60px;
+    border: none;
+	cursor: pointer;
+}
+
+
+.step {
+	height: 200px;
+}
+
+.go_to_estimation {
+	position: absolute;
+	right: -30px;
+	top: 260px;
+}
+
+.show_dialog_openings_to_wall_button {
+	margin-right: 10px;
+	background-color: #DDDDDD;
+	padding:8px;	
+	display: block;
+	float: left;
+}
+
+a.add_opening_button {
+	background-color: #DDDDDD;
+	padding:8px;
+	display: block;
+	float: left;
+}
+
+.openings_container {
+	background-color: #ccc;
+	z-index: 400;
+	padding: 10px;
+	width: 460px;
+	height:240px;
+}
+
+.openings_table {
+	position: absolute; 
+	background-color: #ccc;
+	z-index: 400;
+	width: 430px;
+}
+
+.openings_dialog_close {
+	background-color: #FFFFFF;
+	float: right;
+	display: block;
+	padding: 5px;
+}
+/**** Estimation page ***/
+
+#middle_wrapper {
+	padding: 10px 0px 0px 20px;
+	position: absolute;
+}
+
+div#estimation_left_table {
+	width: 390px;
+	background-color:#647684;
+	font-size: 12px;
+	margin-right:20px;
+}
+
+div#estimation_left_table p, div#estimation_low_left_table p{
+	font-size: 14px;
+	margin-left: 10px;
+	margin-bottom: 5px;
+    margin-top: 5px;
+	color:white;
+}
+
+table#estimation_values {
+	color: #FFFFFF;
+	width: 100%;
+}
+
+table#estimation_values th {
+	background-color: #808080;
+	color: #DDDDDD;
+}
+
+table#estimation_values td{
+	padding-left:5px;
+}
+
+table#estimation_values tfoot{
+    font-size: 13px;
+    font-weight: bold;
+}
+
+table#estimation_values tfoot td{
+    padding-top: 20px;	
+}
+
+
+div#estimation_right_table, div#cost_library {
+	background-color: #EEEEEE;
+	font-size: 12px;
+	width: 546px;
+	position: relative;
+    top: -213px;
+    left: 413px;
+}
+
+
+
+table#project_data, table#cost_table {
+	width: 100%;
+}
+
+div#estimation_low_right_table {
+	color: #FFFFFF;
+    font-size: 12px;
+    height: 197px;
+    margin-right: 20px;
+    margin-top: 10px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-right: 5px;
+    padding-top: 10px;
+    width: 543px;
+	position: relative;
+    top: -213px;
+    left: 413px;
+}
+
+div#estimation_link_icons {
+	color: #FFFFFF;
+    font-size: 12px;
+    width: 443px;
+    left: 555px;
+    position: absolute;
+    top: 355px;
+}
+
+div#bill_header {
+	background-color: #647684;
+	color: #ffffff;
+	height: 21px;
+    padding: 10px;
+}
+
+
+div#quantities_buttons{ 
+	float:right;
+	text-align: right;
+}
+div.header2 {
+	float:left;
+	font-size:16px;
+	font-weight: bold;
+}
+
+a.bill_header_link_button, a.make_report_button {
+	display: block;
+    float: left;
+    margin-left: 10px;
+	background-color: #DDDDDD;
+	padding:3px;
+}
+
+a.project_action_button {
+	display: block;
+    float: left;
+    margin-left: 10px;
+	background-color: #647684;
+	color: white;
+	padding:3px;	
+}
+
+table#bill_of_quantities {
+	color:black;
+}
+
+a.bill_delete_button {
+	background-color: #CCCCCC;
+	color: #ffffff;
+	padding:3px;
+	font-weight: bold;
+}
+
+table#bill_of_quantities tfoot {
+	font-weight: bold;
+}
+
+table#bill_of_quantities tfoot td {
+	padding-top:10px;
+	text-align: right;
+}
+
+
+
+div#estimation_low_left_table {
+	width: 390px;
+	clear: left;
+	background-color:#647684;
+	font-size: 12px;
+	float:left;
+	margin: 20px 20px 0px 0px;
+	color:white;
+	position: relative;
+    top: -275px;
+	z-index: 400;
+}
+
+table#labour_rates_data {
+	width: 100%;
+	color: white;
+
+}
+
+table#labour_rates_data th {
+	background-color: #808080;
+	color: #DDDDDD;
+}
+table#labour_rates_data td {
+	padding-left: 5px;
+}
+
+div#estimation_reports_table {
+	clear: right;
+    font-size: 12px;
+    margin: 0 20px 0 0;
+    position: absolute;   
+	left: 600px;
+    top: 299px;
+    width: 390px;
+}
+
+div#estimation_reports_table2 {
+
+}
+
+.centered a {
+	display: block;
+	padding-top: 22px;
+}
+
+/** scroll */
+
+#Step1_prod_text {
+	height: 149px;
+	left: 688px;
+	position: absolute;
+	top: 333px;
+	width: 267px;
+	z-index: 56;
+	overflow: auto;
+	
+}
+
+.scrolling {
+	height: 224px;
+	overflow: auto;
+}
+
+#estimation_note {
+   left: 9px;
+    position: absolute;
+    top: 341px;
+}
+
+#step1_banner {
+	height: 156px;
+    left: 590px;
+    position: absolute;
+    top: 322px;
+    visibility: visible;
+    width: 403px;
+    z-index: 83;
+}
+
+.ui-slider-handle {
+	-ms-touch-action: none;
+	touch-action: none;
+}
+
+#fancybox-loading, .fancybox-close, .fancybox-prev span, .fancybox-next span {
+    background-image: url("images/fancybox_sprite.png");
+}

@@ -36,7 +36,7 @@
 
 		<form id="calcForm" method="post" action="index.php">
 			<input type="hidden" name="manager_name" value="<?php echo $manager_name?>">
-			<input type="hidden" name="project_type" id="project_type" value="planks" />
+			<input type="hidden" name="project_type" id="project_type" value="matrix" />
 			<input type="hidden" name="action" id="action" value="save">
 
 			<div id="fieldWrapper">
@@ -70,105 +70,52 @@
 -->
 <div id="templates" style="display:none">
 	<div id="template_step2">
-		<div class="col50 add_wall_form">
-			<h3>Add walls</h3>
-			<div class="form-group col-area">
-				<label class="input-label" for="add_wall[width]">Height/Width (mm)</label>
-				<input class="wall_width" name="add_wall[width]" id="add_wall[width]" size="10" />
-			</div>
-			<div class="form-group col-area">
-				<label class="input-label" for="add_wall[length]">Length (mm)</label>
-				<input class="wall_length" name="add_wall[length]" id="add_wall[length]" size="10" />
-			</div>
-			<div class="form-group col-area">
-				<label class="input-label" for="add_wall[size]">or Size (m2)</label>
-				<input class="wall_size" name="add_wall[size]" id="add_wall[size]" size="10" />
-			</div>
-			<div class="col-area centered">
-				<a id="add_wall_button" href="#"><img width="110" border="0" height="21" name="add_wall_img" alt="Add wall" src="images/ADDAREAlrga.jpg"></a>
-			</div>		
-		</div>
-		<div class="col50 scrolling" style="height:185px;">
-			<table id="add_walls_target" class="walls_table field_text">
-				<thead>
-					<tr>
-						<th>#</th>
-						<th>Width (mm)</th>
-						<th>Length (mm)</th>
-						<th>Total Area (m2)</th>
-						<th></th>
-					</tr>
-				</thead>
-				<tbody class="walls"></tbody>
-				<tfoot>
-					<tr>
-						<th colspan="3">Total area (m2)</th>
-						<th>
-							<input class="total_wall_area" size="7" type="text" name="step2[total_wall_area]" id="step2[total_wall_area]" value="" />
-						</th>
-						<th></th>
-					</tr>
-				</tfoot>
-			</table>
-		</div>
-	</div>
-	<div id="template_step3">
-		<div class="col50 add_gable_form">
-			<h3>Add gables</h3>
-			<div class="form-group col-area">
-				<label class="input-label" for="add_gable[base]">Base (mm)</label>
-				<input class="gable_base" name="add_gable[base]" id="add_gable[base]" size="10" />
-			</div>
-			<div class="form-group col-area">
-				<label class="input-label" for="add_gable[height]">Height (mm)</label>
-				<input class="gable_height" name="add_gable[height]" id="add_gable[height]" size="10" />
-			</div>
-			<div class="form-group col-area">
-				<label class="input-label" for="add_gable[size]">or Size (m2)</label>
-				<input class="gable_size" name="add_gable[size]" id="add_gable[size]" size="10" />
-			</div>
-			<div class="col-area centered">
-				<a id="add_gable_button" href="#"><img width="110" border="0" height="21" name="add_gable_img" alt="Add gable" src="images/ADDAREAlrga.jpg"></a>
-			</div>		
-		</div>
-		<div class="col50 scrolling" style="height:200px;">
-			<table id="add_gables_target" class="gables_table field_text">
-				<thead>
-					<tr>
-						<th>#</th>
-						<th>Base (mm)</th>
-						<th>Height (mm)</th>
-						<th>Total Area (m2)</th>
-						<th></th>
-					</tr>
-				</thead>
-				<tbody  class="gables"></tbody>
-				<tfoot>
-					<tr>
-						<th colspan="3">Total area (m2)</th>
-						<th>
-							<input class="total_gable_area" size="7" type="text" name="step3[total_gable_area]" id="step3[total_gable_area]" value="" />
-						</th>
-						<th></th>
-					</tr>
-				</tfoot>
-			</table>
-		</div>
+		<table id="add_walls_target" class="walls_table field_text">
+			<thead>
+				<tr>
+					<th>Sheet size</th>
+					<th>Orientation</th>
+					<th>Frame Spacing (mm)</th>
+					<th>Height/Width (mm)</th>
+					<th>Length (mm)</th>
+					<th>Area (m2)</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody class="walls"></tbody>
+		</table>
+		<br/>
+		<a id="add_wall_button" href="#"><img width="110" border="0" height="21" name="add_wall_img" alt="Add wall" src="images/ADDAREAlrga.jpg"></a>	
 	</div>
 	<table id="template_addwall">
 		<tbody>
 			<tr class="wall_entry">
 				<td>
-					<label for="_STEP_[_FIELDNAME_][_ID_][width]">_LABEL_</label>
+					<select num="_ID_" class="wall_sheet_size" name="_STEP_[_FIELDNAME_][_ID_][sheet_size]" id="_STEP_[_FIELDNAME_][_ID_][sheet_size]" </select>
 				</td>
 				<td>
-					<input number="_ID_" class="wall_width" size="7" type="text" name="_STEP_[_FIELDNAME_][_ID_][width]" id="_STEP_[_FIELDNAME_][_ID_][width]" value="_WIDTH_"/>
+					<select num="_ID_" class="wall_orientation" name="_STEP_[_FIELDNAME_][_ID_][orientation]" id="_STEP_[_FIELDNAME_][_ID_][orientation]"></select>
 				</td>
 				<td>
-					<input class="wall_length" size="7" type="text" name="_STEP_[_FIELDNAME_][_ID_][length]" id="_STEP_[_FIELDNAME_][_ID_][length]" value="_LENGTH_" />
+					<input num="_ID_" readonly="readonly" class="wall_frame_spacing" size="7" type="text" name="_STEP_[_FIELDNAME_][_ID_][frame_spacing]" id="_STEP_[_FIELDNAME_][_ID_][frame_spacing]" value="_FRAME_SPACING_"/>
+				</td>
+				<td>
+					<input num="_ID_" class="wall_height" size="7" type="text" name="_STEP_[_FIELDNAME_][_ID_][height]" id="_STEP_[_FIELDNAME_][_ID_][height]" value="_HEIGHT_"/>
+				</td>
+				<td>
+					<input num="_ID_" class="wall_length" size="7" type="text" name="_STEP_[_FIELDNAME_][_ID_][length]" id="_STEP_[_FIELDNAME_][_ID_][length]" value="_LENGTH_"/>
 				</td>
 				<td>
 					<input class="wall_size" size="7" type="text" name="_STEP_[_FIELDNAME_][_ID_][size]" id="_STEP_[_FIELDNAME_][_ID_][size]" value="_SIZE_" />
+
+					<!-- hidden inputs -->
+					<input num="_ID_" type="hidden" name="_STEP_[_FIELDNAME_][_ID_][fastener_type]" id="_STEP_[_FIELDNAME_][_ID_][fastener_type]" value="_FASTENER_TYPE_"/>
+					<input num="_ID_" type="hidden" name="_STEP_[_FIELDNAME_][_ID_][no_of_fasteners_per_sheet]" id="_STEP_[_FIELDNAME_][_ID_][no_of_fasteners_per_sheet]" value="_FASTENERS_"/>
+					<input num="_ID_" type="hidden" name="_STEP_[_FIELDNAME_][_ID_][amount_of_putty]" id="_STEP_[_FIELDNAME_][_ID_][amount_of_putty]" value="_PUTTY_"/>
+					<input num="_ID_" type="hidden" name="_STEP_[_FIELDNAME_][_ID_][amount_of_sealant]" id="_STEP_[_FIELDNAME_][_ID_][amount_of_sealant]" value="_SEALANT_"/>
+					<input num="_ID_" type="hidden" name="_STEP_[_FIELDNAME_][_ID_][control_joints]" id="_STEP_[_FIELDNAME_][_ID_][control_joints]" value="_CONTROL_JOINTS_"/>
+					<input num="_ID_" type="hidden" name="_STEP_[_FIELDNAME_][_ID_][perforated_paper_tape]" id="_STEP_[_FIELDNAME_][_ID_][perforated_paper_tape]" value="_PAPER_TYPE_"/>
+					<input num="_ID_" type="hidden" name="_STEP_[_FIELDNAME_][_ID_][amount_of_tape]" id="_STEP_[_FIELDNAME_][_ID_][amount_of_tape]" value="_PAPER_"/>
 				</td>
 				<td id="wall_buttons__ID_">
 					<a href="#" class="remove_wall_button" name="_STEP_[_FIELDNAME_][_ID_][delete]" id="_STEP_[_FIELDNAME_][_ID_][delete]">
@@ -246,29 +193,6 @@
 				</td>
 				<td>
 					<a href="#" class="remove_opening_button"  number="_ID_" name="_STEP_[_FIELDNAME_][_ID_][_ID2_][delete]" id="_STEP_[_FIELDNAME_][_ID_][_ID2_]delete]">
-						<img width="50" border="0" height="30" name="Image221" alt="Clear" src="images/clear_b.jpg">
-					</a>
-				</td>
-			</tr>	
-		</tbody>
-	</table>
-	<table id="template_addgable">
-		<tbody>
-			<tr class="gable_entry">
-				<td>
-					<label for="_STEP_[_FIELDNAME_][_ID_][width]">_LABEL_</label>
-				</td>
-				<td>
-					<input number="_ID_" class="gable_base" size="7" type="text" name="_STEP_[_FIELDNAME_][_ID_][base]" id="_STEP_[_FIELDNAME_][_ID_][base]" value="_BASE_"/>
-				</td>
-				<td>
-					<input class="gable_height" size="7" type="text" name="_STEP_[_FIELDNAME_][_ID_][height]" id="_STEP_[_FIELDNAME_][_ID_][height]" value="_HEIGHT_" />
-				</td>
-				<td>
-					<input class="gable_size" size="7" type="text" name="_STEP_[_FIELDNAME_][_ID_][size]" id="_STEP_[_FIELDNAME_][_ID_][size]" value="_SIZE_" />
-				</td>
-				<td>
-					<a href="#" class="remove_gable_button" name="_STEP_[_FIELDNAME_][_ID_][delete]" id="_STEP_[_FIELDNAME_][_ID_][delete]">
 						<img width="50" border="0" height="30" name="Image221" alt="Clear" src="images/clear_b.jpg">
 					</a>
 				</td>

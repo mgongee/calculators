@@ -66,9 +66,10 @@ add_wall = function(){
  * @param {Array} step_data
  */
 load_walls = function(step_data){
-		console.log("load_walls");
+
 	var walls = step_data["walls"];
 	for (var wall_number in walls) {
+		
 		var wall = walls[wall_number];
 
 		var new_wall_field = $("#template_addwall tbody").html().toString();
@@ -105,7 +106,7 @@ load_walls = function(step_data){
 		});
 		
 	}
-
+console.log('test');
 	$("#step2\\[total_wall_area\\]").val(step_data["total_wall_area"]);
 	
 
@@ -116,6 +117,12 @@ load_walls = function(step_data){
  * @param {Array} step_data
  */
 load_openings = function(step_data, wall_number){
+	
+	// if no openings present
+	if (typeof step_data["openings"] == 'undefined') {
+		return false;
+	}
+	
 	var openings = step_data["openings"][wall_number];
 	
 	for (var opening_number in openings) {
@@ -146,7 +153,12 @@ load_openings = function(step_data, wall_number){
  * @param {Array} step_data
  */
 load_gables = function(step_data){
-		console.log("load_gables");
+
+	// if no gables present
+	if (typeof step_data["gables"] == 'undefined') {
+		return false;
+	}
+	
 	var gables = step_data["gables"];
 	for (var gable_number in gables) {
 		var gable = gables[gable_number];

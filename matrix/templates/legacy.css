@@ -1,0 +1,1652 @@
+/* Legacy CSS */
+
+#main-header { }
+#main-wrapper-div { width: 1000px; margin: 0 auto; background: white; height: 622px; }
+#middle-wrapper-div { width: 1000px; margin: 0 auto 0 -53px; position: absolute; top: -125px; }
+#home-footer { position: absolute; width: 1000px; top: 500px; }
+#Step2layer2 { position: static; width: 100%; height: 200px; overflow-y:scroll; }
+
+.jspDrag {  background-color: #647583 !important; }
+.jspArrow { background-color: #959595; background-image: url(images/jscroll-arrows.png) !important; }
+.jspArrow.jspDisabled { background-color: #c0c0c0 !important; }
+.jspArrow.jspArrowDown { background-position: -27px 0; }
+
+
+#apDiv1 {
+	position:absolute;
+	left:1127px;
+	top:118px;
+	width:137px;
+	height:29px;
+	z-index:1;
+	visibility: visible;
+}
+#step2layer2 {
+	position:absolute;
+	left:576px;
+	top:344px;
+	width:395px;
+	height:206px;
+	z-index:2;
+	overflow: auto;	
+}
+.sub_header {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	line-height: 18px;
+	font-weight: lighter;
+}
+body {
+	margin-left: 47px;
+	margin-top: 0px;
+	background-color: #e7e8e9;
+}
+#Step1main {
+	position:absolute;
+	left:53px;
+	top:274px;
+	width:1003px;
+	height:244px;
+	z-index:45;
+	visibility: visible;
+}
+.Field_text {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	line-height: 8px;
+	font-weight: bold;
+	color: #647684;
+}
+.heading_style {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 19px;
+	line-height: 18px;
+	font-weight: bold;
+	color: #647684;
+}
+#step2layer1 {
+	position:absolute;
+	left:171px;
+	top:415px;
+	width:321px;
+	height:105px;
+	z-index:3;
+	visibility: hidden;
+}
+#Layer1 {
+	position:absolute;
+	left:584px;
+	top:383px;
+	width:394px;
+	height:213px;
+	z-index:4;
+}
+#Layer2 {
+	position:absolute;
+	left:170px;
+	top:415px;
+	width:270px;
+	height:165px;
+	z-index:3;
+}
+.style15 {
+	font-size: 12px;
+	color: #647684;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	line-height: 14px;
+}
+#test {
+	position:absolute;
+	left:1095px;
+	top:374px;
+	width:296px;
+	height:166px;
+	z-index:46;
+	visibility: visible;
+}
+
+#Layer3 {
+	position:absolute;
+	left:1085px;
+	top:188px;
+	width:218px;
+	height:209px;
+	z-index:5;
+}
+#Step1NEXT {
+	position:absolute;
+	left:902px;
+	top:530px;
+	width:25px;
+	height:59px;
+	z-index:47;
+	visibility: visible;
+}
+#Step1_Prod_StriaCladd {
+	position:absolute;
+	left:526px;
+	top:322px;
+	width:403px;
+	height:156px;
+	z-index:53;
+	visibility: visible;
+}
+#Step1_Prod_StriaCladd_text {
+	position:absolute;
+	left:688px;
+	top:333px;
+	width:255px;
+	height:149px;
+	z-index:54;
+}
+#Step2main {
+	position:absolute;
+	left:53px;
+	top:278px;
+	width:1003px;
+	height:244px;
+	z-index:40;
+	visibility: hidden;
+}
+.Field_text1 {font-family: Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	line-height: 8px;
+	font-weight: bold;
+	color: #647684;
+}
+#Step2layer1 {
+	position:absolute;
+	left:129px;
+	top:354px;
+	width:369px;
+	height:137px;
+	z-index:41;
+	visibility: hidden;
+}
+#Step2layer2 {
+	position:absolute;
+	left:508px;
+	top:297px;
+	width:373px;
+	height:205px;
+	z-index:42;
+	visibility: hidden;
+}
+.style14 {font-family: Arial, Helvetica, sans-serif; font-size: 11px; font-weight: bold; color: #000000; }
+#Step2NEXT {
+	position:absolute;
+	left:915px;
+	top:530px;
+	width:112px;
+	height:37px;
+	z-index:42;
+}
+#Step2PREVIOUS {
+	position:absolute;
+	left:50px;
+	top:530px;
+	width:58px;
+	height:59px;
+	z-index:43;
+	visibility: hidden;
+}
+#Layer4 {
+	position:absolute;
+	left:70px;
+	top:308px;
+	width:0px;
+	height:8px;
+	z-index:13;
+	visibility: hidden;
+}
+#Step3main {
+	position:absolute;
+	left:53px;
+	top:274px;
+	width:1003px;
+	height:244px;
+	z-index:35;
+	visibility: hidden;
+}
+
+
+#Step3layer1 {
+	position:absolute;
+	left:122px;
+	top:346px;
+	width:338px;
+	height:120px;
+	z-index:36;
+	visibility: hidden;
+}
+#Step3layer2 {
+	position:absolute;
+	left:490px;
+	top:289px;
+	width:385px;
+	height:216px;
+	z-index:37;
+	visibility: hidden;
+}
+#Step3NEXT {
+	position:absolute;
+	left:1010px;
+	top:446px;
+	width:25px;
+	height:59px;
+	z-index:38;
+	visibility: hidden;
+}
+#Step3PREVIOUS {
+	position:absolute;
+	left:59px;
+	top:446px;
+	width:58px;
+	height:59px;
+	z-index:39;
+	visibility: hidden;
+}
+#Layer5 {
+	position:absolute;
+	left:92px;
+	top:308px;
+	width:0px;
+	height:10px;
+	z-index:19;
+	visibility: hidden;
+}
+#Step4main {
+	position:absolute;
+	left:53px;
+	top:274px;
+	width:1003px;
+	height:244px;
+	z-index:30;
+	visibility: hidden;
+}
+#Layer6 {
+	position:absolute;
+	left:106px;
+	top:230px;
+	width:501px;
+	height:343px;
+	z-index:19;
+}
+#Step4layer1 {
+	position:absolute;
+	left:122px;
+	top:355px;
+	width:303px;
+	height:133px;
+	z-index:31;
+	visibility: hidden;
+}
+#Step4layer2 {
+	position:absolute;
+	left:490px;
+	top:289px;
+	width:398px;
+	height:171px;
+	z-index:32;
+	visibility: hidden;
+}
+.flag_layers {	display:none;}
+.flag_texts {	display:none;}
+#Step4NEXT {
+	position:absolute;
+	left:1010px;
+	top:446px;
+	width:25px;
+	height:59px;
+	z-index:33;
+	visibility: hidden;
+}
+#Step4PREVIOUS {
+	position:absolute;
+	left:59px;
+	top:446px;
+	width:58px;
+	height:59;
+	z-index:34;
+	visibility: hidden;
+}
+#Step5main {
+	position:absolute;
+	left:53px;
+	top:137px;
+	width:1003px;
+	height:389px;
+	z-index:25;
+	visibility: hidden;
+}
+#Step5layer1 {
+	position:absolute;
+	left:122px;
+	top:188px;
+	width:303px;
+	height:173px;
+	z-index:26;
+	visibility: hidden;
+}
+#Step5layer2 {
+	position:absolute;
+	left:476px;
+	top:161px;
+	width:525px;
+	height:162px;
+	z-index:27;
+	visibility: hidden;
+}
+#Step5layer3 {
+	position:absolute;
+	left:689px;
+	top:334px;
+	width:290px;
+	height:34px;
+	z-index:28;
+	visibility: hidden;
+}
+#Layer7 {
+	position:absolute;
+	left:1106px;
+	top:417px;
+	width:135px;
+	height:66px;
+	z-index:49;
+}
+#Layer8 {
+	position:absolute;
+	left:1074px;
+	top:471px;
+	width:191px;
+	height:67px;
+	z-index:49;
+}
+#Layer9 {
+	position:absolute;
+	left:641px;
+	top:545px;
+	width:346px;
+	height:43px;
+	z-index:49;
+}
+#Step1_Prod_MatrixCladd {
+	position:absolute;
+	left:526px;
+	top:322px;
+	width:403px;
+	height:156px;
+	z-index:50;
+	visibility: hidden;
+}
+#Step1_Prod_MatrixCladd_text {
+	position:absolute;
+	left:688px;
+	top:333px;
+	width:224px;
+	height:137px;
+	z-index:51;
+	visibility: hidden;
+}
+.Product_headings {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	color: #647684;
+	line-height: 14px;
+}
+.accelerate_body {	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	line-height: 14px;
+	font-weight: normal;
+	color: #647684;
+}
+#Step2NEXT {
+	position:absolute;
+	left:902px;
+	top:530px;
+	width:25px;
+	height:59px;
+	z-index:44;
+	visibility: hidden;
+}
+#Layer10 {
+	position:absolute;
+	left:82px;
+	top:469px;
+	width:47px;
+	height:64px;
+	z-index:52;
+}
+#Step1important {
+	position:absolute;
+	left:123px;
+	top:473px;
+	width:384px;
+	height:46px;
+	z-index:50;
+	visibility: visible;
+}
+.bold_text {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	line-height: 12px;
+	font-weight: bold;
+	color: #647684;
+}
+#Layer11 {
+	position:absolute;
+	left:541px;
+	top:346px;
+	width:0px;
+	height:11px;
+	z-index:51;
+}
+#Step1_Prod_AxentTrim {
+	position:absolute;
+	left:526px;
+	top:322px;
+	width:403px;
+	height:156px;
+	z-index:55;
+	visibility: hidden;
+}
+#Step1_Prod_AxentTrim_text {
+	position:absolute;
+	left:688px;
+	top:333px;
+	width:224px;
+	height:149px;
+	z-index:56;
+	visibility: hidden;
+}
+#Layer12 {
+	position:absolute;
+	left:1057px;
+	top:351px;
+	width:174px;
+	height:81px;
+	z-index:54;
+	visibility: visible;
+}
+#Step1_Prod_AxonCladd {
+	position:absolute;
+	left:526px;
+	top:322px;
+	width:403px;
+	height:156px;
+	z-index:57;
+}
+#Step1_Prod_AxonCladd_Text {
+	position:absolute;
+	left:688px;
+	top:333px;
+	width:245px;
+	height:149px;
+	z-index:58;
+}
+#Layer13 {
+	position:absolute;
+	left:1083px;
+	top:354px;
+	width:203px;
+	height:130px;
+	z-index:57;
+}
+#Step1_Prod_Linea_150 {
+	position:absolute;
+	left:526px;
+	top:322px;
+	width:403px;
+	height:156px;
+	z-index:59;
+}
+#Step1_Prod_Linea_150_Text {
+	position:absolute;
+	left:688px;
+	top:333px;
+	width:267px;
+	height:130px;
+	z-index:60;
+}
+#Layer14 {
+	position:absolute;
+	left:1083px;
+	top:390px;
+	width:162px;
+	height:75px;
+	z-index:59;
+}
+#Step1_Scyon_Secura_interior_flooring_dry_area {
+	position:absolute;
+	left:536px;
+	top:322px;
+	width:403px;
+	height:156px;
+	z-index:61;
+}
+#Step1_Scyon_Secura_interior_flooring_dry_area_Text {
+	position:absolute;
+	left:695px;
+	top:333px;
+	width:257px;
+	height:149px;
+	z-index:62;
+}
+
+
+#Step1_Scyon_Secura_interior_flooring_wet_area {
+	position:absolute;
+	left:536px;
+	top:322px;
+	width:403px;
+	height:156px;
+	z-index:61;
+}
+#Step1_Scyon_Secura_interior_flooring_wet_area_Text {
+	position:absolute;
+	left:695px;
+	top:333px;
+	width:257px;
+	height:149px;
+	z-index:62;
+}
+#Step1_Scyon_Secura_wet_area_flooring {
+	position:absolute;
+	left:536px;
+	top:322px;
+	width:403px;
+	height:156px;
+	z-index:61;
+}
+#Step1_Scyon_Secura_wet_area_flooring_Text {
+	position:absolute;
+	left:695px;
+	top:333px;
+	width:257px;
+	height:149px;
+	z-index:62;
+}
+.Product_headingsSML {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	color: #647684;
+	line-height: 14px;
+	letter-spacing: normal;
+}
+#Step1_Scyon_Secura_exterior_flooring {
+	position:absolute;
+	left:526px;
+	top:322px;
+	width:403px;
+	height:156px;
+	z-index:63;
+}
+#Step1_Scyon_Secura_exterior_flooring_Text {
+	position:absolute;
+	left:695px;
+	top:333px;
+	width:259px;
+	height:149px;
+	z-index:64;
+}
+#Step1_HardiePanel_compressed_sheets_15mm-_Decking{
+	position:absolute;
+	left:536px;
+	top:322px;
+	width:403px;
+	height:156px;
+	z-index:63;
+}
+#Step1_HardiePanel_compressed_sheets_15mm-_Decking_Text{
+	position:absolute;
+	left:695px;
+	top:333px;
+	width:259px;
+	height:149px;
+	z-index:64;
+	overflow-y:scroll;
+}
+#Step1_HardiePanel_compressed_sheets_15mm-_Internal_Area{
+	position:absolute;
+	left:536px;
+	top:322px;
+	width:403px;
+	height:156px;
+	z-index:63;
+}
+#Step1_HardiePanel_compressed_sheets_18mm-_Decking{
+	position:absolute;
+	left:536px;
+	top:322px;
+	width:403px;
+	height:156px;
+	z-index:63;
+}
+#Step1_HardiePanel_compressed_sheets_18mm-_Internal_Area{
+	position:absolute;
+	left:536px;
+	top:322px;
+	width:403px;
+	height:156px;
+	z-index:63;
+}
+
+#Step1_HardiePanel_compressed_sheets_15mm-_Internal_Area_Text{
+	position:absolute;
+	left:695px;
+	top:333px;
+	width:259px;
+	height:149px;
+	z-index:64;
+	overflow-y:scroll;
+}
+
+#Step1_HardiePanel_compressed_sheets_18mm-_Decking_Text{
+	position:absolute;
+	left:695px;
+	top:333px;
+	width:259px;
+	height:149px;
+	z-index:64;
+	overflow-y:scroll;
+}
+
+#Step1_HardiePanel_compressed_sheets_18mm-_Internal_Area_Text{
+	position:absolute;
+	left:695px;
+	top:333px;
+	width:259px;
+	height:149px;
+	z-index:64;
+	overflow-y:scroll;
+}
+
+#Step1_Prod_Hardiflex {
+	position:absolute;
+	left:536px;
+	top:322px;
+	width:403px;
+	height:156px;
+	z-index:65;
+	visibility: hidden;
+}
+#Step1_Prod_Hardiflex_Text {
+	position:absolute;
+	left:695px;
+	top:333px;
+	width:247px;
+	height:145px;
+	z-index:66;
+	overflow: auto;
+	visibility: hidden;
+}
+#Layer15 {
+	position:absolute;
+	left:1078px;
+	top:194px;
+	width:191px;
+	height:397px;
+	z-index:65;
+}
+#Step1_Prod_HardiTex {
+	position:absolute;
+	left:536px;
+	top:322px;
+	width:403px;
+	height:156px;
+	z-index:67;
+	visibility: hidden;
+}
+#Step1_Prod_HardiTex_Text {
+	position:absolute;
+	left:688px;
+	top:333px;
+	width:224px;
+	height:149px;
+	z-index:68;
+	overflow: auto;
+	visibility: hidden;
+}
+#Layer16 {
+	position:absolute;
+	left:1085px;
+	top:315px;
+	width:169px;
+	height:262px;
+	z-index:67;
+}
+#Step1_Prod_Primeline_Chamfer {
+	position:absolute;
+	left:526px;
+	top:322px;
+	width:403px;
+	height:156px;
+	z-index:69;
+	visibility: visible;
+}
+#Step1_Prod_Primeline_Chamfer_Text {
+	position:absolute;
+	left:688px;
+	top:333px;
+	width:246px;
+	height:142px;
+	z-index:70;
+	visibility: visible;
+}
+#Layer17 {
+	position:absolute;
+	left:1086px;
+	top:285px;
+	width:180px;
+	height:263px;
+	z-index:69;
+}
+#Step1_Prod_HardiPlank {
+	position:absolute;
+	left:526px;
+	top:322px;
+	width:403px;
+	height:156px;
+	z-index:71;
+	visibility: hidden;
+}
+#Step1_Prod_HardiPlank_Text {
+	position:absolute;
+	left:688px;
+	top:333px;
+	width:235px;
+	height:139px;
+	z-index:72;
+	overflow: auto;
+	visibility: hidden;
+}
+#Layer18 {
+	position:absolute;
+	left:1088px;
+	top:335px;
+	width:170px;
+	height:213px;
+	z-index:71;
+}
+#Step1_Prod_PanelClad {
+	position:absolute;
+	left:526px;
+	top:322px;
+	width:403px;
+	height:156px;
+	z-index:73;
+	visibility: hidden;
+}
+#Step1_Prod_PanelClad_Text {
+	position:absolute;
+	left:688px;
+	top:333px;
+	width:224px;
+	height:149px;
+	z-index:74;
+	overflow: auto;
+	visibility: hidden;
+}
+#Layer19 {
+	position:absolute;
+	left:1062px;
+	top:357px;
+	width:207px;
+	height:220px;
+	z-index:73;
+	visibility: visible;
+}
+#Step1_Prod_ExoTec {
+	position:absolute;
+	left:526px;
+	top:322px;
+	width:403px;
+	height:156px;
+	z-index:75;
+	visibility: hidden;
+}
+#Step1_Prod_ExoTec_Text {
+	position:absolute;
+	left:688px;
+	top:333px;
+	width:224px;
+	height:138px;
+	z-index:76;
+	overflow: auto;
+	visibility: hidden;
+}
+#Layer20 {
+	position:absolute;
+	left:1083px;
+	top:248px;
+	width:225px;
+	height:250px;
+	z-index:75;
+	visibility: visible;
+}
+#Step1_Prod_Villaboard {
+	position:absolute;
+	left:526px;
+	top:322px;
+	width:403px;
+	height:156px;
+	z-index:77;
+	visibility: hidden;
+}
+#Step1_Prod_Villaboard_text {
+	position:absolute;
+	left:688px;
+	top:333px;
+	width:224px;
+	height:143px;
+	z-index:78;
+	overflow: auto;
+	visibility: hidden;
+}
+#Layer21 {
+	position:absolute;
+	left:1074px;
+	top:64px;
+	width:219px;
+	height:435px;
+	z-index:77;
+	visibility: visible;
+}
+#Layer22 {
+	position:absolute;
+	left:686px;
+	top:360px;
+	width:212px;
+	height:164px;
+	z-index:78;
+}
+#Layer23 {
+	position:absolute;
+	left:0px;
+	top:0px;
+	width:1143px;
+	height:66px;
+	z-index:78;
+}
+#Step1_Prod_HardiGroove {
+	position:absolute;
+	left:526px;
+	top:322px;
+	width:403px;
+	height:156px;
+	z-index:79;
+	visibility: hidden;
+}
+#Step1_Prod_HardiGroove_Text {
+	position:absolute;
+	left:688px;
+	top:333px;
+	width:224px;
+	height:149px;
+	z-index:80;
+	visibility: hidden;
+}
+#Layer24 {
+	position:absolute;
+	left:1080px;
+	top:314px;
+	width:177px;
+	height:84px;
+	z-index:79;
+}
+#Layer25 {
+	position:absolute;
+	left:1077px;
+	top:313px;
+	width:166px;
+	height:239px;
+	z-index:79;
+}
+#Layer26 {
+	position:absolute;
+	left:744px;
+	top:327px;
+	width:199px;
+	height:237px;
+	z-index:80;
+}
+#Step1_Prod_PineRidge {
+	position:absolute;
+	left:526px;
+	top:322px;
+	width:403px;
+	height:156px;
+	z-index:81;
+	visibility: hidden;
+}
+#Step1_Prod_PineRidge_Text {
+	position:absolute;
+	left:688px;
+	top:333px;
+	width:224px;
+	height:139px;
+	z-index:82;
+	visibility: hidden;
+}
+#Layer27 {
+	position:absolute;
+	left:1106px;
+	top:328px;
+	width:176px;
+	height:123px;
+	z-index:81;
+}
+#Step1_Prod_HardiFence {
+	position:absolute;
+	left:526px;
+	top:322px;
+	width:403px;
+	height:156px;
+	z-index:84;
+	visibility: hidden;
+}
+#Layer28 {
+	position:absolute;
+	left:720px;
+	top:430px;
+	width:0px;
+	height:11px;
+	z-index:82;
+}
+#Step1_Prod_HardiFence_Text {
+	position:absolute;
+	left:688px;
+	top:333px;
+	width:224px;
+	height:144px;
+	z-index:85;
+	visibility: hidden;
+}
+#Layer29 {
+	position:absolute;
+	left:1105px;
+	top:320px;
+	width:177px;
+	height:209px;
+	z-index:84;
+}
+#Step1_Prod_HardiScreen {
+	position:absolute;
+	left:526px;
+	top:322px;
+	width:403px;
+	height:156px;
+	z-index:86;
+	visibility: hidden;
+}
+#Step1_Prod_HardiScreen_Text {
+	position:absolute;
+	left:688px;
+	top:333px;
+	width:224px;
+	height:141px;
+	z-index:87;
+	overflow: auto;
+	visibility: hidden;
+}
+#Layer30 {
+	position:absolute;
+	left:1078px;
+	top:243px;
+	width:174px;
+	height:163px;
+	z-index:86;
+}
+#Step1_Prod_HardiBrace {
+	position:absolute;
+	left:526px;
+	top:322px;
+	width:403px;
+	height:156px;
+	z-index:88;
+	visibility: hidden;
+}
+#Step1_Prod_HardiBrace_Text {
+	position:absolute;
+	left:688px;
+	top:333px;
+	width:224px;
+	height:142px;
+	z-index:89;
+	overflow: auto;
+	visibility: hidden;
+}
+#Layer31 {
+	position:absolute;
+	left:1103px;
+	top:288px;
+	width:179px;
+	height:236px;
+	z-index:88;
+}
+#Step1_Prod_Artista {
+	position:absolute;
+	left:526px;
+	top:322px;
+	width:403px;
+	height:156px;
+	z-index:90;
+	visibility: hidden;
+}
+#Step1_Prod_Artista_Text {
+	position:absolute;
+	left:688px;
+	top:333px;
+	width:249px;
+	height:139px;
+	z-index:91;
+	overflow: auto;
+	visibility: hidden;
+}
+#Layer32 {
+	position:absolute;
+	left:1073px;
+	top:299px;
+	width:183px;
+	height:249px;
+	z-index:90;
+}
+#Step1_James_Hardie_ceramic_tile_underlay {
+	position:absolute;
+	left:536px;
+	top:322px;
+	width:403px;
+	height:156px;
+	z-index:92;
+}
+#Step1_James_Hardie_ceramic_tile_underlay_Text {
+	position:absolute;
+	left:695px;
+	top:333px;
+	width:256px;
+	height:141px;
+	z-index:93;
+}
+#Layer33 {
+	position:absolute;
+	left:1097px;
+	top:346px;
+	width:141px;
+	height:84px;
+	z-index:92;
+	visibility: visible;
+}
+#Step1_James_Hardie_vinyl_and_cork_underlay {
+	position:absolute;
+	left:536px;
+	top:322px;
+	width:403px;
+	height:156px;
+	z-index:94;
+}
+#Step1_James_Hardie_vinyl_and_cork_underlay_Text {
+	position:absolute;
+	left:695px;
+	top:333px;
+	width:281px;
+	height:141px;
+	z-index:95;
+}
+#Layer34 {
+	position:absolute;
+	left:1093px;
+	top:357px;
+	width:176px;
+	height:82px;
+	z-index:94;
+}
+#Step1_Prod_Basecoat {
+	position:absolute;
+	left:526px;
+	top:322px;
+	width:403px;
+	height:156px;
+	z-index:98;
+	visibility: hidden;
+}
+#Step1_Prod_Basecoat_Text {
+	position:absolute;
+	left:688px;
+	top:333px;
+	width:234px;
+	height:136px;
+	z-index:99;
+	visibility: hidden;
+}
+#Layer35 {
+	position:absolute;
+	left:1073px;
+	top:315px;
+	width:102px;
+	height:115px;
+	z-index:96;
+}
+#Step1_Prod_Topcoat {
+	position:absolute;
+	left:526px;
+	top:322px;
+	width:403px;
+	height:156px;
+	z-index:96;
+	visibility: hidden;
+}
+#Step1_Prod_Topcoat_Text {
+	position:absolute;
+	left:688px;
+	top:333px;
+	width:238px;
+	height:141px;
+	z-index:97;
+	visibility: hidden;
+}
+#Layer36 {
+	position:absolute;
+	left:1074px;
+	top:308px;
+	width:126px;
+	height:147px;
+	z-index:98;
+}
+#Step1_Prod_HardiColour {
+	position:absolute;
+	left:526px;
+	top:322px;
+	width:403px;
+	height:156px;
+	z-index:100;
+	visibility: hidden;
+}
+#Step1_Prod_HardiColour_Text {
+	position:absolute;
+	left:688px;
+	top:333px;
+	width:257px;
+	height:97px;
+	z-index:101;
+	visibility: hidden;
+}
+#Step1_Prod_Comtex {
+	position:absolute;
+	left:526px;
+	top:322px;
+	width:403px;
+	height:156px;
+	z-index:102;
+	visibility: hidden;
+}
+#Step1_Prod_Comtex_Text {
+	position:absolute;
+	left:688px;
+	top:333px;
+	width:224px;
+	height:139px;
+	z-index:103;
+	visibility: hidden;
+}
+#Layer37 {
+	position:absolute;
+	left:1081px;
+	top:343px;
+	width:180px;
+	height:155px;
+	z-index:103;
+}
+#Layer38 {
+	position:absolute;
+	left:682px;
+	top:379px;
+	width:227px;
+	height:201px;
+	z-index:103;
+}
+#Layer39 {
+	position:absolute;
+	left:1091px;
+	top:327px;
+	width:186px;
+	height:178px;
+	z-index:103;
+}
+#Layer40 {
+	position:absolute;
+	left:707px;
+	top:356px;
+	width:230px;
+	height:180px;
+	z-index:104;
+}
+#Layer41 {
+	position:absolute;
+	left:449px;
+	top:192px;
+	width:538px;
+	height:116px;
+	z-index:104;
+}
+#Animation_header {
+	position:absolute;
+	left:1032px;
+	top:199px;
+	width:183px;
+	height:136px;
+	z-index:2;
+	visibility: visible;
+}
+#Step1layer1 {
+	position:absolute;
+	left:124px;
+	top:348px;
+	width:400px;
+	height:86px;
+	z-index:49;
+	visibility: visible;
+}
+.Field_text_white {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	line-height: 8px;
+	font-weight: bold;
+	color: #FFFFFF;
+}
+#Step1_Prod_Linea_180_Text {
+	position:absolute;
+	left:688px;
+	top:333px;
+	width:267px;
+	height:149px;
+	z-index:68;
+	visibility: visible;
+}
+#Step1_Prod_Linea_180 {
+	position:absolute;
+	left:526px;
+	top:322px;
+	width:403px;
+	height:156px;
+	z-index:67;
+	visibility: visible;
+}
+#Step1_Prod_Primeline_Heritage_Text {
+	position:absolute;
+	left:688px;
+	top:333px;
+	width:257px;
+	height:143px;
+	z-index:72;
+	visibility: visible;
+}
+#apDiv2 {
+	position:absolute;
+	left:888px;
+	top:294px;
+	width:245px;
+	height:89px;
+	z-index:72;
+}
+#apDiv3 {
+	position:absolute;
+	left:564px;
+	top:294px;
+	width:400px;
+	height:187px;
+	z-index:72;
+}
+#Step1_Prod_Primeline_Heritage {
+	position:absolute;
+	left:526px;
+	top:322px;
+	width:403px;
+	height:156px;
+	z-index:71;
+	visibility: visible;
+}
+#Step1_Prod_Primeline_Newport {
+	position:absolute;
+	left:526px;
+	top:322px;
+	width:403px;
+	height:156px;
+	z-index:73;
+	visibility: visible;
+}
+#Step1_Prod_Primeline_Newport_Text {
+	position:absolute;
+	left:688px;
+	top:333px;
+	width:251px;
+	height:145px;
+	z-index:74;
+	visibility: visible;
+}
+#Step1_Prod_Primeline_Summit {
+	position:absolute;
+	left:526px;
+	top:322px;
+	width:403px;
+	height:156px;
+	z-index:75;
+	visibility: visible;
+}
+#Step1_Prod_Primeline_Summit_Text {
+	position:absolute;
+	left:688px;
+	top:333px;
+	width:251px;
+	height:149px;
+	z-index:76;
+	visibility: visible;
+}
+#Step1_Prod_HardiPlank_Oldstyle {
+	position:absolute;
+	left:526px;
+	top:322px;
+	width:403px;
+	height:156px;
+	z-index:77;
+	visibility: visible;
+}
+#Step1_Prod_HardiPlank_Oldstyle_Text {
+	position:absolute;
+	left:688px;
+	top:333px;
+	width:233px;
+	height:135px;
+	z-index:78;
+	visibility: visible;
+}
+#Step1_Prod_HardiPlank_Rusticated {
+	position:absolute;
+	left:526px;
+	top:322px;
+	width:403px;
+	height:156px;
+	z-index:79;
+	visibility: visible;
+}
+#Step1_Prod_HardiPlank_Rusticated_Text {
+	position:absolute;
+	left:688px;
+	top:333px;
+	width:237px;
+	height:149px;
+	z-index:80;
+	visibility: visible;
+}
+#Step1_Prod_HardiPlank_Smooth-230 {
+	position:absolute;
+	left:526px;
+	top:322px;
+	width:403px;
+	height:156px;
+	z-index:81;
+	visibility: visible;
+}
+#Step1_Prod_HardiPlank_Smooth-230_Text {
+	position:absolute;
+	left:688px;
+	top:333px;
+	width:242px;
+	height:120px;
+	z-index:82;
+	visibility: visible;
+}
+#Step1_Prod_HardiPlank_Smooth-300 {
+	position:absolute;
+	left:526px;
+	top:322px;
+	width:403px;
+	height:156px;
+	z-index:83;
+	visibility: visible;
+}
+#Step1_Prod_HardiPlank_Smooth-300_Text {
+	position:absolute;
+	left:688px;
+	top:333px;
+	width:238px;
+	height:149px;
+	z-index:84;
+	visibility: visible;
+}
+#Step1_Prod_HardiPlank_Woodgrain-230 {
+	position:absolute;
+	left:526px;
+	top:322px;
+	width:403px;
+	height:156px;
+	z-index:85;
+	visibility: visible;
+}
+#Step1_Prod_HardiPlank_Woodgrain-230_Text {
+	position:absolute;
+	left:688px;
+	top:333px;
+	width:258px;
+	height:149px;
+	z-index:86;
+	visibility: visible;
+}
+#Step1_Prod_HardiPlank_Woodgrain-300 {
+	position:absolute;
+	left:526px;
+	top:322px;
+	width:403px;
+	height:156px;
+	z-index:87;
+	visibility: visible;
+}
+#Step1_Prod_HardiPlank_Woodgrain-300_Text {
+	position:absolute;
+	left:688px;
+	top:333px;
+	width:258px;
+	height:149px;
+	z-index:88;
+	visibility: visible;
+}
+#Step1OPEN {
+	position:absolute;
+	left:124px;
+	top:349px;
+	width:105px;
+	height:24px;
+	z-index:50;
+	visibility: visible;
+}
+#Step1_Prod_HardiePlank_Roughcut {
+	position:absolute;
+	left:526px;
+	top:322px;
+	width:403px;
+	height:156px;
+	z-index:89;
+	visibility: visible;
+}
+#Step1_Prod_HardiePlank_Roughcut_Text {
+	position:absolute;
+	left:688px;
+	top:333px;
+	width:234px;
+	height:138px;
+	z-index:90;
+	visibility: visible;
+}
+.bold_text-leading {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	line-height: 15px;
+	font-weight: bold;
+	color: #647684;
+}
+#xStep1_HardiPanel_compressed_sheets_15mm {
+	position:absolute;
+	left:526px;
+	top:322px;
+	width:403px;
+	height:156px;
+	z-index:96;
+}
+#xStep1_HardiPanel_compressed_sheets_15mm-_Text {
+	position:absolute;
+	left:688px;
+	top:333px;
+	width:267px;
+	height:149px;
+	z-index:97;
+	overflow: auto;
+}
+#xStep1_HardiPanel_compressed_sheets_18mm {
+	position:absolute;
+	left:526px;
+	top:322px;
+	width:403px;
+	height:156px;
+	z-index:98;
+}
+#xStep1_HardiPanel_compressed_sheets_18mm-_Text {
+	position:absolute;
+	left:688px;
+	top:333px;
+	width:273px;
+	height:148px;
+	z-index:99;
+	overflow: auto;
+}
+#Step1_HardiPanel_compressed_sheets_24mm {
+	position:absolute;
+	left:526px;
+	top:322px;
+	width:403px;
+	height:156px;
+	z-index:100;
+}
+#Step1_HardiPanel_compressed_sheets_24mm-_Text {
+	position:absolute;
+	left:688px;
+	top:333px;
+	width:269px;
+	height:134px;
+	z-index:101;
+	overflow: auto;
+}
+.Field_text2 {font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	line-height: 8px;
+	font-weight: bold;
+	color: #647684;
+}
+.Field_text_member {font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	line-height: 15px;
+	font-weight: bold;
+	color: #647684;
+	background-color: #EEEEEE;
+	width: 210px;
+	height: 20px;
+	border-style: 0;
+	border-bottom-style: none;
+	border-top-style: none;
+	border-right-style: none;
+	border-left-style: none;
+}
+
+#Default {
+	position:absolute;
+	left:590px;
+	top:322px;
+	width:403px;
+	height:156px;
+	z-index:83;
+	visibility: visible;
+}
+#Layer42 {
+	position:absolute;
+	left:114px;
+	top:462px;
+	width:104px;
+	height:25px;
+	z-index:102;
+}
+
+#Step1_HardiPanel_compressed_sheets_18mm-_Internal_Area_Text {
+	position:absolute;
+	left:688px;
+	top:333px;
+	width:270px;
+	height:155px;
+	z-index:78;
+	overflow: auto;
+}
+#Step1_HardiPanel_compressed_sheets_18mm-_Internal_Area {
+	position:absolute;
+	left:526px;
+	top:322px;
+	width:403px;
+	height:156px;
+	z-index:61;
+}
+
+#Step1_HardiPanel_compressed_sheets_15mm-_Internal_Area_Text {
+	position:absolute;
+	left:688px;
+	top:333px;
+	width:270px;
+	height:155px;
+	z-index:78;
+	overflow: auto;
+}
+#Step1_HardiPanel_compressed_sheets_15mm-_Internal_Area {
+	position:absolute;
+	left:526px;
+	top:322px;
+	width:403px;
+	height:156px;
+	z-index:61;
+}
+#Step1_HardiPanel_compressed_sheets_18mm-_Decking {
+	position:absolute;
+	left:526px;
+	top:322px;
+	width:403px;
+	height:156px;
+	z-index:88;
+}
+#Step1_HardiPanel_compressed_sheets_18mm-_Decking_Text {
+	position:absolute;
+	left:682px;
+	top:342px;
+	width:269px;
+	height:131px;
+	z-index:89;
+	overflow: auto;
+}
+#Step1_HardiPanel_compressed_sheets_15mm-_Decking_Text {
+	position:absolute;
+	left:688px;
+	top:333px;
+	width:270px;
+	height:154px;
+	z-index:91;
+	overflow: auto;
+}
+#Step1_HardiPanel_compressed_sheets_15mm-_Decking {
+	position:absolute;
+	left:526px;
+	top:322px;
+	width:403px;
+	height:156px;
+	z-index:90;
+}
+
+/* Overlays */
+.ui-widget-overlay { position:fixed; top:0px; left:0px; background: #666666 url(images/ui-bg_diagonals-thick_20_666666_40x40.png) 50% 50% repeat; opacity: .50;filter:Alpha(Opacity=50); }
+.ui-widget-header { display:none; }

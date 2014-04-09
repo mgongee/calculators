@@ -104,7 +104,8 @@ window.calculation_rules =  {
 		window.project_calculation["amount_of_constr_adhesive_units"] = unit;
 		window.project_calculation["adhesive_unit_cost_divider"] = unit_cost_divider;
 		window.project_calculation["amount_of_constr_adhesive"] = amount_of_constr_adhesive;
-	},
+	}
 };
 
 
+alert("777");

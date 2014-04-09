@@ -11,6 +11,10 @@ window.calculation_rules =  {
 			total_opening_area += +parseFloat(subtotal_opening_areas[wall_number]);
 		}
 		
+		if (isNaN(total_opening_area)) {
+			total_opening_area = 0;
+		}
+		
 		/* Save results of calculation */
 		window.project_calculation['total_opening_area'] = total_opening_area.toFixed(2);
 	},

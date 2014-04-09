@@ -1,7 +1,7 @@
 window.list_data = {
 	"step1_product": {
-		"hardieflex_select_cedar_mill" : "HardiePlank Select Cedar Mill",
-		"hardieflex_smooth" : "HardiePlank Smooth",
+		"hardieplank_select_cedar_mill" : "HardiePlank Select Cedar Mill",
+		"hardieplank_smooth" : "HardiePlank Smooth",
 	},
 	"step1_type_of_frame": {
 		"steel_0.55_to_1.66mm_bmt" : "Steel 0.55 to 1.66 mm BMT",
@@ -17,12 +17,12 @@ window.list_data = {
 
 window.calculation_numbers = {
 	"product_id" : { // planks
-		"hardieflex_select_cedar_mill" : 400012,
-		"hardieflex_smooth": 400013 
+		"hardieplank_select_cedar_mill" : 400012,
+		"hardieplank_smooth": 400013 
 	},
 	"plank_length" : { // for planks
-		"hardieflex_select_cedar_mill" : 0.699,
-		"hardieflex_smooth": 0.558 
+		"hardieplank_select_cedar_mill" : 0.699,
+		"hardieplank_smooth": 0.558 
 	},
 	"fastener_type_for_frame" : {
 		"steel_0.55_to_1.66mm_bmt" : 400043, // product id
@@ -35,10 +35,10 @@ window.calculation_numbers = {
 		"3_up_to_18m" : 600
 	},
 	"number_of_fasteners_per_spacing_and_plank" : {
-		"400_hardieflex_select_cedar_mill" : 13,
-		"600_hardieflex_select_cedar_mill" : 10,
-		"400_hardieflex_smooth" : 7,
-		"600_hardieflex_smooth" : 6,
+		"400_hardieplank_select_cedar_mill" : 13,
+		"600_hardieplank_select_cedar_mill" : 10,
+		"400_hardieplank_smooth" : 7,
+		"600_hardieplank_smooth" : 6,
 	},
 	"amount_of_sealant_per_plank" : 200, // mL
 	"amount_of_sealant_in_tube": 600

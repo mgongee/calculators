@@ -6,8 +6,8 @@ class ReportMaker {
 		
 	protected $productCodes = array(
 		"product" => array(
-			"hardieplank_select_cedar_mill" => "HardiePlank Select Cedar Mill",
-			"hardieplank_smooth" => "HardiePlank Smooth",
+			"hardieflex_select_cedar_mill" => "HardiePlank Select Cedar Mill",
+			"hardieflex_smooth" => "HardiePlank Smooth",
 		),
 		"type_of_frame" => array(
 			"steel_0.55_to_1.66mm_bmt" => "Steel 0.55 to 1.66 mm BMT",
