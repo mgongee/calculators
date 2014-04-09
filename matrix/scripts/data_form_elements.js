@@ -23,6 +23,11 @@ window.form_elements = {
 				"label": "Allowance %",
 				"type": "text",
 				"default_value": "5"
+			},
+			"waste": {
+				"label": "Waste %",
+				"type": "text",
+				"default_value": "5"
 			}
 		},
 		"appendix": "step3_button"
@@ -52,33 +57,14 @@ window.calculation_elements = {
 };
 
 window.estimation_elements = {
-	"wind_zone": {
-		"label": "Wind zone",
-		"type": "text",
-		"units": "",
-		"source": "db"
-	},
 	"type_of_frame": {
 		"label": "Type of frame",
 		"type": "list",
 		"units": "",
 		"source": "db"
 	},
-	"stub_and_fasteners_spacing": {
-		"label": "Stud & Fastener spacing",
-		"type": "text",
-		"units": "mm",
-		"source": "js",
-		"value": 300
-	},
 	"total_wall_area": {
 		"label": "Total wall area",
-		"type": "text",
-		"units": "m2",
-		"source": "db"
-	},	
-	"total_gable_area": {
-		"label": "Total gable area",
 		"type": "text",
 		"units": "m2",
 		"source": "db"
@@ -91,6 +77,12 @@ window.estimation_elements = {
 	},	
 	"allowance": {
 		"label": "Allowance",
+		"type": "text",
+		"units": "%",
+		"source": "db"
+	},	
+	"waste": {
+		"label": "Waste",
 		"type": "text",
 		"units": "%",
 		"source": "db"

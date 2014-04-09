@@ -36,9 +36,9 @@ estimate_project = function() {
 		window.estimation_elements[field_name]["value"] = field_value;
 	}
 	
-	var spacing = window.project_calculation['spacing'];
-	$("#estimation_value__stub_and_fasteners_spacing").html(spacing + 
-		'<input type="hidden" id="spacing" name="spacing" value="' + spacing + '">');
+	var total_wall_area = window.project_calculation['total_wall_area'];
+	$("#estimation_value__total_wall_area").html(total_wall_area + 
+		'<input type="hidden" id="total_wall_area" name="total_wall_area" value="' + total_wall_area + '">');
 	
 	var total_opening_area = window.project_calculation['total_opening_area'];
 	$("#estimation_value__total_opening_area").html(total_opening_area + 
@@ -170,9 +170,11 @@ get_saved_field_value = function(field_name) {
  * Creates the initial bill when the age is loaded
  */
 create_bill_list = function (){
-	add_product(); // planks
-	add_fasteners();
-	add_sealant();
+	add_product(); // matrix
+	//add_fasteners();
+	//add_putty();
+	//add_paper();
+	//add_sealant();
 	
 };
 
@@ -206,7 +208,7 @@ add_product = function() {
 	
 	var type_of_frame = get_saved_field_value("type_of_frame");
 	var full_product_name = product_name + " (" + type_of_frame + ")";	
-	var quantity = window.project_calculation["number_of_planks"];
+	var quantity = window.project_calculation["number_of_boards"];
 
 
 	// add item into bill

@@ -4,7 +4,7 @@
 		<input type="hidden" name="project_id" id="project_id" value="<?php echo $project['project_id']; ?>">
 		<input type="hidden" name="manager_name" value="<?php echo $project['manager_name']; ?>">
 		<input type="hidden" name="manager_email" value="<?php echo $manager_email; ?>">
-		<input type="hidden" name="project_type" id="project_type" value="planks" />
+		<input type="hidden" name="project_type" id="project_type" value="matrix" />
 		<input type="hidden" name="report_type" id="report_type" value="excel">
 		<input type="hidden" name="project_data" id="project_data" value='<?php echo($project['project_data']); ?>'>
 

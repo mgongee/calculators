@@ -8,20 +8,11 @@ window.validation_rules =  {
 			min: 0,
 			max: 100	
 		},
-		"add_wall[width]": {
-			required: false,
-			number: true,
-			min: 100
-		},
-		"add_wall[length]": {
-			required: false,
-			number: true,
-			min: 100
-		},
-		"add_wall[size]": {
-			required: false,
-			number: true,
-			min: 0.01
+		"step1[waste]": {
+			required: true,
+			digits: true,
+			min: 0,
+			max: 100	
 		}
 	},
 	messages: {
