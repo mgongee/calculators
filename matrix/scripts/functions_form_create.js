@@ -12,7 +12,6 @@
  */
 create_form_to_add_project = function($form, form_data) {
 	create_form_tags_and_steps($form, form_data);
-	add_wall();
 };
 
 /**

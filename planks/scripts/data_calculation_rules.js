@@ -8,7 +8,10 @@ window.calculation_rules =  {
 		
 		/* Calculate value */
 		for (var wall_number in subtotal_opening_areas) {
-			total_opening_area += +parseFloat(subtotal_opening_areas[wall_number]);
+			var area = parseFloat(subtotal_opening_areas[wall_number]);
+			if (!isNaN(area)) {
+				total_opening_area += area;
+			}
 		}
 		
 		if (isNaN(total_opening_area)) {

@@ -116,6 +116,7 @@
 
 					<!-- hidden inputs -->
 					<input num="_ID_" type="hidden" name="_STEP_[_FIELDNAME_][_ID_][fastener_type]" id="_STEP_[_FIELDNAME_][_ID_][fastener_type]" value="_FASTENER_TYPE_"/>
+					<input num="_ID_" type="hidden" name="_STEP_[_FIELDNAME_][_ID_][no_of_fasteners_per_sheet]" id="_STEP_[_FIELDNAME_][_ID_][no_of_fasteners_per_sheet]" value="_FASTENERS_"/>
 					<input num="_ID_" type="hidden" name="_STEP_[_FIELDNAME_][_ID_][amount_of_putty]" id="_STEP_[_FIELDNAME_][_ID_][amount_of_putty]" value="_PUTTY_"/>
 					<input num="_ID_" type="hidden" name="_STEP_[_FIELDNAME_][_ID_][amount_of_sealant]" id="_STEP_[_FIELDNAME_][_ID_][amount_of_sealant]" value="_SEALANT_"/>
 					<input num="_ID_" type="hidden" name="_STEP_[_FIELDNAME_][_ID_][control_joints]" id="_STEP_[_FIELDNAME_][_ID_][control_joints]" value="_CONTROL_JOINTS_"/>

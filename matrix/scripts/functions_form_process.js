@@ -44,7 +44,8 @@ add_wall = function(){
 		.replace(new RegExp("_PAPER_",'g'),0);
 
 	$("#add_walls_target tbody.walls").append(new_wall_field);
-
+	console.log("new_wall_field", wall_number);
+	
 	var $sheet_sizes_list = $('#step2\\[walls\\]\\[' + wall_number + '\\]\\[sheet_size\\]');
 	var $orientation_list = $('#step2\\[walls\\]\\[' + wall_number + '\\]\\[orientation\\]');
 	var $frame_spacing_input = $('#step2\\[walls\\]\\[' + wall_number + '\\]\\[frame_spacing\\]'); // readonly
@@ -100,7 +101,10 @@ add_wall = function(){
 
 
 wall_change_handler = function($el, wall_number,inputs){
+	console.log("wall_change_handler");
 	if ($el.val() != "") {
+		console.log("wall_change_handler5	");
+		
 		inputs['orientation_list'].show();	
 		inputs['height_input'].show();
 		inputs['length_input'].show();
@@ -128,6 +132,8 @@ wall_change_handler = function($el, wall_number,inputs){
 		inputs['perforated_paper_tape_input'].val(calculate_wall_value('perforated_paper_tape',wall_number));
 
 		/*calculate no_of_fasteners_per_sheet */
+		inputs['no_of_fasteners_per_sheet_input'].val(calculate_wall_value('no_of_fasteners_per_sheet',wall_number));
+		
 		inputs['orientation_list'].on('change',function(){
 			inputs['no_of_fasteners_per_sheet_input'].val(calculate_wall_value('no_of_fasteners_per_sheet',wall_number));
 		});
@@ -146,6 +152,7 @@ wall_change_handler = function($el, wall_number,inputs){
 		});
 
 		inputs['length_input'].on('keyup',function(){
+			console.log("inputs['length_input'].");
 			update_wall_value(inputs['size_input'],'size',wall_number);
 
 			// order is important!
@@ -233,7 +240,7 @@ load_walls = function(step_data){
 		var $height_input = $('#step2\\[walls\\]\\[' + wall_number + '\\]\\[height\\]');
 		var $length_input = $('#step2\\[walls\\]\\[' + wall_number + '\\]\\[length\\]');
 		var $size_input = $('#step2\\[walls\\]\\[' + wall_number + '\\]\\[size\\]');
-
+console.log("load_openings new_wall_field", wall_number, $size_input);
 		//when wall added, user must set sheet_size at first
 		$sheet_sizes_list.show();
 
@@ -260,6 +267,9 @@ load_walls = function(step_data){
 			'control_joints_input':				$('#step2\\[walls\\]\\[' + wall_number + '\\]\\[control_joints\\]')
 		};
 
+
+		wall_change_handler($sheet_sizes_list,wall_number,inputs);
+	
 		$sheet_sizes_list.on('change',function(){wall_change_handler($(this),wall_number,inputs);});
 	}
 };

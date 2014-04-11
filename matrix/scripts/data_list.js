@@ -1,6 +1,6 @@
 window.list_data = {
 	"step1_product": {
-		"hardieflex_sheets" : "HardiePlank Sheets",
+		"hardieflex_sheet" : "HardiePlank Sheets",
 		"hardieflex_pro" : "HardiePlank Pro"
 	},
 	"step1_type_of_frame": {
@@ -35,16 +35,33 @@ window.list_data = {
 
 
 window.calculation_numbers = {
-	"product_id" : { // planks
-		"hardieflex_sheets" : 400012,
-		"hardieflex_pro": 400013 
+	"product_id" : { // matrix
+		"hardieflex_sheet" : {
+			'3.5mm_x_1219mm_x_2438mm': 404279,
+			'4.5mm_x_1219mm_x_2438mm': 404264,
+			'4.5mm_x_1200mm_x_2700mm': 400184,
+			'4.5mm_x_1200mm_x_3000mm': 400182,
+			'6mm_x_1219mm_x_2438mm': 404265,
+			'6mm_x_1200mm_x_2700mm': 400169,
+			'6mm_x_1200mm_x_3000mm': 400167,
+			'9mm_x_1219mm_x_2438mm': 404267,
+			'9mm_x_1200mm_x_2700mm': 404272,
+			'9mm_x_1200mm_x_3000mm': 404271,
+			'12mm_x_1219mm_x_2438mm': 404270
+		},
+		"hardieflex_pro": {
+				'6mm_x_1250mm_x_2400mm': 404433,
+				'6mm_x_1200mm_x_2400mm': 404594,
+				'6mm_x_1200mm_x_2700mm': 404593,
+				'6mm_x_1200mm_x_3000mm': 404438
+		}
 	},
 	"fastener_type_for_frame" : {
 		"steel_0.55_to_1.66mm_bmt" : 400043, // product id
 		"timber" : 400046
 	},
 	'product_to_application': {
-		"hardieflex_sheets" : ['ceiling_uninsulated','dry_wall','wet_area_wall'],
+		"hardieflex_sheet" : ['ceiling_uninsulated','dry_wall','wet_area_wall'],
 		"hardieflex_pro": ['ceiling_uninsulated','wet_area_wall']
 	},
 	"sheet_size" : {						// in square meters
@@ -62,7 +79,7 @@ window.calculation_numbers = {
 		'6mm_x_1250mm_x_2400mm': 3,
 		'6mm_x_1200mm_x_2400mm': 3
 	},
-	"sheet_height" : {						// in millimeters
+	"sheet_width" : {						// in millimeters
 		'3.5mm_x_1219mm_x_2438mm': 1219,
 		'4.5mm_x_1219mm_x_2438mm': 1219,
 		'4.5mm_x_1200mm_x_2700mm': 1200,
@@ -77,7 +94,7 @@ window.calculation_numbers = {
 		'6mm_x_1250mm_x_2400mm': 1250,
 		'6mm_x_1200mm_x_2400mm': 1200
 	},
-	"sheet_width" : {						// in millimeters
+	"sheet_length" : {						// in millimeters
 		'3.5mm_x_1219mm_x_2438mm': 2438,
 		'4.5mm_x_1219mm_x_2438mm': 2438,
 		'4.5mm_x_1200mm_x_2700mm': 2700,
@@ -93,7 +110,7 @@ window.calculation_numbers = {
 		'6mm_x_1200mm_x_2400mm': 2400
 	},
 	'product_application_to_size': {
-		"hardieflex_sheets" : {
+		"hardieflex_sheet" : {
 			'ceiling_uninsulated' : [
 				'3.5mm_x_1219mm_x_2438mm',
 				'4.5mm_x_1219mm_x_2438mm',
@@ -135,7 +152,7 @@ window.calculation_numbers = {
 		}
 	},
 	'product_application_size_to_spacing': {
-		"hardieflex_sheets" : {
+		"hardieflex_sheet" : {
 			'ceiling_uninsulated' : {
 				'3.5mm_x_1219mm_x_2438mm': 406,
 				'4.5mm_x_1219mm_x_2438mm': 406,
@@ -177,7 +194,7 @@ window.calculation_numbers = {
 		}
 	},
 	'product_application_size_to_orientation': {
-		"hardieflex_sheets" : {
+		"hardieflex_sheet" : {
 			'ceiling_uninsulated' : {
 				'3.5mm_x_1219mm_x_2438mm': ['h','v'],
 				'4.5mm_x_1219mm_x_2438mm': ['h','v'],
@@ -220,7 +237,7 @@ window.calculation_numbers = {
 	},	
 	'product_application_size_frame_type_to_fastener_type': {
 		"timber": { 
-			"hardieflex_sheets" : {
+			"hardieflex_sheet" : {
 				'ceiling_uninsulated' : {
 					'3.5mm_x_1219mm_x_2438mm': 'HardieDrive Nails 32mm long',
 					'4.5mm_x_1219mm_x_2438mm': 'HardieDrive Nails 32mm long',
@@ -262,50 +279,50 @@ window.calculation_numbers = {
 			}
 		},
 		"steel": { 
-			"hardieflex_sheets" : {
+			"hardieflex_sheet" : {
 				'ceiling_uninsulated' : {
-					'3.5mm_x_1219mm_x_2438mm': 'HardieDrive Nails 20mm long',
-					'4.5mm_x_1219mm_x_2438mm': 'HardieDrive Nails 20mm long',
-					'6mm_x_1219mm_x_2438mm': 'HardieDrive Nails 25mm long',
-					'9mm_x_1219mm_x_2438mm': 'HardieDrive Nails 25mm long'
+					'3.5mm_x_1219mm_x_2438mm': 'HardieDrive Screws 20mm long',
+					'4.5mm_x_1219mm_x_2438mm': 'HardieDrive Screws 20mm long',
+					'6mm_x_1219mm_x_2438mm': 'HardieDrive Screws 25mm long',
+					'9mm_x_1219mm_x_2438mm': 'HardieDrive Screws 25mm long'
 				},
 				'dry_wall' : {
-					'4.5mm_x_1219mm_x_2438mm': 'HardieDrive Nails 20mm long',
-					'4.5mm_x_1200mm_x_2700mm': 'HardieDrive Nails 20mm long',
-					'4.5mm_x_1200mm_x_3000mm': 'HardieDrive Nails 20mm long',
-					'6mm_x_1219mm_x_2438mm': 'HardieDrive Nails 25mm long',
-					'6mm_x_1200mm_x_2700mm': 'HardieDrive Nails 25mm long',
-					'6mm_x_1200mm_x_3000mm': 'HardieDrive Nails 25mm long',
-					'9mm_x_1219mm_x_2438mm': 'HardieDrive Nails 25mm long',
-					'9mm_x_1200mm_x_2700mm': 'HardieDrive Nails 25mm long',
-					'9mm_x_1200mm_x_3000mm': 'HardieDrive Nails 25mm long',
-					'12mm_x_1219mm_x_2438mm': 'HardieDrive Nails 32mm long'
+					'4.5mm_x_1219mm_x_2438mm': 'HardieDrive Screws 20mm long',
+					'4.5mm_x_1200mm_x_2700mm': 'HardieDrive Screws 20mm long',
+					'4.5mm_x_1200mm_x_3000mm': 'HardieDrive Screws 20mm long',
+					'6mm_x_1219mm_x_2438mm': 'HardieDrive Screws 25mm long',
+					'6mm_x_1200mm_x_2700mm': 'HardieDrive Screws 25mm long',
+					'6mm_x_1200mm_x_3000mm': 'HardieDrive Screws 25mm long',
+					'9mm_x_1219mm_x_2438mm': 'HardieDrive Screws 25mm long',
+					'9mm_x_1200mm_x_2700mm': 'HardieDrive Screws 25mm long',
+					'9mm_x_1200mm_x_3000mm': 'HardieDrive Screws 25mm long',
+					'12mm_x_1219mm_x_2438mm': 'HardieDrive Screws 32mm long'
 				},
 				'wet_area_wall' : {
-					'6mm_x_1219mm_x_2438mm': 'HardieDrive Nails 25mm long',
-					'6mm_x_1200mm_x_2700mm': 'HardieDrive Nails 25mm long',
-					'6mm_x_1200mm_x_3000mm': 'HardieDrive Nails 25mm long',
-					'9mm_x_1219mm_x_2438mm': 'HardieDrive Nails 25mm long',
-					'9mm_x_1200mm_x_2700mm': 'HardieDrive Nails 25mm long',
-					'9mm_x_1200mm_x_3000mm': 'HardieDrive Nails 25mm long',
-					'12m_x_1219mm_x_2438mm': 'HardieDrive Nails 32mm long'
+					'6mm_x_1219mm_x_2438mm': 'HardieDrive Screws 25mm long',
+					'6mm_x_1200mm_x_2700mm': 'HardieDrive Screws 25mm long',
+					'6mm_x_1200mm_x_3000mm': 'HardieDrive Screws 25mm long',
+					'9mm_x_1219mm_x_2438mm': 'HardieDrive Screws 25mm long',
+					'9mm_x_1200mm_x_2700mm': 'HardieDrive Screws 25mm long',
+					'9mm_x_1200mm_x_3000mm': 'HardieDrive Screws 25mm long',
+					'12m_x_1219mm_x_2438mm': 'HardieDrive Screws 32mm long'
 				}
 			},
 			"hardieflex_pro": {
 				'ceiling_uninsulated' : {
-					'6mm_x_1200mm_x_2400mm': 'HardieDrive Nails 25mm long'
+					'6mm_x_1200mm_x_2400mm': 'HardieDrive Screws 25mm long'
 				},
 				'dry_wall' : false,
 				'wet_area_wall' : {
-					'6mm_x_1250mm_x_2400mm': 'HardieDrive Nails 25mm long',
-					'6mm_x_1200mm_x_2700mm': 'HardieDrive Nails 25mm long',
-					'6mm_x_1200mm_x_3000mm': 'HardieDrive Nails 25mm long'
+					'6mm_x_1250mm_x_2400mm': 'HardieDrive Screws 25mm long',
+					'6mm_x_1200mm_x_2700mm': 'HardieDrive Screws 25mm long',
+					'6mm_x_1200mm_x_3000mm': 'HardieDrive Screws 25mm long'
 				}
 			}
 		}
 	},
 	'product_application_size_to_paper_tape': {
-		"hardieflex_sheets" : {
+		"hardieflex_sheet" : {
 			'ceiling_uninsulated' : {
 				'3.5mm_x_1219mm_x_2438mm': 'Villaboard 6mm x 1200mm x 2400mm',
 				'4.5mm_x_1219mm_x_2438mm': 'Villaboard 6mm x 1200mm x 2400mm',
@@ -347,7 +364,7 @@ window.calculation_numbers = {
 		}
 	},
 	'product_application_size_to_putty_amount': {
-		"hardieflex_sheets" : {
+		"hardieflex_sheet" : {
 			'ceiling_uninsulated' : {
 				'3.5mm_x_1219mm_x_2438mm': 0.8,
 				'4.5mm_x_1219mm_x_2438mm': 0.8,
@@ -389,7 +406,7 @@ window.calculation_numbers = {
 		}
 	},
 	'product_application_size_spacing_to_fasteners_per_sheet': {
-		"hardieflex_sheets" : {
+		"hardieflex_sheet" : {
 			'ceiling_uninsulated' : {
 				'3.5mm_x_1219mm_x_2438mm': {
 					'400_406': {
@@ -956,7 +973,7 @@ window.calculation_numbers = {
 		}
 	},
 	'product_application_size_to_sealant_amount': {
-		"hardieflex_sheets" : {
+		"hardieflex_sheet" : {
 			'ceiling_uninsulated' : {
 				'3.5mm_x_1219mm_x_2438mm': 0,
 				'4.5mm_x_1219mm_x_2438mm': 0,
@@ -998,7 +1015,7 @@ window.calculation_numbers = {
 		}
 	},
 	'product_application_size_to_control_joints': {
-		"hardieflex_sheets" : {
+		"hardieflex_sheet" : {
 			'ceiling_uninsulated' : {
 				'3.5mm_x_1219mm_x_2438mm': 'Villaboard 6mm x 1200mm x 2400mm',
 				'4.5mm_x_1219mm_x_2438mm': 'Villaboard 6mm x 1200mm x 2400mm',
@@ -1039,32 +1056,77 @@ window.calculation_numbers = {
 			}
 		}
 	},
+	'product_amount_to_id': {
+		'fastener': {
+			'HardieDrive Nails 32mm long': {
+				'1100': 'JH Nail Kilo',
+				'27500': '305436'
+			},
+			'HardieDrive Screws 20mm long': {
+				'70': '305757',
+				'1000': '305759'
+			},
+			'HardieDrive Screws 25mm long': {
+				'70': '305760',
+				'1000': '305761'
+			},
+			'HardieDrive Screws 32mm long': {
+				'70': '305768',
+				'1000': '305769'
+			}
+		}
+	},
+	"amount_of_paper_per_roll" : 76, // m
+	"amount_of_putty_per_pail" : 25, // kg
 	"amount_of_sealant_per_plank" : 200, // mL
-	"amount_of_sealant_in_tube": 600
+	"amount_of_sealant_in_tube": 300 // ml
 };
 
 window.products_data = {
-			// screws
-	400042: {
-		"name": "HardiePlank galvanised pointed screw w/plastic anchor 7x38mm",
-		"cost": 1
-	},
-	400043: {
-		"name": "HardiePlank screw 7x38mm",
-		"cost": 1
-	},
-	400046 : {
-		"name": "HardiePlank Nail 2.8x50mm",
-		"cost": 1
-	},
-			// planks
-	400012: {
-		"name": "HardiePlank Select Cedar Mill",
-		"cost": 10
-	},
-	400013: {
-		"name": "HardiePlank Smooth",
-		"cost": 15
-	}
-};
+	// sheets
+	'404279':{'name':'HardieFlex® Sheet 3.5mm x 1219mm x 2438mm','cost':1},
+	'404264':{'name':'HardieFlex® Sheet 4.5mm x 1219mm x 2438mm','cost':1},
+	'400184':{'name':'HardieFlex® Sheet 4.5mm x 1200mm x 2700mm','cost':1},
+	'400182':{'name':'HardieFlex® Sheet 4.5mm x 1200mm x 3000mm','cost':1},
+	'404265':{'name':'HardieFlex® Sheet 6mm x 1219mm x 2438mm','cost':1},
+	'400169':{'name':'HardieFlex® Sheet 6mm x 1200mm x 2700mm','cost':1},
+	'400167':{'name':'HardieFlex® Sheet 6mm x 1200mm x 3000mm','cost':1},
+	'404267':{'name':'HardieFlex® Sheet 9mm x 1219mm x 2438mm','cost':1},
+	'404272':{'name':'HardieFlex® Sheet 9mm x 1200mm x 2700mm','cost':1},
+	'404271':{'name':'HardieFlex® Sheet 9mm x 1200mm x 3000mm','cost':1},
+	'404270':{'name':'HardieFlex® Sheet 12mm x 1219mm x 2438mm','cost':1},
+	'404433':{'name':'HardieFlex® Pro 6mm x 1250mm x 2400mm','cost':1},
+	'404594':{'name':'HardieFlex® Pro 6mm x 1200mm x 2400mm','cost':1},
+	'404593':{'name':'HardieFlex® Pro 6mm x 1200mm x 2700mm','cost':1},
+	'404438':{'name':'HardieFlex® Pro 6mm x 1200mm x 3000mm','cost':1},
+	'404341':{'name':'HardieFlex® Senepa 9mm x 254mm x 2438mm','cost':1},
+	'404338':{'name':'HardieFlex® Senepa 12mm x 254mm x 2438mm','cost':1},
+	'404337':{'name':'HardieFlex® Senepa 12mm x 305mm x 2438mm','cost':1},
+	'404445':{'name':'HardieFlex® Senepa 12mm x 305mm x 3660mm','cost':1},
+	'404375':{'name':'HardiePlank® Siding Select Cedar Mill 7.5mm x 208mm x 3656mm','cost':1},
+	'404673':{'name':'HardieFlex® Flooring 16mm x 600mm x 2400mm','cost':1},
+	'404658':{'name':'HardieFlex® Flooring 16mm x 1200mm x 2400mm','cost':1},
 
+	// fasteners
+	
+	'305436':{'name':'HardieDrive® Nails',							'unit':'25 Kg box','cost': 1},
+	'JH Nail Kilo':{'name':'HardieDrive® Nails',					'unit':'per Kg','cost': 1},
+	'305757':{'name':'HardieDrive® Screw 20mm long Retail Pack',	'unit':'70\'s pack','cost': 1},
+	'305759':{'name':'HardieDrive® Screw 20mm long Wholesale Pack',	'unit':'1000\'s pack','cost': 1},
+	'305760':{'name':'HardieDrive® Screw 25mm long Retail Pack',	'unit':'70\'s pack','cost': 1},
+	'305761':{'name':'HardieDrive® Screw 25mm long Wholesale Pack',	'unit':'1000\'s pack','cost': 1},
+	'305768':{'name':'HardieDrive® Screw 32mm long Retail Pack',	'unit':'70\'s pack','cost': 1},
+	'305769':{'name':'HardieDrive® Screw 32mm long Wholesale Pack',	'unit':'1000\'s pack','cost': 1},
+
+	// paper tape
+	'305440':{'name':'HardieFlex® Perforated Paper Tape',			'unit':'250 ft per roll','cost': 1},
+
+	// putty
+	'305470':{'name':'HardieFlex® Putty',							'unit':'25 Kg. pail','cost': 1},			
+
+	// sealant
+	'PU':{'name':'Polyurethane Sealant',						'unit':'300ml tube','cost': 1},
+				
+
+
+};

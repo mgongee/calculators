@@ -100,17 +100,9 @@
 				</thead>
 				<tbody>
 					<tr class="labour_item">
-						<td>Painting</td>
-						<td><input id="labour[painting]" name="labour[painting]" type="text" value="10" size="5"/></td>
-					</tr>
-					<tr class="labour_item">
-						<td>Cladding</td>
-						<td><input id="labour[cladding]" name="labour[cladding]" type="text" value="5" size="5"/></td>
-					</tr>
-					<tr class="labour_item">
-						<td>Subtotal</td>
-						<td><input id="labour[subtotal]" name="labour[subtotal]" type="text" value="" size="5"/></td>
-					</tr>
+						<td>Installation price</td>
+						<td><input id="labour[subtotal]" name="labour[subtotal]" type="text" value="10" size="5"/></td>
+					</tr>					
 				</tbody>			
 			</table>
 		</div>
@@ -161,7 +153,7 @@
 		<tbody>
 			<tr class="bill_item">
 				<td><input class="bill_item_id" number="_ID_" id="bill[_ID_][id_number]" name="bill[_ID_][id_number]" type="text" value="" size="10"/></td>
-				<td><input id="bill[_ID_][description]" name="bill[_ID_][description]" type="text" value="" size="24"/></td>
+				<td><input id="bill[_ID_][description]" name="bill[_ID_][description]" type="text" value="" size="38"/></td>
 				<td><input class="bill_item_quantity" name="bill[_ID_][quantity]" id="bill[_ID_][quantity]" type="text" value="" size="5"/></td>
 				<td><input id="bill[_ID_][unit]" name="bill[_ID_][unit]"  type="text" value="" size="5"/></td>
 				<td><input class="bill_item_cost" id="bill[_ID_][cost_unit]" name="bill[_ID_][cost_unit]" type="text" value="" size="5"/></td>
