@@ -67,7 +67,7 @@ calculate_product_quantity = function(wall) {
 		number_of_rows = Math.ceil(wall['length'] / sheet_width);
 		number_of_columns = Math.ceil(wall['length'] / sheet_length );
 	}
-	
+	console.log("calculate_product_quantity",number_of_rows,number_of_columns);
 	return number_of_rows * number_of_columns;
 };
 

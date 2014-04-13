@@ -78,10 +78,6 @@
 				</thead>
 				<tbody>
 				</tbody>
-				<tfoot>
-						<td colspan="2">Total cost (php) per m2: <input id="total_cost_per_m" name="total_cost_per_m" type="text" value="" size="5"/></td>
-						<td colspan="4">Total cost (php): <input id="total_cost" name="total_cost" type="text" value="" size="5"/></td>
-				</tfoot>
 			</table>
 		</div>
 
@@ -123,6 +119,10 @@
 		</div>
 
 		<div id="estimation_reports_table" >
+			<table>
+				<td colspan="2">Total cost (php) per m2: <input id="total_cost_per_m" name="total_cost_per_m" type="text" value="" size="5"/></td>
+				<td colspan="4">Total cost (php): <input id="total_cost" name="total_cost" type="text" value="" size="5"/></td>
+			</table>
 			<table>
 				<thead>
 					<tr>

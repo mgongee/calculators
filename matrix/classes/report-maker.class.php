@@ -6,18 +6,36 @@ class ReportMaker {
 		
 	protected $productCodes = array(
 		"product" => array(
-			"hardieflex_select_cedar_mill" => "HardiePlank Select Cedar Mill",
-			"hardieflex_smooth" => "HardiePlank Smooth",
+			"hardieflex_sheet" => "HardiePlank Sheets",
+			"hardieflex_pro" => "HardiePlank Pro"
 		),
 		"type_of_frame" => array(
-			"steel_0.55_to_1.66mm_bmt" => "Steel 0.55 to 1.66 mm BMT",
-			"timber" => "Timber",
-			"masonry_substrate" => "Masonry Substrate"
+			"steel" => "Steel 0.55 to 1.66 mm BMT",
+			"timber" => "Timber"
 		),
-		"wind_zone" => array(
-			"1_up_to_9m" => "I (up to 9m )",
-			"2_up_to_18m" => "II (up to 18m )",
-			"3_up_to_18m" => "III (up to 18m )",
+		"application" => array(
+			'ceiling_uninsulated' => 'Ceiling uninsulated<600',
+			'dry_wall' => 'Dry wall fastener only',
+			'wet_area_wall' => 'Wet Area Wall (same as untiled)'
+		),
+		"sheet_size" => array(
+			'3.5mm_x_1219mm_x_2438mm'=> '3.5mm x 1219mm x 2438mm',
+			'4.5mm_x_1219mm_x_2438mm'=> '4.5mm x 1219mm x 2438mm',
+			'4.5mm_x_1200mm_x_2700mm'=> '4.5mm x 1200mm x 2700mm',
+			'4.5mm_x_1200mm_x_3000mm'=> '4.5mm x 1200mm x 3000mm',
+			'6mm_x_1219mm_x_2438mm'=> '6mm x 1219mm x 2438mm',
+			'6mm_x_1200mm_x_2700mm'=> '6mm x 1200mm x 2700mm',
+			'6mm_x_1200mm_x_3000mm'=> '6mm x 1200mm x 3000mm',
+			'9mm_x_1219mm_x_2438mm'=> '9mm x 1219mm x 2438mm',
+			'9mm_x_1200mm_x_2700mm'=> '9mm x 1200mm x 2700mm',
+			'9mm_x_1200mm_x_3000mm'=> '9mm x 1200mm x 3000mm',
+			'12mm_x_1219mm_x_2438mm'=> '12mm x 1219mm x 2438mm',
+			'6mm_x_1250mm_x_2400mm'=> '6mm x 1250mm x 2400mm',
+			'6mm_x_1200mm_x_2400mm'=> '6mm x 1200mm x 2400mm'
+		),
+		"orientation" => array(
+			'h' => 'Horizontal',
+			'v' => 'Vertical'
 		)
 	);
 	
@@ -151,82 +169,81 @@ class ReportMakerXls extends ReportMaker {
 
 		$this->row++;
 		$this->setCellValue('A'.$this->row, 'Product Name','sml_hd');
-		$this->setCellValue('B'.$this->row, 'Stud & Fastener Spacing','sml_hd');
-		$this->setCellValue('C'.$this->row, 'Wind Zone','sml_hd');
-		$this->setCellValue('D'.$this->row, 'Type of Frame','sml_hd');
-		$this->setCellValue('E'.$this->row, 'Allowance','sml_hd');
-		$this->setCellValue('F'.$this->row, 'Total wall area','sml_hd');
-		$this->setCellValue('G'.$this->row, 'Total gable area','sml_hd');
-		$this->setCellValue('H'.$this->row, 'Total_opening area','sml_hd');
+		$this->setCellValue('B'.$this->row, 'Application','sml_hd');
+		$this->setCellValue('C'.$this->row, 'Type of Frame','sml_hd');
+		$this->setCellValue('D'.$this->row, 'Allowance','sml_hd');
+		$this->setCellValue('E'.$this->row, 'Waste','sml_hd');
+		$this->setCellValue('F'.$this->row, 'Total wall area, m2','sml_hd');
+		$this->setCellValue('G'.$this->row, 'Total_opening area, m2','sml_hd');
 		
 		$this->row++;
 		$productCode = $this->project_data["step1"]["product"];
 		$productName = $this->productCodes['product'][$productCode];
 		$this->setCellValue('A'.$this->row,$productName,'sml_nm');
 		
-		$this->setCellValue('B'.$this->row,$this->data['spacing'],'sml_nm');
-		
-		$productCode = $this->project_data["step1"]["wind_zone"];
-		$productName = $this->productCodes['wind_zone'][$productCode];
-		$this->setCellValue('C'.$this->row,$productName,'sml_nm');
+		$app_code = $this->project_data["step1"]["application"];
+		$application = $this->productCodes['application'][$app_code];
+		$this->setCellValue('B'.$this->row,$application,'sml_nm');
 		
 		$typeOfFrameCode = $this->project_data["step1"]["type_of_frame"];
 		$typeOfFrameName = $this->productCodes['type_of_frame'][$typeOfFrameCode];
-		$this->setCellValue('D'.$this->row,$typeOfFrameName,'sml_nm');
+		$this->setCellValue('C'.$this->row,$typeOfFrameName,'sml_nm');
 		
 		$allowance = $this->project_data["step1"]["allowance"];
-		$this->setCellValue('E'.$this->row,$allowance,'sml_nm');
+		$this->setCellValue('D'.$this->row,$allowance . '%','sml_nm');
 
-		$this->setCellValue('F'.$this->row,$this->project_data["step2"]['total_wall_area'],'sml_nm');
-		$this->setCellValue('G'.$this->row,$this->project_data["step3"]['total_gable_area'],'sml_nm');
-		$this->setCellValue('H'.$this->row,$this->data['total_opening_area'],'sml_nm');
+		$waste = $this->project_data["step1"]["waste"];
+		$this->setCellValue('E'.$this->row,$waste . '%','sml_nm');
+
+		$this->setCellValue('F'.$this->row,$this->data['total_wall_area'],'sml_nm');
+		$this->setCellValue('G'.$this->row,$this->data['total_opening_area'],'sml_nm');
 
 		$this->row += 3;
 		$this->setCellValue('A'.$this->row," STEP_2  Wall & Openings  ",'sml_hd');
 
 		$this->row++;
-		$this->setCellValue('B'.$this->row,'Width(mm)','sml_hd');
-		$this->setCellValue('C'.$this->row,'Length(mm)','sml_hd');
-		$this->setCellValue('D'.$this->row,'Area(m2)','sml_hd');
+		$this->setCellValue('A'.$this->row,'Sheet size','sml_hd');
+		$this->setCellValue('B'.$this->row,'Orientation','sml_hd');
+		$this->setCellValue('C'.$this->row,'Frame spacing','sml_hd');
+		$this->setCellValue('D'.$this->row,'Fastener type','sml_hd');
+		$this->setCellValue('E'.$this->row,'Number of fasteners per sheet','sml_hd');
+		$this->setCellValue('F'.$this->row,'Amount of putty, mL','sml_hd');
+		$this->setCellValue('G'.$this->row,'Amount of sealant, mL','sml_hd');
+		$this->setCellValue('H'.$this->row,'Amount of paper tape, m','sml_hd');
+		$this->setCellValue('I'.$this->row,'Height/Width(mm)','sml_hd');
+		$this->setCellValue('J'.$this->row,'Length(mm)','sml_hd');
+		$this->setCellValue('K'.$this->row,'Wall area(m2)','sml_hd');
 		
 		$i = 0;
 		foreach($this->project_data["step2"]["walls"] as $key => $wall) {
 			$i++;
 			$this->row++;
-			$this->setCellValue('A'.$this->row,'Wall ' . $i,'sml_nm');
-			$this->setCellValue('B'.$this->row,$wall["width"],'sml_nm');
-			$this->setCellValue('C'.$this->row,$wall["length"],'sml_nm');
-			$this->setCellValue('D'.$this->row,$wall["size"],'sml_nm');
+			$this->setCellValue('A'.$this->row,$this->productCodes['sheet_size'][$wall["sheet_size"]],'sml_nm');
+			$this->setCellValue('B'.$this->row,$this->productCodes['orientation'][$wall["orientation"]],'sml_nm');
+			$this->setCellValue('C'.$this->row,$wall["frame_spacing"],'sml_nm');
+			$this->setCellValue('D'.$this->row,$wall["fastener_type"],'sml_nm');
+			$this->setCellValue('E'.$this->row,$wall["no_of_fasteners_per_sheet"],'sml_nm');
+			$this->setCellValue('F'.$this->row,round($wall["amount_of_putty"]),'sml_nm');
+			$this->setCellValue('G'.$this->row,round($wall["amount_of_sealant"]),'sml_nm');
+			$this->setCellValue('H'.$this->row,round($wall["amount_of_tape"]/1000,1),'sml_nm');
+			$this->setCellValue('I'.$this->row,$wall["height"],'sml_nm');
+			$this->setCellValue('J'.$this->row,$wall["length"],'sml_nm');
+			$this->setCellValue('K'.$this->row,$wall["size"],'sml_nm');
+			
+			
 			if (isset($this->project_data["step2"]["openings"][$key])){
 				$j = 0;
 				foreach($this->project_data["step2"]["openings"][$key] as $key2 => $opening) {
 					$j++;
 					$this->row++;
-					$this->setCellValue('A'.$this->row,'Opening ' . $j,'sml_nm');
-					$this->setCellValue('B'.$this->row,$opening["width"],'sml_nm');
-					$this->setCellValue('C'.$this->row,$opening["height"],'sml_nm');
-					$this->setCellValue('D'.$this->row,$opening["size"],'sml_nm');
+					$this->setCellValue('H'.$this->row,'Opening ' . $j,'sml_nm');
+					$this->setCellValue('I'.$this->row,$opening["width"],'sml_nm');
+					$this->setCellValue('J'.$this->row,$opening["height"],'sml_nm');
+					$this->setCellValue('K'.$this->row,$opening["size"],'sml_nm');
 				}
 			}
 		}
 		
-				$this->row += 3;
-		$this->setCellValue('A'.$this->row," STEP_3  Gables ",'sml_hd');
-
-		$this->row++;
-		$this->setCellValue('B'.$this->row,'Base(mm)','sml_hd');
-		$this->setCellValue('C'.$this->row,'Height(mm)','sml_hd');
-		$this->setCellValue('D'.$this->row,'Area(m2)','sml_hd');
-		
-		$i = 0;
-		foreach($this->project_data["step3"]["gables"] as $key => $gable) {
-			$i++;
-			$this->row++;
-			$this->setCellValue('A'.$this->row,'Gable ' . $i,'sml_nm');
-			$this->setCellValue('B'.$this->row,$gable["base"],'sml_nm');
-			$this->setCellValue('C'.$this->row,$gable["height"],'sml_nm');
-			$this->setCellValue('D'.$this->row,$gable["size"],'sml_nm');
-		}
 		
 		$this->row += 2;
 		$this->setCellValue('B'.$this->row,'Total product estimation (m2)','sml_hd');
@@ -373,14 +390,10 @@ class ReportMakerDoc extends ReportMaker {
 		$this->out .= $productName;
 		$this->br();
 		
-		$this->b('Stud & Fastener Spacing: ');
-		$this->out .= $this->data['spacing'];
-		$this->br();
-		
-		$this->b('Wind Zone: ');
-		$productCode = $this->project_data["step1"]["wind_zone"];
-		$productName = $this->productCodes['wind_zone'][$productCode];
-		$this->out .= $productName;
+		$this->b('Application Name: ');
+		$application = $this->project_data["step1"]["application"];
+		$application = $this->productCodes['application'][$application];
+		$this->out .= $application;
 		$this->br();
 		
 		$this->b('Type of Frame: ');
@@ -391,15 +404,16 @@ class ReportMakerDoc extends ReportMaker {
 		
 		$this->b('Allowance: ');
 		$allowance = $this->project_data["step1"]["allowance"];
-		$this->out .= $allowance;
+		$this->out .= $allowance . '%';
+		$this->br();
+		
+		$this->b('Waste: ');
+		$waste = $this->project_data["step1"]["waste"];
+		$this->out .= $waste . '%';
 		$this->br();
 		
 		$this->b('Total wall area, m2: ');
-		$this->out .= $this->project_data["step2"]['total_wall_area'];
-		$this->br();
-		
-		$this->b('Total gable area, m2: ');
-		$this->out .= $this->project_data["step3"]['total_gable_area'];
+		$this->out .= $this->data['total_wall_area'];
 		$this->br();
 		
 		$this->b('Total opening area, m2: ');
@@ -415,45 +429,44 @@ class ReportMakerDoc extends ReportMaker {
 		$this->br();
 		
 		$i = 0;
+			
+		$this->out .=  "<table border=1><tr><td><b>Sheet size<b/></td><td><b>Orientation<b/></td><td><b>Frame spacing<b/></td><td><b>Fastener type<b/></td><td><b>Number of fasteners per sheet<b/></td><td><b>Height/Width(mm)<b/></td><td><b>Length(mm)<b/></td><td><b>Wall area(m2)</b></td></tr>";
+	
 		foreach($this->project_data["step2"]["walls"] as $key => $wall) {
 			$i++;
-			$this->out .= '<b>Wall ' . $i . "</b>: <br>Width " . $wall["width"] . 'mm ' 
-					. ', Length: ' . $wall["length"]. 'mm '
-					. ', Size: '. $wall["size"]. 'm2 ';
-			$this->br();	
-			$this->br();
+			$this->out .= '<tr>'
+					. '<td>' . $this->productCodes['sheet_size'][$wall["sheet_size"]] . '</td>' 
+					. '<td>' . $this->productCodes['orientation'][$wall["orientation"]] . '</td>' 
+					. '<td>' . $wall["frame_spacing"] . '</td>' 
+					. '<td>' . $wall["fastener_type"] . '</td>' 
+					. '<td>' . $wall["no_of_fasteners_per_sheet"] . '</td>' 
+					. '<td>' . $wall["height"] . 'mm </td>' 
+					. '<td>' . $wall["length"]. 'mm </td>'
+					. '<td>'. $wall["size"]. 'm2 </td></tr>';
 			
 			if (isset($this->project_data["step2"]["openings"][$key])){
 				$j = 0;
 				foreach($this->project_data["step2"]["openings"][$key] as $key2 => $opening) {
 					$j++;
-					$this->out .= '-------<b>Opening ' . $j . "</b>: Width: " . $opening["width"] . 'mm '
-					. ', Height: ' . $opening["height"] . 'mm '
-					. ', Size: '. $opening["size"] . 'm2 ';
-					$this->br();
-					$this->br();
+					$this->out .= '<tr>'
+					. '<td></td>' 
+					. '<td></td>' 
+					. '<td></td>' 
+					. '<td></td>' 
+					. '<td><b>Opening ' . $j . '</b></td>' 
+					. '<td>' . $opening["width"] . 'mm </td>' 
+					. '<td>' . $opening["height"]. 'mm </td>'
+					. '<td>' . $opening["size"]. 'm2 </td></tr>';
+					
 				}
 			}
 		}
-			
+		
+		$this->out .=  "</table>";
+		
 		$this->br();
 		$this->br();
 				
-		$this->b("STEP_3  Gables  ");
-		$this->br();
-		$this->br();
-		
-		$i = 0;
-		foreach($this->project_data["step3"]["gables"] as $key => $gable) {
-			$i++;
-			$this->row++;
-			$this->out .= '<b>Gable ' . $i . "</b>: Width: " . $gable["base"] . 'mm '
-					. ', Height: ' . $gable["height"] . 'mm '
-					. ', Size: '. $gable["size"] . 'm2 ';
-			$this->br();	
-			
-		}
-		
 		$this->b('Total product estimation (m2): ');
 		$this->out .= $this->data['total_product_estimation'];
 

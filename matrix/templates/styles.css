@@ -163,6 +163,9 @@ label.error {
 	float: left;
 }
 
+.remove_wall_button {
+	float: left;
+}
 a.add_opening_button {
 	background-color: #DDDDDD;
 	padding:8px;
@@ -255,7 +258,7 @@ table#project_data, table#cost_table {
 div#estimation_low_right_table {
 	color: #FFFFFF;
     font-size: 12px;
-    height: 197px;
+    height: 171px;
     margin-right: 20px;
     margin-top: 10px;
     overflow-x: hidden;
@@ -367,7 +370,7 @@ div#estimation_reports_table {
     margin: 0 20px 0 0;
     position: absolute;   
 	left: 600px;
-    top: 299px;
+    top: 269px;
     width: 390px;
 }
 

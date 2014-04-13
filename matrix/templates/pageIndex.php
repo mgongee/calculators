@@ -118,12 +118,13 @@
 					<input num="_ID_" type="hidden" name="_STEP_[_FIELDNAME_][_ID_][amount_of_tape]" id="_STEP_[_FIELDNAME_][_ID_][amount_of_tape]" value="_PAPER_"/>
 				</td>
 				<td id="wall_buttons__ID_">
-					<a href="#" class="remove_wall_button" name="_STEP_[_FIELDNAME_][_ID_][delete]" id="_STEP_[_FIELDNAME_][_ID_][delete]">
-						<img width="50" border="0" height="30" name="Image221" alt="Clear" src="images/clear_b.jpg">
-					</a>
 					<a href="#" class="show_dialog_openings_to_wall_button" number="_ID_" >
 						Openings
 					</a>
+					<a href="#" class="remove_wall_button" name="_STEP_[_FIELDNAME_][_ID_][delete]" id="_STEP_[_FIELDNAME_][_ID_][delete]">
+						<img width="50" border="0" height="30" name="Image221" alt="Clear" src="images/clear_b.jpg">
+					</a>
+					
 					<div id="opening_dialog[_ID_]" class="openings_table field_text " style="display:none;">
 						<div class="openings_container" class="scrollable">
 							<a role="button" class="openings_dialog_close ui-corner-all" href="#">
