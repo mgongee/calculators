@@ -1084,48 +1084,48 @@ window.calculation_numbers = {
 
 window.products_data = {
 	// sheets
-	'404279':{'name':'HardieFlex® Sheet 3.5mm x 1219mm x 2438mm','cost':1},
-	'404264':{'name':'HardieFlex® Sheet 4.5mm x 1219mm x 2438mm','cost':1},
-	'400184':{'name':'HardieFlex® Sheet 4.5mm x 1200mm x 2700mm','cost':1},
-	'400182':{'name':'HardieFlex® Sheet 4.5mm x 1200mm x 3000mm','cost':1},
-	'404265':{'name':'HardieFlex® Sheet 6mm x 1219mm x 2438mm','cost':1},
-	'400169':{'name':'HardieFlex® Sheet 6mm x 1200mm x 2700mm','cost':1},
-	'400167':{'name':'HardieFlex® Sheet 6mm x 1200mm x 3000mm','cost':1},
-	'404267':{'name':'HardieFlex® Sheet 9mm x 1219mm x 2438mm','cost':1},
-	'404272':{'name':'HardieFlex® Sheet 9mm x 1200mm x 2700mm','cost':1},
-	'404271':{'name':'HardieFlex® Sheet 9mm x 1200mm x 3000mm','cost':1},
-	'404270':{'name':'HardieFlex® Sheet 12mm x 1219mm x 2438mm','cost':1},
-	'404433':{'name':'HardieFlex® Pro 6mm x 1250mm x 2400mm','cost':1},
-	'404594':{'name':'HardieFlex® Pro 6mm x 1200mm x 2400mm','cost':1},
-	'404593':{'name':'HardieFlex® Pro 6mm x 1200mm x 2700mm','cost':1},
-	'404438':{'name':'HardieFlex® Pro 6mm x 1200mm x 3000mm','cost':1},
-	'404341':{'name':'HardieFlex® Senepa 9mm x 254mm x 2438mm','cost':1},
-	'404338':{'name':'HardieFlex® Senepa 12mm x 254mm x 2438mm','cost':1},
-	'404337':{'name':'HardieFlex® Senepa 12mm x 305mm x 2438mm','cost':1},
-	'404445':{'name':'HardieFlex® Senepa 12mm x 305mm x 3660mm','cost':1},
-	'404375':{'name':'HardiePlank® Siding Select Cedar Mill 7.5mm x 208mm x 3656mm','cost':1},
-	'404673':{'name':'HardieFlex® Flooring 16mm x 600mm x 2400mm','cost':1},
-	'404658':{'name':'HardieFlex® Flooring 16mm x 1200mm x 2400mm','cost':1},
+	'404279':{'name':'HardieFlex® Sheet 3.5mm x 1219mm x 2438mm','cost':""},
+	'404264':{'name':'HardieFlex® Sheet 4.5mm x 1219mm x 2438mm','cost':""},
+	'400184':{'name':'HardieFlex® Sheet 4.5mm x 1200mm x 2700mm','cost':""},
+	'400182':{'name':'HardieFlex® Sheet 4.5mm x 1200mm x 3000mm','cost':""},
+	'404265':{'name':'HardieFlex® Sheet 6mm x 1219mm x 2438mm','cost':""},
+	'400169':{'name':'HardieFlex® Sheet 6mm x 1200mm x 2700mm','cost':""},
+	'400167':{'name':'HardieFlex® Sheet 6mm x 1200mm x 3000mm','cost':""},
+	'404267':{'name':'HardieFlex® Sheet 9mm x 1219mm x 2438mm','cost':""},
+	'404272':{'name':'HardieFlex® Sheet 9mm x 1200mm x 2700mm','cost':""},
+	'404271':{'name':'HardieFlex® Sheet 9mm x 1200mm x 3000mm','cost':""},
+	'404270':{'name':'HardieFlex® Sheet 12mm x 1219mm x 2438mm','cost':""},
+	'404433':{'name':'HardieFlex® Pro 6mm x 1250mm x 2400mm','cost':""},
+	'404594':{'name':'HardieFlex® Pro 6mm x 1200mm x 2400mm','cost':""},
+	'404593':{'name':'HardieFlex® Pro 6mm x 1200mm x 2700mm','cost':""},
+	'404438':{'name':'HardieFlex® Pro 6mm x 1200mm x 3000mm','cost':""},
+	'404341':{'name':'HardieFlex® Senepa 9mm x 254mm x 2438mm','cost':""},
+	'404338':{'name':'HardieFlex® Senepa 12mm x 254mm x 2438mm','cost':""},
+	'404337':{'name':'HardieFlex® Senepa 12mm x 305mm x 2438mm','cost':""},
+	'404445':{'name':'HardieFlex® Senepa 12mm x 305mm x 3660mm','cost':""},
+	'404375':{'name':'HardiePlank® Siding Select Cedar Mill 7.5mm x 208mm x 3656mm','cost':""},
+	'404673':{'name':'HardieFlex® Flooring 16mm x 600mm x 2400mm','cost':""},
+	'404658':{'name':'HardieFlex® Flooring 16mm x 1200mm x 2400mm','cost':""},
 
 	// fasteners
 	
-	'305436':{'name':'HardieDrive® Nails',							'unit':'25 Kg box','cost': 1},
-	'JH Nail Kilo':{'name':'HardieDrive® Nails',					'unit':'per Kg','cost': 1},
-	'305757':{'name':'HardieDrive® Screw 20mm long Retail Pack',	'unit':'70\'s pack','cost': 1},
-	'305759':{'name':'HardieDrive® Screw 20mm long Wholesale Pack',	'unit':'1000\'s pack','cost': 1},
-	'305760':{'name':'HardieDrive® Screw 25mm long Retail Pack',	'unit':'70\'s pack','cost': 1},
-	'305761':{'name':'HardieDrive® Screw 25mm long Wholesale Pack',	'unit':'1000\'s pack','cost': 1},
-	'305768':{'name':'HardieDrive® Screw 32mm long Retail Pack',	'unit':'70\'s pack','cost': 1},
-	'305769':{'name':'HardieDrive® Screw 32mm long Wholesale Pack',	'unit':'1000\'s pack','cost': 1},
+	'305436':{'name':'HardieDrive® Nails',							'unit':'25 Kg box','cost':""},
+	'JH Nail Kilo':{'name':'HardieDrive® Nails',					'unit':'per Kg','cost':""},
+	'305757':{'name':'HardieDrive® Screw 20mm long Retail Pack',	'unit':'70\'s pack','cost':""},
+	'305759':{'name':'HardieDrive® Screw 20mm long Wholesale Pack',	'unit':'1000\'s pack','cost':""},
+	'305760':{'name':'HardieDrive® Screw 25mm long Retail Pack',	'unit':'70\'s pack','cost':""},
+	'305761':{'name':'HardieDrive® Screw 25mm long Wholesale Pack',	'unit':'1000\'s pack','cost':""},
+	'305768':{'name':'HardieDrive® Screw 32mm long Retail Pack',	'unit':'70\'s pack','cost':""},
+	'305769':{'name':'HardieDrive® Screw 32mm long Wholesale Pack',	'unit':'1000\'s pack','cost':""},
 
 	// paper tape
-	'305440':{'name':'HardieFlex® Perforated Paper Tape',			'unit':'250 ft per roll','cost': 1},
+	'305440':{'name':'HardieFlex® Perforated Paper Tape',			'unit':'250 ft per roll','cost':""},
 
 	// putty
-	'305470':{'name':'HardieFlex® Putty',							'unit':'25 Kg. pail','cost': 1},			
+	'305470':{'name':'HardieFlex® Putty',							'unit':'25 Kg. pail','cost':""},			
 
 	// sealant
-	'PU':{'name':'Polyurethane Sealant',						'unit':'300ml tube','cost': 1},
+	'PU':{'name':'Polyurethane Sealant',						'unit':'300ml tube','cost':""},
 				
 
 

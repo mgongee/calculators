@@ -55,25 +55,6 @@ window.calculation_rules =  {
 		
 		var amount_of_epoxy = epoxy_per_joint * total_join_length;
 		
-		/* Set appropriate units */
-		var unit = 'L';
-		var litre = 1000;
-		var unit_cost_divider = 1;
-		
-		if (amount_of_epoxy > litre) {
-			amount_of_epoxy = Math.ceil(amount_of_epoxy / litre);
-			unit = 'L';
-			unit_cost_divider = 1;
-		}
-		else {
-			unit = 'mL';
-			unit_cost_divider = litre;
-		}
-		$("#units_amount_of_epoxy").html(unit);
-		
-		/* Save results of calculation */
-		window.project_calculation["amount_of_epoxy_units"] = unit;
-		window.project_calculation["epoxy_unit_cost_divider"] = unit_cost_divider;
 		window.project_calculation['amount_of_epoxy'] = amount_of_epoxy;
 	},
 	"amount_of_constr_adhesive": function() {
@@ -84,28 +65,8 @@ window.calculation_rules =  {
 		/* Calculate value */
 		var amount_of_constr_adhesive = window.calculation_numbers["amount_of_constr_adhesive_per_sheet"][sheet_type] * number_of_sheets;
 		
-		/* Set appropriate units */
-		var unit = 'mL';
-		var tube = window.calculation_numbers["amount_of_adhesive_in_tube"];
-		var unit_cost_divider = 1;
-		
-		if (amount_of_constr_adhesive > tube) {
-			amount_of_constr_adhesive = Math.ceil(amount_of_constr_adhesive / tube);
-			unit = 'tubes';
-			unit_cost_divider = 1;
-		}
-		else {
-			unit = 'mL';
-			unit_cost_divider = tube;
-		}
-		$("#units_amount_of_constr_adhesive").html(unit);
-		
+	
 		/* Save results of calculation */
-		window.project_calculation["amount_of_constr_adhesive_units"] = unit;
-		window.project_calculation["adhesive_unit_cost_divider"] = unit_cost_divider;
 		window.project_calculation["amount_of_constr_adhesive"] = amount_of_constr_adhesive;
 	}
 };
-
-
-alert("777");

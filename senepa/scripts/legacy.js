@@ -8,7 +8,6 @@ $(document).ready(function () {
 dialog_window = function(url,title) {
 	var i = 0;
 	var tableData = {};
-	console.log('start');
 	$("input.bill_item_id").each(function(){
 		var id =  $(this).attr('id');
 		console.log('i',i);
@@ -27,12 +26,10 @@ dialog_window = function(url,title) {
 
 		i++;
 	});
-console.log('endf');
-console.log(tableData);
 	$("#ui-dialog-title-divId").html(title);
 
 	xxdata = JSON.stringify(tableData);
-	console.log('koolt');
+
 	$.fancybox.open([{
 	  href : '#divId',
 	  title : title
@@ -41,7 +38,7 @@ console.log(tableData);
 	  width: 520,
 	  height: 380
 	});           
-console.log('mane');
+
 	$("#modalIframeId").attr("width","500");
 	$("#modalIframeId").attr("src",url+"?data=" + xxdata);
 
@@ -51,11 +48,7 @@ console.log('mane');
 
 	$("#send_request_button").on('click tap', function(){
 		if ($('#new_name').val() != '') {
-			//dialog_window('sendorder.php','BILL OF QUANTITIES'); 
-			//$("#send_request_popup").dialog();
-			console.log('go');
 			dialog_window('sendorder.php','BILL OF QUANTITIES');
-			console.log('go2');
 		}
 		else {
 			alert('Please fill in the project name');
@@ -65,11 +58,7 @@ console.log('mane');
 		
 	$("#send_request_button").on('click tap', function(){
 		if ($('#new_name').val() != '') {
-			//dialog_window('sendorder.php','BILL OF QUANTITIES'); 
-			//$("#send_request_popup").dialog();
-			console.log('go');
 			dialog_window('sendorder.php','BILL OF QUANTITIES');
-			console.log('go2');
 		}
 		else {
 			alert('Please fill in the project name');
@@ -115,7 +104,7 @@ console.log('mane');
 		$('.usrateinfo').appendTo('body').show();
 	
 		});
-		$('.nodel').live("click", function(){ $('.usrateinfo').hide(); $('.ui-widget-overlay').remove();});
+
 		$('#sc_nav ul li.apps a').click(function() {
 			$(this).parent().toggleClass('show');
 			

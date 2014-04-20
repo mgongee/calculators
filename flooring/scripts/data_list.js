@@ -42,5 +42,50 @@ window.calculation_numbers = {
 	"type_of_frame_codes" : {
 		"steel_1.2_to_1.6mm_bmt" : "1.2-1.6mm"
 	},
-	"amount_of_adhesive_in_tube": 300
-}
+	"amount_of_adhesive_in_tube": 300,
+	"product_id" : { // flooring
+		"hardieflex_flooring_16mm" : {
+			"16mm_x_600mm_x_2400mm" : 404673,
+			"16mm_x_1200mm_x_2400mm" : 404658
+		}
+	},
+	'product_amount_to_id': {
+		'fastener': {
+			'HardieDrive Screws 32mm long': {
+				'70': '305768',
+				'1000': '305769'
+			}
+		},
+		'epoxy': {
+			'Two-Part Epoxy': {
+				'1': 'EPOX ml',
+				'1000': 'EPOX'
+			}
+		},
+		'adhesive': {
+			'Construction Adhesive': {
+				'1': 'CA ml',
+				'300': 'CA'
+			}
+		}
+	},
+};
+
+
+window.products_data = {
+	// sheets
+	'404673':{'name':'HardieFlex® Flooring 16mm x 600mm x 2400mm','cost':""},
+	'404658':{'name':'HardieFlex® Flooring 16mm x 1200mm x 2400mm','cost':""},
+
+	// fasteners
+	'305768':{'name':'HardieDrive® Screw 32mm long Retail Pack',	'unit':'70\'s pack','cost':""},
+	'305769':{'name':'HardieDrive® Screw 32mm long Wholesale Pack',	'unit':'1000\'s pack','cost':""},
+	
+	// epoxy
+	'EPOX':{'name':'Two-Part Epoxy',								'unit':'1 Liter Can','cost':""},
+	'EPOX ml':{'name':'Two-Part Epoxy',								'unit':'mL','cost':""},
+
+	// construction adhesive
+	'CA':{'name':'Construction Adhesive',							'unit':'300ml tube','cost':""},
+	'CA ml':{'name':'Construction Adhesive',						'unit':'ml','cost':""},
+};

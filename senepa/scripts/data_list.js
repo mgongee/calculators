@@ -15,6 +15,14 @@ window.list_data = {
 };
 
 window.calculation_numbers = {
+	"product_id" : { // senepa
+		"hardieflex_senepa" : {
+			"9mm_x_254mm_x_2438mm" : 404341,
+			"12mm_x_254mm_x_2438mm" : 404338,
+			"12mm_x_305mm_x_2438mm" : 404338,
+			"12mm_x_305mm_x_3360mm" : 404445
+		}
+	},
 	"board_length" : { // in millimeters
 		"9mm_x_254mm_x_2438mm" : 2438,
 		"12mm_x_254mm_x_2438mm" : 2438,
@@ -40,20 +48,28 @@ window.calculation_numbers = {
 		"12mm_x_305mm_x_2438mm" : 10.8,
 		"12mm_x_305mm_x_3360mm" : 10.8
 	},
-	"amount_of_sealant_in_tube": 600
+	"amount_of_sealant_in_tube": 300,
+	"min_amount_of_sealant_for_using_tubes": 600
 }
 
 window.products_data = {
-	400032: {
-		"name": "HardieFlex screw 8x25mm",
-		"cost": 1
-	},
-	400033: {
-		"name": "HardieFlex screw 8x32mm",
-		"cost": 1
-	},
-	400036 : {
-		"name": "HardieFlex Nail 2.30x32mm",
-		"cost": 1
-	}
+	// senepa 
+	404341: {"name": "HardieFlex® Senepa 9mm x 254mm x 2438mm","cost": ""},
+	404338: {"name": "HardieFlex® Senepa 12mm x 254mm x 2438mm","cost": ""},
+	404337: {"name": "HardieFlex® Senepa 12mm x 305mm x 2438mm","cost": ""},
+	404445: {"name": "HardieFlex® Senepa 12mm x305mm x 3660mm","cost": ""},
+
+	// fasteners
+	400032: {"name": "HardieFlex screw 8x25mm","cost": ""},
+	400033: {"name": "HardieFlex screw 8x32mm","cost": ""},
+	400036 : {"name": "HardieFlex Nail 2.30x32mm","cost": ""},
+	
+	// planks
+	404375: {"name": "HardiePlank® Siding Select Cedar Mill 7.5mm x 208mm x 3656mm","cost": ""},
+	404341: {"name": "HardiePlank® Siding Smooth 9mm x 254mm x 2438mm","cost": ""},
+	
+	// sealant
+	'PU':{'name':'Polyurethane Sealant',								'unit':'300mL tube','cost':""},
+	'PU ml':{'name':'Polyurethane Sealant',								'unit':'mL','cost':""},
+
 }

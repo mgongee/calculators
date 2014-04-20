@@ -30,7 +30,6 @@ estimate_project = function() {
 		}
 		
 		var field_units = window.estimation_elements[field_name]["units"];
-		
 		var estimation_row = "<tr><td>" + field_label + "</td><td id='estimation_value__" + field_name + "'>" + field_value + "</td><td>" + field_units +"</td></tr>";
 		$("table#estimation_values tbody").append(estimation_row);
 		window.estimation_elements[field_name]["value"] = field_value;
@@ -40,11 +39,14 @@ estimate_project = function() {
 	$("#estimation_value__total_wall_area").html(total_wall_area + 
 		'<input type="hidden" id="total_wall_area" name="total_wall_area" value="' + total_wall_area + '">');
 	
+	var total_control_joints = window.project_calculation['total_control_joints'];
+	$("#estimation_value__total_control_joints").html(total_control_joints + 
+		'<input type="hidden" id="total_control_joints" name="total_control_joints" value="' + total_control_joints + '">');
+		
 	var total_opening_area = window.project_calculation['total_opening_area'];
 	$("#estimation_value__total_opening_area").html(total_opening_area + 
 		'<input type="hidden" id="total_opening_area" name="total_opening_area" value="' + total_opening_area + '">');
-	
-	
+		
 	var total_product_estimation = window.project_calculation['total_product_estimation'];
 	$("#estimation_value__total_product_estimation").html(total_product_estimation +
 		'<input type="hidden" id="total_product_estimation" name="total_product_estimation" value="' + total_product_estimation + '">');
@@ -67,18 +69,15 @@ calculate_product_quantity = function(wall) {
 		number_of_rows = Math.ceil(wall['length'] / sheet_width);
 		number_of_columns = Math.ceil(wall['length'] / sheet_length );
 	}
-	console.log("calculate_product_quantity",number_of_rows,number_of_columns);
 	return number_of_rows * number_of_columns;
 };
 
 calculate_fasteners_quantity = function(sheets_quantity, wall) {
 	var no_of_fasteners_per_sheet = wall["no_of_fasteners_per_sheet"];
-	console.log("calculate_fasteners_quantity",no_of_fasteners_per_sheet,wall);
 	return sheets_quantity * no_of_fasteners_per_sheet;
 };
 
 calculate_fasteners_items = function(fasteners) {
-	console.log("calculate_fasteners_items",fasteners);
 	var fasteners_items = [];
 	for (var i in fasteners) {
 		if (fasteners[i] !== false) {
@@ -336,7 +335,7 @@ add_items = function() {
 		
 		var fastener_type = walls[wall_number]['fastener_type'];
 		var fasteners_quantity = calculate_fasteners_quantity(sheets_quantity, walls[wall_number]);
-		console.log("fasteners_quantity",fasteners_quantity,sheets_quantity);
+		
 		fasteners.push({
 			'item_product_id': fastener_type,
 			'item_product_name': fastener_type,
@@ -344,7 +343,6 @@ add_items = function() {
 			'units': "each",
 			'quantity': fasteners_quantity
 		});
-		console.log("add_items",fasteners);
 	}
 	
 	products = compact_items_list(products);

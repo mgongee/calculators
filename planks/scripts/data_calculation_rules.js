@@ -102,27 +102,7 @@ window.calculation_rules =  {
 		/* Calculate value */
 		var amount_of_sealant = number_of_planks * window.calculation_numbers["amount_of_sealant_per_plank"];
 		
-		//var amount_of_sealant = amount_of_sealant * ((allowance / 100) + 1);
-		
-		/* Set appropriate units */
-		var unit = 'mL';
-		var tube = window.calculation_numbers["amount_of_sealant_in_tube"];
-		var unit_cost_divider = 1;
-		
-		if (amount_of_sealant >= tube) {
-			amount_of_sealant = Math.ceil(amount_of_sealant / tube);
-			unit = 'tubes';
-			unit_cost_divider = 1;
-		}
-		else {
-			unit = 'mL';
-			unit_cost_divider = tube;
-		}
-		$("#units_amount_of_sealant").html(unit);
-		
 		/* Save results of calculation */
-		window.project_calculation["amount_of_sealant_units"] = unit;
-		window.project_calculation["sealant_unit_cost_divider"] = unit_cost_divider;
 		window.project_calculation['amount_of_sealant'] = amount_of_sealant;
 	}
 };

@@ -190,63 +190,90 @@ fill_bill_item = function(item_number, id_number, item_name, quantity, units, co
 add_product = function() {
 	
 	// get product info
-	var id_number = "400080";
-	var cost_unit = 555;
-	var product_name = get_saved_field_value("product");	
+	var product = get_saved_field_raw_value("product");	
 	var type_of_frame = get_saved_field_raw_value("type_of_frame");
-	var type_of_frame_code = window.calculation_numbers["type_of_frame_codes"][type_of_frame];
-	var sheet_size = get_saved_field_value("sheet_size");
-	var full_product_name = product_name + " (" + sheet_size + ", " + type_of_frame_code + ")";	
+	var sheet_size = get_saved_field_raw_value("sheet_size");
+	
+	var sheet_product_id = window.calculation_numbers["product_id"][product][sheet_size];
+	var sheet_product_name = window.products_data[sheet_product_id]["name"];
+	var cost_unit = window.products_data[sheet_product_id]["cost"];
+	
 	var quantity = window.project_calculation["number_of_sheets"];
 
 
 	// add item into bill
 	var item_number = add_bill_item();
-	fill_bill_item(item_number, id_number,full_product_name,quantity,"each",cost_unit);
+	fill_bill_item(item_number, sheet_product_id,sheet_product_name,quantity,"each",cost_unit);
 };
 
 
 add_fasteners = function() {
 	
 	// get item info
-	var id_number = "400084";
-	var cost_unit = 21;	
-	var item_name = "HardieDrive Screws 8x32";
-	var quantity = window.project_calculation["number_of_fasteners"];
+	var fasteners_per_unit = 70;
+	var fastener_product_id = window.calculation_numbers["product_amount_to_id"]['fastener']['HardieDrive Screws 32mm long'][fasteners_per_unit];
 
+	var fastener_product_name = window.products_data[fastener_product_id]["name"];
+	var cost_unit = window.products_data[fastener_product_id]["cost"];
+	var units = window.products_data[fastener_product_id]["unit"];
+	var quantity = window.project_calculation["number_of_fasteners"];
+	var items_quantity = Math.ceil(quantity / fasteners_per_unit);
+	
 	// add item into bill
 	var item_number = add_bill_item();
 	
-	fill_bill_item(item_number, id_number,item_name,quantity,"each",cost_unit);
+	fill_bill_item(item_number, fastener_product_id,fastener_product_name,items_quantity,units,cost_unit);
 };
 
 add_epoxy = function() {
 	
+	var amount_of_epoxy = window.project_calculation["amount_of_epoxy"];
+	
+	if (amount_of_epoxy > 1000) {
+		var epoxy_per_unit = 1000;
+		var epoxy_product_id = 'EPOX';
+	}
+	else {
+		epoxy_product_id = 'EPOX ml';
+		epoxy_per_unit = 1;
+	}
+	
 	// get item info
-	var id_number = "400079";
-	var cost_unit = 21 / window.project_calculation["epoxy_unit_cost_divider"];
-	var item_name = "Epoxy";
-	var quantity = window.project_calculation["amount_of_epoxy"];
-	var units = window.project_calculation["amount_of_epoxy_units"];
+	var epoxy_product_name = window.products_data[epoxy_product_id]["name"];
+	var cost_unit = window.products_data[epoxy_product_id]["cost"];
+	var units = window.products_data[epoxy_product_id]["unit"];
+	var items_quantity = Math.ceil(amount_of_epoxy / epoxy_per_unit);
 	
 	// add item into bill
 	var item_number = add_bill_item();
 	
-	fill_bill_item(item_number, id_number,item_name,quantity,units,cost_unit);
+	fill_bill_item(item_number, epoxy_product_id,epoxy_product_name,items_quantity,units,cost_unit);
 };
 
 add_adhesive = function() {
 	
 	// get item info
-	var id_number = "400083";
-	var cost_unit = 21 / window.project_calculation["adhesive_unit_cost_divider"];
-	var item_name = "Construction Adhesive";
-	var quantity = window.project_calculation["amount_of_constr_adhesive"];
-	var units = window.project_calculation["amount_of_constr_adhesive_units"];
+	var amount_of_constr_adhesive = window.project_calculation["amount_of_constr_adhesive"];
+	var amount_of_adhesive_in_tube = window.calculation_numbers["amount_of_adhesive_in_tube"];
+
+	if (amount_of_constr_adhesive > amount_of_adhesive_in_tube) {
+		var adhesive_per_unit = amount_of_adhesive_in_tube;
+		var adhesive_product_id = 'CA';
+	}
+	else {
+		adhesive_product_id = 'CA ml';
+		adhesive_per_unit = 1;
+	}
+	
+	// get item info
+	var adhesive_product_name = window.products_data[adhesive_product_id]["name"];
+	var cost_unit = window.products_data[adhesive_product_id]["cost"];
+	var units = window.products_data[adhesive_product_id]["unit"];
+	var items_quantity = Math.ceil(amount_of_constr_adhesive / adhesive_per_unit);
 	
 	// add item into bill
 	var item_number = add_bill_item();
-	fill_bill_item(item_number, id_number,item_name,quantity,units,cost_unit);
+	fill_bill_item(item_number, adhesive_product_id, adhesive_product_name,items_quantity,units,cost_unit);
 };
 
 load_prices = function(data) {

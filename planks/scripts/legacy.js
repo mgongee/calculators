@@ -8,10 +8,9 @@ $(document).ready(function () {
 dialog_window = function(url,title) {
 	var i = 0;
 	var tableData = {};
-	console.log('start');
+
 	$("input.bill_item_id").each(function(){
 		var id =  $(this).attr('id');
-		console.log('i',i);
 		var str_id = id.replace(new RegExp("\\[",'g'),"\\[").replace(new RegExp("\\]",'g'),"\\]");
 		var desc_id = str_id.replace(new RegExp("id_number",'g'),"description");
 		var quantity_id = str_id.replace(new RegExp("id_number",'g'),"quantity");
@@ -27,8 +26,7 @@ dialog_window = function(url,title) {
 
 		i++;
 	});
-console.log('endf');
-console.log(tableData);
+
 	$("#ui-dialog-title-divId").html(title);
 
 	xxdata = JSON.stringify(tableData);
@@ -115,7 +113,7 @@ console.log('mane');
 		$('.usrateinfo').appendTo('body').show();
 	
 		});
-		$('.nodel').live("click", function(){ $('.usrateinfo').hide(); $('.ui-widget-overlay').remove();});
+
 		$('#sc_nav ul li.apps a').click(function() {
 			$(this).parent().toggleClass('show');
 			

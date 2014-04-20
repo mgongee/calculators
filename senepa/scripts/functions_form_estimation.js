@@ -180,20 +180,21 @@ fill_bill_item = function(item_number, id_number, item_name, quantity, units, co
 };
 
 add_product = function() {
-	
-	// get product info
-	var id_number = "400080";
-	var cost_unit = 55;
-	var product_name = get_saved_field_value("product");	
-	var type_of_frame = get_saved_field_value("type_of_frame");
-	var product_size = get_saved_field_value("product_size");
-	var full_product_name = product_name + " (" + product_size + ", " + type_of_frame + ")";	
-	var quantity = window.project_calculation["number_of_boards"];
 
+	// get product info
+	var product_code = get_saved_field_raw_value("product");	
+	var product_size = get_saved_field_raw_value("product_size");
+
+	// get item info
+	var item_product_id = window.calculation_numbers["product_id"][product_code][product_size];
+
+	var item_product_name = window.products_data[item_product_id]["name"];
+	var cost_unit = window.products_data[item_product_id]["cost"];
+	var quantity = window.project_calculation["number_of_boards"];
 
 	// add item into bill
 	var item_number = add_bill_item();
-	fill_bill_item(item_number, id_number,full_product_name,quantity,"each",cost_unit);
+	fill_bill_item(item_number, item_product_id,item_product_name,quantity,"each",cost_unit);
 };
 
 
@@ -213,17 +214,30 @@ add_fasteners = function() {
 
 add_sealant = function() {
 	
+	var amount_of_sealant = window.project_calculation["amount_of_sealant"];
+	var amount_of_sealant_in_tube = window.calculation_numbers["amount_of_sealant_in_tube"];
+	var min_amount_of_sealant_for_using_tubes = window.calculation_numbers["min_amount_of_sealant_for_using_tubes"];
+	
+	if (amount_of_sealant > min_amount_of_sealant_for_using_tubes) {
+		var sealant_per_unit = amount_of_sealant_in_tube;
+		var sealant_product_id = 'PU';
+	}
+	else {
+		sealant_product_id = 'PU ml';
+		sealant_per_unit = 1;
+	}
+	
 	// get item info
-	var id_number = "400079";
-	var cost_unit = 210 / window.project_calculation["sealant_unit_cost_divider"];
-	var item_name = "PU Sealant";
-	var quantity = window.project_calculation["amount_of_sealant"];
-	var units = window.project_calculation["amount_of_sealant_units"];
+	var sealant_product_name = window.products_data[sealant_product_id]["name"];
+	var cost_unit = window.products_data[sealant_product_id]["cost"];
+	var units = window.products_data[sealant_product_id]["unit"];
+	var items_quantity = Math.ceil(amount_of_sealant / sealant_per_unit);
+	
 	
 	// add item into bill
 	var item_number = add_bill_item();
 	
-	fill_bill_item(item_number, id_number,item_name,quantity,units,cost_unit);
+	fill_bill_item(item_number, sealant_product_id,sealant_product_name,items_quantity,units,cost_unit);
 };
 
 load_prices = function(data) {

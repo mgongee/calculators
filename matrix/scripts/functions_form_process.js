@@ -101,10 +101,7 @@ add_wall = function(){
 
 
 wall_change_handler = function($el, wall_number,inputs){
-	console.log("wall_change_handler");
-	if ($el.val() != "") {
-		console.log("wall_change_handler5	");
-		
+	if ($el.val() != "") {		
 		inputs['orientation_list'].show();	
 		inputs['height_input'].show();
 		inputs['length_input'].show();
@@ -152,7 +149,6 @@ wall_change_handler = function($el, wall_number,inputs){
 		});
 
 		inputs['length_input'].on('keyup',function(){
-			console.log("inputs['length_input'].");
 			update_wall_value(inputs['size_input'],'size',wall_number);
 
 			// order is important!
@@ -240,7 +236,7 @@ load_walls = function(step_data){
 		var $height_input = $('#step2\\[walls\\]\\[' + wall_number + '\\]\\[height\\]');
 		var $length_input = $('#step2\\[walls\\]\\[' + wall_number + '\\]\\[length\\]');
 		var $size_input = $('#step2\\[walls\\]\\[' + wall_number + '\\]\\[size\\]');
-console.log("load_openings new_wall_field", wall_number, $size_input);
+
 		//when wall added, user must set sheet_size at first
 		$sheet_sizes_list.show();
 
@@ -272,24 +268,6 @@ console.log("load_openings new_wall_field", wall_number, $size_input);
 	
 		$sheet_sizes_list.on('change',function(){wall_change_handler($(this),wall_number,inputs);});
 	}
-};
-
-
-calculate_wall_parameter = function(parameter_name, wall_parameters){
-	var parameter_types = {
-		'application': 'list',
-		'size': 'list',
-		'frame_spacing': 'value',
-		'orientation': 'list',
-		'fastener_type': 'value', // product id actually
-		'fasteners_per_sheet': 'value',
-		'perforated_paper_tape': 'value',
-		'putty_amount_per_meter_or_tape': 'value',
-		'sealant_amount_per_wall_length': 'value',
-		'control_joints': 'value'
-	};
-	
-	return variant;
 };
 
 /**

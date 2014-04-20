@@ -256,7 +256,7 @@ $(document).ready(function(){
 	$("#calcForm").bind("before_step_shown", function(event, data){
 		
 		if (data.currentStep == "step2") {
-			if (!terms_confirmed) {
+			if ((!terms_confirmed) && (!editPage)) {
 				$("#term_popup").dialog();
 			}
 		}
@@ -383,6 +383,16 @@ $(document).ready(function(){
 			}
 		}
 	});
+	
+	/**
+	 * Load default cost library onload
+	 */
+	var url = "index.php?route=ajax&action=get_prices&library_name=MASTER";
+	$.getJSON(url, function( data ) {
+		load_prices(data);
+	});
+
+
 	
 	/**
 	 * Load cost library on select on dropdown list
