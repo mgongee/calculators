@@ -2,8 +2,8 @@
 <div id="middle_wrapper">
 	<form id="estimationForm" method="post" action="index.php?route=report">
 		<input type="hidden" name="project_id" id="project_id" value="<?php echo $project['project_id']; ?>">
-		<input type="hidden" name="manager_name" value="<?php echo $project['manager_name']; ?>">
-		<input type="hidden" name="manager_email" value="<?php echo $manager_email; ?>">
+		<input type="hidden" name="user_name" value="<?php echo $user_name; ?>">
+		<input type="hidden" name="user_email" value="<?php echo $user_email; ?>">
 		<input type="hidden" name="project_type" id="project_type" value="flooring" />
 		<input type="hidden" name="report_type" id="report_type" value="excel">
 		<input type="hidden" name="project_data" id="project_data" value='<?php echo($project['project_data']); ?>'>

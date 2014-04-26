@@ -43,7 +43,7 @@
 			<a class="logo" href="../main_JHaccess.php"><img src="templates/images/logomain.jpg" alt="ACCEL" width="369"></a>  
 			<img class="mloginbg" src="templates/images/memberlogin.jpg" width="392" alt="" border="0" />
 			<div id="member_login">
-				<span class="welc">Welcome back <?php echo $manager_name ?></span>
+				<span class="welc">Welcome back <?php echo $user_name ?></span>
 				<a class="edit" href="member-self-edit.php">Edit</a>
 				<a class="logout" href="logout.php">Logout</a>
 				<div style="display: none;">

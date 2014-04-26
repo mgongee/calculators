@@ -23,11 +23,6 @@ window.form_elements = {
 				"label": "Allowance %",
 				"type": "text",
 				"default_value": "5"
-			},
-			"waste": {
-				"label": "Waste %",
-				"type": "text",
-				"default_value": "5"
 			}
 		},
 		"template": "step1",

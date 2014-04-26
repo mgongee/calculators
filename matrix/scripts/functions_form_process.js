@@ -202,7 +202,12 @@ update_wall_value = function($input, value_name, wall_number) {
  */
 load_walls = function(step_data){
 
+	if (typeof step_data === 'undefined') {
+		alert("Project data is corrupt: failed to loaded walls");
+		return false;
+	}
 	var walls = step_data["walls"];
+	
 	for (var wall_number in walls) {
 		
 		var wall = walls[wall_number];

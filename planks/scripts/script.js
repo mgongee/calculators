@@ -294,7 +294,6 @@ $(document).ready(function(){
 			},
 			close: function( event, ui ) {
 				var newHtml = $(clone).html();
-				console.log(newHtml);
 				$(clone).remove();
 				$(original).html(newHtml);	
 			}
@@ -447,7 +446,7 @@ $(document).ready(function(){
 	$("#calcForm").bind("before_step_shown", function(event, data){
 		
 		if (data.currentStep == "step2") {
-			if (!terms_confirmed) {
+			if ((!terms_confirmed) && (!editPage)) {
 				$("#term_popup").dialog();
 			}
 		}

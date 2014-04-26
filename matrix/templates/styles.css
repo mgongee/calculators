@@ -164,6 +164,7 @@ label.error {
 }
 
 .remove_wall_button {
+	padding-right:5px;
 	float: left;
 }
 a.add_opening_button {

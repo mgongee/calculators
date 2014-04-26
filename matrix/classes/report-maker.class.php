@@ -119,10 +119,10 @@ class ReportMakerXls extends ReportMaker {
 		$this->setCellValue('B13', $this->data['project']['postcode'],'sml_nm');
 
 		$this->setCellValue('A14', 'Username','sml_hd');
-		$this->setCellValue('B14', $this->data['manager_name'],'sml_nm');
+		$this->setCellValue('B14', $this->data['user_name'],'sml_nm');
 
 		$this->setCellValue('A15', 'Email','sml_hd');
-		$this->setCellValue('B15', $this->data['manager_email'],'sml_nm');
+		$this->setCellValue('B15', $this->data['user_email'],'sml_nm');
 		
 		$this->setCellValue('A20', 'ID Number','sml_hd');
 		$this->setCellValue('B20', 'Description','sml_hd');
@@ -334,10 +334,10 @@ class ReportMakerDoc extends ReportMaker {
 		$this->b($this->data['project']['postcode']);
 		$this->br();
 		$this->out .= 'Username: ';
-		$this->b($this->data['manager_name']);
+		$this->b($this->data['user_name']);
 		$this->br();
 		$this->out .= 'Email: ';
-		$this->b($this->data['manager_email']);
+		$this->b($this->data['user_email']);
 		$this->br();
 		$this->br();
 		$this->out .=  "<table border=0><tr><td>ID Number</td><td> Description</td><td> Quantity</td><td> Unit</td><td> Cost/Unit (php)</td></tr>";

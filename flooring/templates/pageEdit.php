@@ -37,7 +37,7 @@
 		</div>
 		<form id="calcForm" method="post" action="index.php?route=edit">
 			<input type="hidden" name="project_id" id="project_id" value="<?php echo $project['project_id']; ?>">
-			<input type="hidden" name="manager_name" value="<?php echo $project['manager_name']; ?>">
+			<input type="hidden" name="user_name" value="<?php echo $user_name; ?>">
 			<input type="hidden" name="project_type" id="project_type" value="flooring" />
 			<input type="hidden" name="action" id="action" value="save">
 

@@ -1,6 +1,17 @@
 window.project_calculation = {};
 
 window.calculation_rules =  {
+	"total_gable_area" : function() {
+		/* Get initial parameters */
+		var total_gable_area = parseFloat(get_saved_field_raw_value('total_gable_area'));
+		
+		if (isNaN(total_gable_area)) {
+			total_gable_area = 0;
+		}
+		
+		/* Save results of calculation */
+		window.project_calculation['total_gable_area'] = total_gable_area.toFixed(2);
+	},
 	"total_opening_area" : function() {
 		/* Get initial parameters */
 		var total_opening_area = 0;
@@ -24,7 +35,7 @@ window.calculation_rules =  {
 	"total_product_estimation" : function() {
 		/* Get initial parameters */
 		var total_wall_area = parseFloat(get_saved_field_raw_value('total_wall_area'));
-		var total_gable_area = parseFloat(get_saved_field_raw_value('total_gable_area'));
+		var total_gable_area = parseFloat(window.project_calculation['total_gable_area']);
 		var total_opening_area = parseFloat(window.project_calculation['total_opening_area']);
 	
 		/* Calculate value */
@@ -54,7 +65,7 @@ window.calculation_rules =  {
 		
 		/* Calculate value */
 		var number_of_planks = total_product_estimation * ((allowance / 100) + 1) / plank_length;
-		
+		console.log("number_of_planks ",number_of_planks,total_product_estimation );
 		/* Save results of calculation */
 		window.project_calculation['number_of_planks'] = Math.ceil(number_of_planks);
 	},

@@ -163,6 +163,11 @@ label.error {
 	float: left;
 }
 
+.remove_wall_button {
+	padding-right:5px;
+	float: left;
+}
+
 a.add_opening_button {
 	background-color: #DDDDDD;
 	padding:8px;

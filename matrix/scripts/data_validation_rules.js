@@ -7,12 +7,6 @@ window.validation_rules =  {
 			digits: true,
 			min: 0,
 			max: 100	
-		},
-		"step1[waste]": {
-			required: true,
-			digits: true,
-			min: 0,
-			max: 100	
 		}
 	},
 	messages: {

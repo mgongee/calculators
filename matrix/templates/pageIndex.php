@@ -35,7 +35,7 @@
 		</div>
 
 		<form id="calcForm" method="post" action="index.php">
-			<input type="hidden" name="manager_name" value="<?php echo $manager_name?>">
+			<input type="hidden" name="user_id" value="<?php echo $user_id?>">
 			<input type="hidden" name="project_type" id="project_type" value="matrix" />
 			<input type="hidden" name="action" id="action" value="save">
 
@@ -96,13 +96,9 @@
 				<option value="timber">Timber</option>
 			</select>
 		</div>
-		<div style="position: absolute; width: 120px; left: 250px; top: 170px; display: block;" class="form-group">
+		<div class="form-group" style="position: absolute; width: 120px; left: 250px; top: 120px; display: block;">
 			<label for="step1[allowance]" class="input-label">Allowance %</label>
 			<input type="text" value="5" size="7" id="step1[allowance]" class="input-field field_text ui-wizard-content ui-helper-reset ui-state-default" name="step1[allowance]">
-		</div>
-		<div class="form-group" style="position: absolute; width: 120px; left: 250px; top: 120px; display: block;">
-			<label for="step1[waste]" class="input-label">Waste %</label>
-			<input type="text" value="5" size="7" id="step1[waste]" class="input-field field_text ui-wizard-content ui-helper-reset ui-state-default" name="step1[waste]">
 		</div>
 	</div>
 	<div id="template_step2">

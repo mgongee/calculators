@@ -35,7 +35,7 @@
 		</div>
 
 		<form id="calcForm" method="post" action="index.php">
-			<input type="hidden" name="manager_name" value="<?php echo $manager_name?>">
+			<input type="hidden" name="user_id" value="<?php echo $user_id?>">
 			<input type="hidden" name="project_type" id="project_type" value="planks" />
 			<input type="hidden" name="action" id="action" value="save">
 
@@ -69,6 +69,38 @@
 
 -->
 <div id="templates" style="display:none">
+	<div id="template_step1">
+		<div style="position:absolute;  width:300px; left:0px; top:70px;" class="form-group">
+			<label for="step1[project_name]" class="input-label">Project name</label>
+			<input type="text" value="" size="50" id="step1[project_name]" class="input-field field_text ui-wizard-content ui-helper-reset ui-state-default" name="step1[project_name]">
+		</div>
+		<div style="position:absolute;  width:300px; left:0px; top:120px;" class="form-group">
+			<label for="step1[product]" class="input-label">Select the product required</label><br>
+			<select class="form-control field_text ui-wizard-content ui-helper-reset ui-state-default" name="step1[product]" id="step1[product]">
+				<option value="hardieflex_senepa">Hardieflex Senepa</option>
+			</select>
+		</div>
+		<div style="position: absolute; width: 180px; left: 0px; top: 170px; display: block;" class="form-group">
+			<label for="step1[type_of_frame]" class="input-label">Type of frame</label><br>
+			<select class="form-control field_text ui-wizard-content ui-helper-reset ui-state-default" name="step1[type_of_frame]" id="step1[type_of_frame]">
+				<option value="steel_0.55_to_1.66mm_bmt">Steel 0.55 to 1.66 mm BMT</option>
+				<option value="timber">Timber</option>
+			</select>
+		</div>
+		<div style="position: absolute; width: 120px; left: 250px; top: 120px; display: block;" class="form-group">
+			<label for="step1[allowance]" class="input-label">Allowance %</label><br>
+			<input type="text" value="5" size="7" id="step1[allowance]" class="input-field field_text ui-wizard-content ui-helper-reset ui-state-default" name="step1[allowance]">
+		</div>
+		<div style="width: 300px; left: 0px; display: block; position: absolute; top: 220px;" class="form-group">
+			<label for="step1[product_size]" class="input-label">Product size</label><br>
+			<select class="form-control field_text ui-wizard-content ui-helper-reset ui-state-default" name="step1[product_size]" id="step1[product_size]">
+				<option value="9mm_x_254mm_x_2438mm">9mm x 254mm x 2438mm</option>
+				<option value="12mm_x_254mm_x_2438mm">12mm x 254mm x 2438mm</option>
+				<option value="12mm_x_305mm_x_2438mm">12mm x 305mm x 2438mm</option>
+				<option value="12mm_x_305mm_x_3360mm">12mm x 305mm x 3360mm</option>
+			</select>
+		</div>
+	</div>
 	<div id="template_step2">
 		<div class="col50 add_wall_form">
 			<h3>Add walls</h3>
@@ -171,12 +203,13 @@
 					<input class="wall_size" size="7" type="text" name="_STEP_[_FIELDNAME_][_ID_][size]" id="_STEP_[_FIELDNAME_][_ID_][size]" value="_SIZE_" />
 				</td>
 				<td id="wall_buttons__ID_">
-					<a href="#" class="remove_wall_button" name="_STEP_[_FIELDNAME_][_ID_][delete]" id="_STEP_[_FIELDNAME_][_ID_][delete]">
-						<img width="50" border="0" height="30" name="Image221" alt="Clear" src="images/clear_b.jpg">
-					</a>
 					<a href="#" class="show_dialog_openings_to_wall_button" number="_ID_" >
 						Openings
 					</a>
+					<a href="#" class="remove_wall_button" name="_STEP_[_FIELDNAME_][_ID_][delete]" id="_STEP_[_FIELDNAME_][_ID_][delete]">
+						<img width="50" border="0" height="30" name="Image221" alt="Clear" src="images/clear_b.jpg">
+					</a>
+
 					<div id="opening_dialog[_ID_]" class="openings_table field_text " style="display:none;">
 						<div class="openings_container" class="scrollable">
 							<a role="button" class="openings_dialog_close ui-corner-all" href="#">

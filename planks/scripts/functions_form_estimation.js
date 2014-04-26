@@ -40,6 +40,10 @@ estimate_project = function() {
 	$("#estimation_value__stub_and_fasteners_spacing").html(spacing + 
 		'<input type="hidden" id="spacing" name="spacing" value="' + spacing + '">');
 	
+	var total_gable_area = window.project_calculation['total_gable_area'];
+	$("#estimation_value__total_gable_area").html(total_gable_area + 
+		'<input type="hidden" id="total_gable_area" name="total_gable_area" value="' + total_gable_area + '">');
+	
 	var total_opening_area = window.project_calculation['total_opening_area'];
 	$("#estimation_value__total_opening_area").html(total_opening_area + 
 		'<input type="hidden" id="total_opening_area" name="total_opening_area" value="' + total_opening_area + '">');

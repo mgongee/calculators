@@ -4,9 +4,9 @@
  * This class implements projects CRUD (creating, saving & loading)
  *
  
-CREATE TABLE IF NOT EXISTS `clc_project` (
+CREATE TABLE IF NOT EXISTS `clc_projects` (
   `project_id` int(11) NOT NULL AUTO_INCREMENT,
-  `manager_name` varchar(100) NOT NULL,
+  `user_id` int(11) NOT NULL,
   `project_name` varchar(500) NOT NULL,
   `project_type` varchar(100) NOT NULL,
   `project_data` text NOT NULL,
@@ -47,11 +47,11 @@ class ProjectManager {
 	static public function addNew($data) {
 		global $DB,$CONF, $T;
 		
-		$tableName = $CONF['table_prefix'] . 'project';
+		$tableName = $CONF['table_prefix'] . 'projects';
 		
-		$sql = "INSERT INTO `$tableName` ( `project_id`, `manager_name`, `project_name`, `project_type`, `project_data`, `created_at`)
+		$sql = "INSERT INTO `$tableName` ( `project_id`, `user_id`, `project_name`, `project_type`, `project_data`, `created_at`)
 				VALUES ('',
-				'" . mysql_real_escape_string($data['manager_name']) . "',
+				'" . mysql_real_escape_string($data['user_id']) . "',
 				'" . mysql_real_escape_string($data['project_name']) . "',
 				'" . mysql_real_escape_string($data['project_type']) . "',
 				'" . mysql_real_escape_string($data['project_data']) . "',
@@ -74,11 +74,11 @@ class ProjectManager {
 		global $DB,$CONF;
 		
 		$project = ProjectManager::getById($projectId);
-		$tableName = $CONF['table_prefix'] . 'project';
+		$tableName = $CONF['table_prefix'] . 'projects';
 		
-		$sql = "INSERT INTO `$tableName` ( `project_id`, `manager_name`, `project_name`, `project_type`, `project_data`, `created_at`)
+		$sql = "INSERT INTO `$tableName` ( `project_id`, `user_id`, `project_name`, `project_type`, `project_data`, `created_at`)
 				VALUES ('',
-				'" . mysql_real_escape_string($project['manager_name']) . "',
+				'" . mysql_real_escape_string($project['user_id']) . "',
 				'" . mysql_real_escape_string($newName) . "',
 				'" . mysql_real_escape_string($project['project_type']) . "',
 				'" . mysql_real_escape_string($project['project_data']) . "',
@@ -99,7 +99,7 @@ class ProjectManager {
 	static public function deleteById($projectId) {
 		global $DB,$CONF;
 		
-		$tableName = $CONF['table_prefix'] . 'project';
+		$tableName = $CONF['table_prefix'] . 'projects';
 		
 		$sql = "DELETE FROM `$tableName` WHERE `project_id` = " . $projectId . " LIMIT 1";
 		
@@ -119,7 +119,7 @@ class ProjectManager {
 	static public function update($projectId, $data) {
 		global $DB,$CONF, $T;
 		
-		$tableName = $CONF['table_prefix'] . 'project';
+		$tableName = $CONF['table_prefix'] . 'projects';
 		
 		$sql = "UPDATE `$tableName` SET 
 			`project_name` = '" . mysql_real_escape_string($data['project_name']) . "',
@@ -143,7 +143,7 @@ class ProjectManager {
 		global $DB,$CONF;
 		
 		$data = array(
-			'manager_name' => $formData['manager_name'],
+			'user_id' => $formData['user_id'],
 			'project_name' => $formData['step1']['project_name'],
 			'project_type' => $formData['project_type'],
 		);
@@ -188,11 +188,11 @@ class ProjectManager {
 	}
 	
 	static public function getAll($type) {
-		global $DB, $CONF;
-		$tableName = $CONF['table_prefix'] . 'project';
+		global $DB, $CONF, $T;
+		$tableName = $CONF['table_prefix'] . 'projects';
 		
 		$rows = array();
-		$rs = $DB->Execute("SELECT * FROM `$tableName` WHERE project_type = '" . $type . "'" );
+		$rs = $DB->Execute("SELECT * FROM `$tableName` WHERE project_type = '" . $type . "' and user_id = " . $T['user_id'] );
 		while ($array = $rs->FetchRow()) {
 			$rows[] = $array;
 		}
@@ -201,7 +201,7 @@ class ProjectManager {
 	
 	static public function getById($projectId) {
 		global $DB, $CONF;
-		$tableName = $CONF['table_prefix'] . 'project';
+		$tableName = $CONF['table_prefix'] . 'projects';
 		
 		$row = false;
 		
@@ -216,9 +216,9 @@ class ProjectManager {
 		global $DB,$T;
 		$tableName = 'user_pricesx';
 		
-		$manager_id = $T['manager_id'];
+		$user_id = $T['user_id'];
 		$rows = array();
-		$rs = $DB->Execute("SELECT DISTINCT list_name FROM `$tableName` WHERE uid = " . intval($manager_id) . " ORDER BY list_name");
+		$rs = $DB->Execute("SELECT DISTINCT list_name FROM `$tableName` WHERE uid = " . intval($user_id) . " ORDER BY list_name");
 		while ($array = $rs->FetchRow()) {
 			$rows[] = $array;
 		}
@@ -229,9 +229,9 @@ class ProjectManager {
 		global $DB,$T;
 		$tableName = 'user_pricesx';
 		
-		$manager_id = $T['manager_id'];
+		$user_id = $T['user_id'];
 		$rows = array();
-		$rs = $DB->Execute("SELECT * FROM `$tableName` WHERE uid = " . intval($manager_id) . " AND list_name= '" . $library_name . "'");
+		$rs = $DB->Execute("SELECT * FROM `$tableName` WHERE uid = " . intval($user_id) . " AND list_name= '" . $library_name . "'");
 		while ($array = $rs->FetchRow()) {
 			$rows[] = $array;
 		}

@@ -41,7 +41,7 @@
 
 		<form id="calcForm" method="post" action="index.php?route=edit">
 			<input type="hidden" name="project_id" id="project_id" value="<?php echo $project['project_id']; ?>">
-			<input type="hidden" name="manager_name" value="<?php echo $project['manager_name']; ?>">
+			<input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
 			<input type="hidden" name="project_type" id="project_type" value="matrix" />
 			<input type="hidden" name="action" id="action" value="save">
 
@@ -75,6 +75,38 @@
 
 -->
 <div id="templates" style="display:none">
+	<div id="template_step1">
+		<div style="position:absolute;  width:300px; left:0px; top:70px;" class="form-group">
+			<label for="step1[project_name]" class="input-label">Project name</label>
+			<input type="text" value="" size=50" id="step1[project_name]" class="input-field field_text ui-wizard-content ui-helper-reset ui-state-default valid" name="step1[project_name]">
+		</div>
+		<div style="position:absolute;  width:300px; left:0px; top:120px;" class="form-group">
+			<label for="step1[product]" class="input-label">Select the product required</label>
+			<select class="form-control field_text ui-wizard-content ui-helper-reset ui-state-default" name="step1[product]" id="step1[product]">
+				<option value="hardieflex_sheet">HardiePlank Sheets</option>
+				<option value="hardieflex_pro">HardiePlank Pro</option>
+			</select>
+		</div>
+		<div style="width: 300px; left: 0px; display: block; position: absolute; top: 220px;" class="form-group">
+			<label for="step1[application]" class="input-label">Application</label><br/>
+			<select class="form-control field_text ui-wizard-content ui-helper-reset ui-state-default" name="step1[application]" id="step1[application]">
+				<option value="ceiling_uninsulated">Ceiling uninsulated&lt;600</option>
+				<option value="dry_wall">Dry wall fastener only</option>
+				<option value="wet_area_wall">Wet Area Wall (same as untiled)</option>
+			</select>
+		</div>
+		<div style="position: absolute; width: 180px; left: 0px; top: 170px; display: block;" class="form-group">
+			<label for="step1[type_of_frame]" class="input-label">Type of frame</label>
+			<select class="form-control field_text ui-wizard-content ui-helper-reset ui-state-default" name="step1[type_of_frame]" id="step1[type_of_frame]">
+				<option value="steel">Steel 0.55 to 1.66 mm BMT</option>
+				<option value="timber">Timber</option>
+			</select>
+		</div>
+		<div class="form-group" style="position: absolute; width: 120px; left: 250px; top: 120px; display: block;">
+			<label for="step1[allowance]" class="input-label">Allowance %</label>
+			<input type="text" value="5" size="7" id="step1[allowance]" class="input-field field_text ui-wizard-content ui-helper-reset ui-state-default" name="step1[allowance]">
+		</div>
+	</div>
 	<div id="template_step2">
 		<table id="add_walls_target" class="walls_table field_text">
 			<thead>
