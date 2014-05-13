@@ -395,11 +395,11 @@ $(document).ready(function(){
 			
 			// for step2
 			if (data.currentStep == "step2") {
-				$("#bg_img").attr("src", "images/Step2floor_bg.jpg");	
+				$("#bg_img").attr("src", "images/Step2_bg_floor.jpg");	
 			}
 			// for step3
 			if (data.currentStep == "step3") {
-				$("#bg_img").attr("src", "images/step3_villab_back.jpg");	
+				$("#bg_img").attr("src", "images/Step3_bg_floor.jpg");	
 			}
 			
 		}
@@ -440,6 +440,21 @@ $(document).ready(function(){
 		}
 	});
 	
+	
+	/**** if no walls *****/
+	
+	$("#calcForm").on("submit", function(){
+		var walls = $("div#step2 table#add_walls_target tr.wall_entry");
+		if (walls.length > 0) {
+			return true;
+		}
+		else {
+			alert('No walls entered. At least 1 wall needs to be entered.');
+			return false;
+		}
+	});
+	
+	
 	/* terms popup*/
 	
 	var terms_confirmed = false;
@@ -470,6 +485,16 @@ $(document).ready(function(){
 	});
 	
 
+	/******************* Scrolling ************/
+	
+	var settings = {
+			showArrows: true,
+			autoReinitialise: true
+		};
+		
+	var scrollpanes = $('.scrolling');
+	scrollpanes.jScrollPane(settings);
+	
 	
 	/*********** Code for Estimate page ************/
 	
@@ -482,13 +507,6 @@ $(document).ready(function(){
 		create_bill_list();
 		calculate_labour_rate();
 		calculate_total_bill();
-
-		var settings = {
-			showArrows: true,
-			autoReinitialise: true
-		};
-		var scrollpanes = $('.scrolling');
-		scrollpanes.jScrollPane(settings);
 	}
 	
 	/**
@@ -499,9 +517,20 @@ $(document).ready(function(){
 			calculate_total_bill();
 	});
 	
+	
 	$(".show_labour_rates").on('click',function(){
 		$("#labour_rates_data").toggle();
 	});
+	
+	/**
+	 * Update labour cost when data is changed
+	 * in the 'Calculate labour rates' zone
+	 */
+	$("#labour_rates_data").on('keyup', "#labour\\[subtotal\\]",function() {
+		calculate_labour_rate();
+		calculate_total_bill();
+	});
+	
 	
 	/**
 	 * Remove bill item on button click
@@ -531,19 +560,7 @@ $(document).ready(function(){
 	$("#bill_of_quantities").on('keyup', '.bill_item_cost',function() {
 		calculate_total_bill();
 	});
-	
-	/**
-	 * Update labour cost when data is changed
-	 * in the 'Calculate labour rates' zone
-	 */
-	$("#labour_rates_data").on('keyup', "#labour\\[painting\\]",function() {
-		calculate_labour_rate();
-		calculate_total_bill();
-	});
-	$("#labour_rates_data").on('keyup', "#labour\\[cladding\\]",function() {
-		calculate_labour_rate();
-		calculate_total_bill();
-	});
+		
 	
 	$(".make_report_button").on('click ', function(){
 		var report_type = $(this).attr("id");
@@ -600,22 +617,63 @@ $(document).ready(function(){
 	
 	
 	$('area').click(function() { 		
-		var url = $(this).attr('href'); 
+		var target_url = $(this).attr('href'); 
 		var formState = $("#calcForm").formwizard("state");
 				
 		if (formState["currentStep"] == "step1") {
-			if (url == "step2") {
+			if (target_url == "step2") {
+				$("#next").trigger('click');
+			}
+			if (target_url == "step3") {
+				$("#next").trigger('click');
 				$("#next").trigger('click');
 			}	
 		}
 		else if (formState["currentStep"] == "step2") {
-			if (url == "step1") {
+			if (target_url == "step1") {
 				$("#back").trigger('click');
 			}	
+			if (target_url == "step3") {
+				$("#next").trigger('click');
+			}	
+		}
+		else if (formState["currentStep"] == "step3") {
+			if (target_url == "step1") {
+				$("#back").trigger('click');
+				$("#back").trigger('click');
+			}
+			if (target_url == "step2") {
+				$("#back").trigger('click');
+			}		
 		}
 		
 		// To prevent default action 
 	  return false; 
+	});
+
+	/** Banner change on product select **/
+	
+		
+	update_banner_content = function(target_div) {	
+		target_div = 'template_step1_banner_' + target_div;
+		
+		$("#step1_banner_image").attr('src',$("#" + target_div + " .banner_image").attr('src'));
+		$("#step1_banner_text .content").html($("#" + target_div + " .banner_text").html());
+	};
+	
+	update_banner_content('select_cedar_mill');
+	
+	$('#step1\\[product\\]').on("change", function(){
+		var selected_product = $(this).val();
+		
+		if (selected_product === 'hardieplank_select_cedar_mill') {
+			var target_div = 'select_cedar_mill';
+			
+		}
+		if (selected_product === 'hardieplank_smooth') {
+			target_div = 'smooth';
+		}
+		update_banner_content(target_div);
 	});
 
 });

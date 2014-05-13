@@ -97,7 +97,7 @@
 				<tbody>
 					<tr class="labour_item">
 						<td>Installation price</td>
-						<td><input id="labour[subtotal]" name="labour[subtotal]" type="text" value="10" size="5"/></td>
+						<td><input id="labour[subtotal]" name="labour[subtotal]" type="text" value="0" size="5"/></td>
 					</tr>					
 				</tbody>			
 			</table>

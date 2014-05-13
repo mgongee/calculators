@@ -43,7 +43,7 @@
 			<input type="hidden" name="project_id" id="project_id" value="<?php echo $project['project_id']; ?>">
 			<input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
 			<input type="hidden" name="project_type" id="project_type" value="matrix" />
-			<input type="hidden" name="action" id="action" value="save">
+			<input type="hidden" name="action" id="action" value="estimate">
 
 			<div id="fieldWrapper">
 			</div>
@@ -81,7 +81,7 @@
 			<input type="text" value="" size=50" id="step1[project_name]" class="input-field field_text ui-wizard-content ui-helper-reset ui-state-default valid" name="step1[project_name]">
 		</div>
 		<div style="position:absolute;  width:300px; left:0px; top:120px;" class="form-group">
-			<label for="step1[product]" class="input-label">Select the product required</label>
+			<label for="step1[product]" class="input-label">Select the product required</label><br/>
 			<select class="form-control field_text ui-wizard-content ui-helper-reset ui-state-default" name="step1[product]" id="step1[product]">
 				<option value="hardieflex_sheet">HardiePlank Sheets</option>
 				<option value="hardieflex_pro">HardiePlank Pro</option>
@@ -98,7 +98,8 @@
 		<div style="position: absolute; width: 180px; left: 0px; top: 170px; display: block;" class="form-group">
 			<label for="step1[type_of_frame]" class="input-label">Type of frame</label>
 			<select class="form-control field_text ui-wizard-content ui-helper-reset ui-state-default" name="step1[type_of_frame]" id="step1[type_of_frame]">
-				<option value="steel">Steel 0.55 to 1.66 mm BMT</option>
+				<option value="steel">Steel 0.55 to 0.75 mm BMT</option>
+				<option value="steel_080_160">Steel 0.80 to 1.60 mm BMT</option>
 				<option value="timber">Timber</option>
 			</select>
 		</div>

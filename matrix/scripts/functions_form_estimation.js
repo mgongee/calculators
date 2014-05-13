@@ -434,9 +434,8 @@ add_putty = function() {
  * Add sealant in bill of quantities
  */
 add_sealant = function() {
-	
 	var walls = get_saved_field_raw_value("walls");	
-	
+	console.log('comp walls', walls);
 	var sealants = []; // :)
 	for (var wall_number in walls) {
 		// get item info
@@ -456,9 +455,9 @@ add_sealant = function() {
 		}
 		
 	}
-	
+	console.log('non comp sealants', sealants);
 	sealants = compact_items_list(sealants);
-	
+	console.log('comp sealants', sealants);
 	for (var i in sealants) {
 		if (sealants[i] !== false) {
 			// add item into bill

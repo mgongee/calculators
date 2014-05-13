@@ -8,7 +8,7 @@
 		<tbody>
 			<tr>
 				<td valign="top" align="left" height="240">
-					<img id="bg_img" src="images/Step1_bg_floor.jpg" width="1000" alt="" border="0" />
+					<img id="bg_img" src="images/Step1_bg_floor.jpg" width="1000" alt=""  usemap="#step_map" border="0" />
 					<map name="step_map">
 						<area shape="rect" coords="69,44,122,60" href="step1" alt="Step 1">
 						<area shape="rect" coords="123,44,179,60" href="step2" alt="Step 2">
@@ -39,7 +39,7 @@
 			<input type="hidden" name="project_id" id="project_id" value="<?php echo $project['project_id']; ?>">
 			<input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
 			<input type="hidden" name="project_type" id="project_type" value="flooring" />
-			<input type="hidden" name="action" id="action" value="save">
+			<input type="hidden" name="action" id="action" value="estimate">
 
 			<div id="fieldWrapper">
 			</div>

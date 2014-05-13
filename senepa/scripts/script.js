@@ -205,6 +205,19 @@ $(document).ready(function(){
 		}
 	});
 	
+	/**** if no walls *****/
+	
+	$("#calcForm").on("submit", function(){
+		var walls = $("div#step2 table#add_lengths_target tr.length_entry");
+		if (walls.length > 0) {
+			return true;
+		}
+		else {
+			alert('No lengths entered. At least 1 length needs to be entered.');
+			return false;
+		}
+	});
+	
 	/* terms popup*/
 	
 	var terms_confirmed = false;
@@ -292,19 +305,20 @@ $(document).ready(function(){
 	$("#bill_of_quantities").on('keyup', '.bill_item_cost',function() {
 		calculate_total_bill();
 	});
+		
+	$(".show_labour_rates").on('click',function(){
+		$("#labour_rates_data").toggle();
+	});
 	
 	/**
 	 * Update labour cost when data is changed
 	 * in the 'Calculate labour rates' zone
 	 */
-	$("#labour_rates_data").on('keyup', "#labour\\[flooring\\]",function() {
+	$("#labour_rates_data").on('keyup', "#labour\\[subtotal\\]",function() {
 		calculate_labour_rate();
 		calculate_total_bill();
 	});
-	$("#labour_rates_data").on('keyup', "#labour\\[floor_finish\\]",function() {
-		calculate_labour_rate();
-		calculate_total_bill();
-	});
+	
 	
 	$(".make_report_button").on('click ', function(){
 		var report_type = $(this).attr("id");
@@ -378,5 +392,9 @@ $(document).ready(function(){
 		// To prevent default action 
 	  return false; 
 	});
+
+	/** Banner change on product select **/
+	
+	$("#step1_banner_target").html($("#template_step1_banner_choose").html());
 
 });

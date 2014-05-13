@@ -206,7 +206,7 @@ div#estimation_right_table, div#cost_library {
 	font-size: 12px;
 	width: 546px;
 	position: relative;
-    top: -172px;
+    top: -150px;
     left: 413px;
 }
 
@@ -219,7 +219,7 @@ table#project_data, table#cost_table {
 div#estimation_low_right_table {
 	color: #FFFFFF;
     font-size: 12px;
-    height: 197px;
+    height: 208px;
     margin-right: 20px;
     margin-top: 10px;
     overflow-x: hidden;
@@ -228,7 +228,7 @@ div#estimation_low_right_table {
     padding-top: 10px;
     width: 543px;
 	position: relative;
-    top: -172px;
+    top: -150px;
     left: 413px;
 }
 
@@ -368,12 +368,12 @@ div#estimation_reports_table2 {
 }
 
 #step1_banner {
-	height: 156px;
-    left: 590px;
+	height: 203px;
+    left: 551px;
     position: absolute;
-    top: 322px;
+    top: 301px;
     visibility: visible;
-    width: 403px;
+    width: 453px;
     z-index: 83;
 }
 
@@ -384,4 +384,12 @@ div#estimation_reports_table2 {
 
 #fancybox-loading, .fancybox-close, .fancybox-prev span, .fancybox-next span {
     background-image: url("images/fancybox_sprite.png");
+}
+
+
+#Step1_Hardieflex_Senepa_Text {
+	position: relative;
+	top: -150px;
+	left: 191px;
+	width: 200px;
 }

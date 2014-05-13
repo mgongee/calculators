@@ -250,6 +250,20 @@ $(document).ready(function(){
 		}
 	});
 	
+	
+	/**** if no walls *****/
+	
+	$("#calcForm").on("submit", function(){
+		var walls = $("div#step2 table#add_walls_target tr.wall_entry");
+		if (walls.length > 0) {
+			return true;
+		}
+		else {
+			alert('No walls entered. At least 1 wall needs to be entered.');
+			return false;
+		}
+	});
+	
 	/* terms popup*/
 	
 	var terms_confirmed = false;

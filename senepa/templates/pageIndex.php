@@ -18,7 +18,7 @@
 		</table>
 	</div>
 	<div id="step1_banner">
-		<p align="center"> <img width="313" border="0" height="99" alt="click left" src="images/Step1_icon.jpg">  </p>
+		<div id="step1_banner_target"></div>
 	</div>
 	<div id="step_layer" style="visibility: visible;">
 		<div id="load_projects">
@@ -36,7 +36,7 @@
 		<form id="calcForm" method="post" action="index.php">
 			<input type="hidden" name="user_id" value="<?php echo $user_id?>">
 			<input type="hidden" name="project_type" id="project_type" value="senepa" />
-			<input type="hidden" name="action" id="action" value="save">
+			<input type="hidden" name="action" id="action" value="estimate">
 
 			<div id="fieldWrapper">
 			</div>
@@ -154,6 +154,89 @@
 		<a href="#" class="go_to_estimation">
 			<img width="195" border="0" height="22" name="Go to Estimation Page" alt="Go to Estimation Page" src="templates/images/goto_estimation_but.jpg">
 		</a>
+	</div>
+	<div id="template_step1_banner_choose">
+		<p align="center"> <img width="313" border="0" height="99" alt="" src="images/Step1_icon.jpg"></p>
+	</div>
+	<div id="template_step1_banner_select_cedar_mill">
+		<img src="images/Flex-Senepa.jpg" width="402" height="160" />
+		<div id="Step1_Hardieflex_Senepa_Text" class="Step1_prod_text"  ><span class="Product_headingsSML">Hardieflex Senepa</span><br>
+			<span class="accelerate_body">A smooth fascia board which comes in a variety of widths and lengths.</span><br>
+			<br>
+			<table width="190" height="123" border="0" cellpadding="0" cellspacing="0" class="Field_text">
+			  <tr>
+				<td width="26" height="12" class="Field_text"></td>
+				<td width="89" class="Field_text">Dimension </td>
+			  </tr>
+			   <tr>  <td height="2" colspan="2" class="accelerate_body"><img src="images/green_line.png" alt="line" width="193" height="2"></td>    </tr>
+				  <tr>
+				<td height="11" class="Field_text2">9mm</td>
+				<td height="11" class="Field_text2">10in x 8ft</td>
+			  </tr>
+			  <tr>      <td height="2" colspan="2" class="accelerate_body"><img src="images/green_line.png" alt="line" width="193" height="2"></td>    </tr>
+			  <tr>
+				<td height="11" class="Field_text2">12mm</td>
+				<td height="11" class="Field_text2">10in x 8ft</td>
+			  </tr>
+			  <tr>
+				<td height="2" colspan="2" class="Field_text2"><img src="images/green_line.png" alt="line" width="193" height="2"></td>
+			  </tr>
+			  <tr>
+				<td height="11" class="Field_text2">12mm</td>
+				<td height="11" class="Field_text2">12in x 8ft</td>
+			  </tr>
+			  <tr>
+				<td height="2" colspan="2" class="Field_text2"><img src="images/green_line.png" alt="greenline" width="193" height="2"></td>
+			  </tr>
+			  <tr>
+				<td height="11" class="Field_text2">12mm</td>
+				<td height="11" class="Field_text2">12in x 12ft</td>
+			  </tr>
+			  <tr>
+				<td height="2" colspan="2" class="Field_text2"><img src="images/green_line.png" alt="line" width="193" height="2"></td>
+			  </tr>
+			</table>
+		</div>
+	</div>
+	<div id="template_step1_banner_smooth">
+		<img src="images/Flex-Senepa.jpg" width="402" height="160" />
+		<div id="Step1_Hardieflex_Senepa_Text" class="Step1_prod_text"  ><span class="Product_headingsSML">Hardieflex Senepa 2</span><br>
+			<span class="accelerate_body">A smooth fascia board which comes in a variety of widths and lengths.</span><br>
+			<br>
+			<table width="190" height="123" border="0" cellpadding="0" cellspacing="0" class="Field_text">
+			  <tr>
+				<td width="26" height="12" class="Field_text"></td>
+				<td width="89" class="Field_text">Dimension </td>
+			  </tr>
+			   <tr>  <td height="2" colspan="2" class="accelerate_body"><img src="images/green_line.png" alt="line" width="193" height="2"></td>    </tr>
+				  <tr>
+				<td height="11" class="Field_text2">9mm</td>
+				<td height="11" class="Field_text2">10in x 8ft</td>
+			  </tr>
+			  <tr>      <td height="2" colspan="2" class="accelerate_body"><img src="images/green_line.png" alt="line" width="193" height="2"></td>    </tr>
+			  <tr>
+				<td height="11" class="Field_text2">12mm</td>
+				<td height="11" class="Field_text2">10in x 8ft</td>
+			  </tr>
+			  <tr>
+				<td height="2" colspan="2" class="Field_text2"><img src="images/green_line.png" alt="line" width="193" height="2"></td>
+			  </tr>
+			  <tr>
+				<td height="11" class="Field_text2">12mm</td>
+				<td height="11" class="Field_text2">12in x 8ft</td>
+			  </tr>
+			  <tr>
+				<td height="2" colspan="2" class="Field_text2"><img src="images/green_line.png" alt="greenline" width="193" height="2"></td>
+			  </tr>
+			  <tr>
+				<td height="11" class="Field_text2">12mm</td>
+				<td height="11" class="Field_text2">12in x 12ft</td>
+			  </tr>
+			  <tr>
+				<td height="2" colspan="2" class="Field_text2"><img src="images/green_line.png" alt="line" width="193" height="2"></td>
+			  </tr>
+			</table>
+		</div>
 	</div>
 </div>
 

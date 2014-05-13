@@ -8,7 +8,7 @@
 		<tbody>
 			<tr>
 				<td valign="top" align="left" height="240">
-					<img id="bg_img" src="images/Step1_bg_floor.jpg" width="1000" alt="" border="0" />
+					<img id="bg_img" src="images/Step1_bg_floor.jpg" width="1000" alt=""  usemap="#step_map" border="0" />
 					<map name="step_map">
 						<area shape="rect" coords="69,44,122,60" href="step1" alt="Step 1">
 						<area shape="rect" coords="123,44,179,60" href="step2" alt="Step 2">
@@ -39,7 +39,7 @@
 			<input type="hidden" name="project_id" id="project_id" value="<?php echo $project['project_id']; ?>">
 			<input type="hidden" name="user_name" value="<?php echo $user_name; ?>">
 			<input type="hidden" name="project_type" id="project_type" value="flooring" />
-			<input type="hidden" name="action" id="action" value="save">
+			<input type="hidden" name="action" id="action" value="estimate">
 
 			<div id="fieldWrapper">
 			</div>
@@ -82,8 +82,8 @@
 			</select>
 		</div>
 		<div style="position: absolute; width: 120px; left: 250px; top: 170px; display: block;" class="form-group">
-			<label class="input-label" for="step1[number_of_buildings]">No. of buildings</label><br>
-			<input type="text" name="step1[number_of_buildings]" class="input-field field_text ui-wizard-content ui-helper-reset ui-state-default valid" id="step1[number_of_buildings]" size="8" value="1">
+			<label class="input-label" for="step1[waste]">Waste %</label><br>
+			<input type="text" name="step1[waste]" class="input-field field_text ui-wizard-content ui-helper-reset ui-state-default" id="step1[waste]" size="8" value="5">
 		</div>
 		<div style="position: absolute; width: 180px; left: 0px; top: 170px; display: block;" class="form-group">
 			<label class="input-label" for="step1[type_of_frame]">Type of frame</label><br>
@@ -102,10 +102,6 @@
 				<option value="16mm_x_600mm_x_2400mm">16mm x 600mm x 2400mm</option>
 				<option value="16mm_x_1200mm_x_2400mm">16mmx 1200mm x 2400mm</option>
 			</select>
-		</div>
-		<div style="position: absolute; width: 80px; left: 250px; top: 220px; display: block;" class="form-group">
-			<label class="input-label" for="step1[waste]">Waste %</label><br>
-			<input type="text" name="step1[waste]" class="input-field field_text ui-wizard-content ui-helper-reset ui-state-default" id="step1[waste]" size="8" value="5">
 		</div>
 	</div>
 	<div id="template_step2">

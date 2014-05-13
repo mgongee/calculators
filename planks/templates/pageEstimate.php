@@ -85,7 +85,7 @@
 			</table>
 		</div>
 
-		<div id="estimation_low_left_table" >
+			<div id="estimation_low_left_table" >
 			<div style="padding:10px;">
 				<p style="float:left">Calculate labour rates</p>
 				<a href="#" class="bill_header_link_button show_labour_rates">Show/Hide rates</a>
@@ -100,17 +100,9 @@
 				</thead>
 				<tbody>
 					<tr class="labour_item">
-						<td>Painting</td>
-						<td><input id="labour[painting]" name="labour[painting]" type="text" value="10" size="5"/></td>
-					</tr>
-					<tr class="labour_item">
-						<td>Cladding</td>
-						<td><input id="labour[cladding]" name="labour[cladding]" type="text" value="5" size="5"/></td>
-					</tr>
-					<tr class="labour_item">
-						<td>Subtotal</td>
-						<td><input id="labour[subtotal]" name="labour[subtotal]" type="text" value="" size="5"/></td>
-					</tr>
+						<td>Installation price</td>
+						<td><input id="labour[subtotal]" name="labour[subtotal]" type="text" value="0" size="5"/></td>
+					</tr>					
 				</tbody>			
 			</table>
 		</div>

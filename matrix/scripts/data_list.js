@@ -4,7 +4,8 @@ window.list_data = {
 		"hardieflex_pro" : "HardiePlank Pro"
 	},
 	"step1_type_of_frame": {
-		"steel" : "Steel 0.55 to 1.66 mm BMT",
+		"steel" : "Steel 0.55 to 0.75 mm BMT",
+		"steel_080_160" : "Steel 0.80 to 1.60 mm BMT",
 		"timber" : "Timber"
 	},
 	"step1_application": {
@@ -150,6 +151,21 @@ window.calculation_numbers = {
 				'6mm_x_1200mm_x_3000mm'
 			]
 		}
+	},
+	"sheet_size_to_thickness" : { // in mm
+		'3.5mm_x_1219mm_x_2438mm': 3.5,
+		'4.5mm_x_1219mm_x_2438mm': 4.5,
+		'4.5mm_x_1200mm_x_2700mm': 4.5,
+		'4.5mm_x_1200mm_x_3000mm': 4.5,
+		'6mm_x_1219mm_x_2438mm': 6,
+		'6mm_x_1200mm_x_2700mm': 6,
+		'6mm_x_1200mm_x_3000mm': 6,
+		'9mm_x_1219mm_x_2438mm': 9,
+		'9mm_x_1200mm_x_2700mm': 9,
+		'9mm_x_1200mm_x_3000mm': 9,
+		'12mm_x_1219mm_x_2438mm': 12,
+		'6mm_x_1250mm_x_2400mm': 6,
+		'6mm_x_1200mm_x_2400mm': 6
 	},
 	'product_application_size_to_spacing': {
 		"hardieflex_sheet" : {

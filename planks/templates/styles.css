@@ -410,12 +410,12 @@ div#estimation_reports_table2 {
 }
 
 #step1_banner {
-	height: 156px;
-    left: 590px;
+	height: 203px;
+    left: 551px;
     position: absolute;
-    top: 322px;
+    top: 301px;
     visibility: visible;
-    width: 403px;
+    width: 453px;
     z-index: 83;
 }
 
@@ -426,4 +426,13 @@ div#estimation_reports_table2 {
 
 #fancybox-loading, .fancybox-close, .fancybox-prev span, .fancybox-next span {
     background-image: url("images/fancybox_sprite.png");
+}
+
+
+#step1_banner_text {
+	position: relative;
+	top: -150px;
+	left: 191px;
+	width: 240px;
+	height: 180px;
 }

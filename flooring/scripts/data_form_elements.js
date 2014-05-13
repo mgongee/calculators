@@ -11,11 +11,6 @@ window.form_elements = {
 				"label": "Select the product required",
 				"type": "list"
 			},
-			"number_of_buildings": {
-				"label": "No. of buildings",
-				"type": "text",
-				"default_value": "1"
-			},
 			"type_of_frame": {
 				"label": "Type of frame",
 				"type": "list"
@@ -72,11 +67,6 @@ window.estimation_elements = {
 		"type": "text",
 		"units": "m2"
 	},
-	"number_of_buildings": {
-		"label": "Total number of buildings",
-		"type": "text",
-		"units": ""
-	},	
 	"waste": {
 		"label": "Percentage of Material Waste",
 		"type": "text",

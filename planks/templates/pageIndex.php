@@ -19,7 +19,11 @@
 		</table>
 	</div>
 	<div id="step1_banner">
-		<p align="center"> <img width="313" border="0" height="99" alt="click left" src="images/Step1_icon.jpg">  </p>
+		<img id="step1_banner_image" src=""  width="402" height="160" />
+		<div id="step1_banner_text" class="scrolling">
+			<div class="content">
+			</div>
+		</div>
 	</div>
 	<div id="step_layer" style="visibility: visible;">
 		<div id="load_projects">
@@ -37,7 +41,7 @@
 		<form id="calcForm" method="post" action="index.php">
 			<input type="hidden" name="user_id" value="<?php echo $user_id?>">
 			<input type="hidden" name="project_type" id="project_type" value="planks" />
-			<input type="hidden" name="action" id="action" value="save">
+			<input type="hidden" name="action" id="action" value="estimate">
 
 			<div id="fieldWrapper">
 			</div>
@@ -71,20 +75,21 @@
 <div id="templates" style="display:none">
 	<div id="template_step1">
 		<div style="position:absolute;  width:300px; left:0px; top:70px;" class="form-group">
-			<label for="step1[project_name]" class="input-label">Project name</label>
+			<label for="step1[project_name]" class="input-label">Project name</label><br>
 			<input type="text" value="" size="50" id="step1[project_name]" class="input-field field_text ui-wizard-content ui-helper-reset ui-state-default" name="step1[project_name]">
 		</div>
 		<div style="position:absolute;  width:300px; left:0px; top:120px;" class="form-group">
-			<label for="step1[product]" class="input-label">Select the product required</label><br>
+			<label for="step1[product]" class="input-label">Select the product required</label>
 			<select class="form-control field_text ui-wizard-content ui-helper-reset ui-state-default" name="step1[product]" id="step1[product]">
-				<option value="hardieflex_senepa">Hardieflex Senepa</option>
+				<option value="hardieplank_select_cedar_mill">HardiePlank Select Cedar Mill</option>
+				<option value="hardieplank_smooth">HardiePlank Smooth</option>
 			</select>
 		</div>
 		<div style="position: absolute; width: 180px; left: 0px; top: 170px; display: block;" class="form-group">
 			<label for="step1[type_of_frame]" class="input-label">Type of frame</label><br>
 			<select class="form-control field_text ui-wizard-content ui-helper-reset ui-state-default" name="step1[type_of_frame]" id="step1[type_of_frame]">
 				<option value="steel_0.55_to_1.66mm_bmt">Steel 0.55 to 1.66 mm BMT</option>
-				<option value="timber">Timber</option>
+				<option value="masonry_substrate">Masonry Substrate</option>
 			</select>
 		</div>
 		<div style="position: absolute; width: 120px; left: 250px; top: 120px; display: block;" class="form-group">
@@ -92,12 +97,11 @@
 			<input type="text" value="5" size="7" id="step1[allowance]" class="input-field field_text ui-wizard-content ui-helper-reset ui-state-default" name="step1[allowance]">
 		</div>
 		<div style="width: 300px; left: 0px; display: block; position: absolute; top: 220px;" class="form-group">
-			<label for="step1[product_size]" class="input-label">Product size</label><br>
-			<select class="form-control field_text ui-wizard-content ui-helper-reset ui-state-default" name="step1[product_size]" id="step1[product_size]">
-				<option value="9mm_x_254mm_x_2438mm">9mm x 254mm x 2438mm</option>
-				<option value="12mm_x_254mm_x_2438mm">12mm x 254mm x 2438mm</option>
-				<option value="12mm_x_305mm_x_2438mm">12mm x 305mm x 2438mm</option>
-				<option value="12mm_x_305mm_x_3360mm">12mm x 305mm x 3360mm</option>
+			<label for="step1[wind_zone]" class="input-label">Wind zone</label><br>
+			<select class="form-control field_text ui-wizard-content ui-helper-reset ui-state-default" name="step1[wind_zone]" id="step1[wind_zone]">
+				<option value="1_up_to_9m">I (up to 9m )</option>
+				<option value="2_up_to_18m">II (up to 18m )</option>
+				<option value="3_up_to_18m">III (up to 18m )</option>
 			</select>
 		</div>
 	</div>
@@ -312,6 +316,88 @@
 		<a href="#" class="go_to_estimation">
 			<img width="195" border="0" height="22" name="Go to Estimation Page" alt="Go to Estimation Page" src="templates/images/goto_estimation_but.jpg">
 		</a>
+	</div>
+	<div id="template_step1_banner_select_cedar_mill">
+		<img class="banner_image" src="images/Flex-Senepa.jpg" width="402" height="160" />
+		<div class="banner_text">
+			<span class="Product_headingsSML">Hardieflex Select Cedar Mill</span><br>
+			<span class="accelerate_body">A smooth fascia board which comes in a variety of widths and lengths.</span><br>
+			<br>
+			<table width="190" height="123" border="0" cellpadding="0" cellspacing="0" class="Field_text">
+			  <tr>
+				<td width="26" height="12" class="Field_text"></td>
+				<td width="89" class="Field_text">Dimension </td>
+			  </tr>
+			   <tr>  <td height="2" colspan="2" class="accelerate_body"><img src="images/green_line.png" alt="line" width="193" height="2"></td>    </tr>
+				  <tr>
+				<td height="11" class="Field_text2">9mm</td>
+				<td height="11" class="Field_text2">10in x 8ft</td>
+			  </tr>
+			  <tr>      <td height="2" colspan="2" class="accelerate_body"><img src="images/green_line.png" alt="line" width="193" height="2"></td>    </tr>
+			  <tr>
+				<td height="11" class="Field_text2">12mm</td>
+				<td height="11" class="Field_text2">10in x 8ft</td>
+			  </tr>
+			  <tr>
+				<td height="2" colspan="2" class="Field_text2"><img src="images/green_line.png" alt="line" width="193" height="2"></td>
+			  </tr>
+			  <tr>
+				<td height="11" class="Field_text2">12mm</td>
+				<td height="11" class="Field_text2">12in x 8ft</td>
+			  </tr>
+			  <tr>
+				<td height="2" colspan="2" class="Field_text2"><img src="images/green_line.png" alt="greenline" width="193" height="2"></td>
+			  </tr>
+			  <tr>
+				<td height="11" class="Field_text2">12mm</td>
+				<td height="11" class="Field_text2">12in x 12ft</td>
+			  </tr>
+			  <tr>
+				<td height="2" colspan="2" class="Field_text2"><img src="images/green_line.png" alt="line" width="193" height="2"></td>
+			  </tr>
+			</table>
+		</div>
+	</div>
+	<div id="template_step1_banner_smooth">
+		<img class="banner_image" src="images/Flex-Senepa.jpg" width="402" height="160" />
+		<div class="banner_text">
+			<span class="Product_headingsSML">Hardieflex Smooth</span><br>
+			<span class="accelerate_body">A smooth fascia board which comes in a variety of widths and lengths.</span><br>
+			<br>
+			<table width="190" height="123" border="0" cellpadding="0" cellspacing="0" class="Field_text">
+			  <tr>
+				<td width="26" height="12" class="Field_text"></td>
+				<td width="89" class="Field_text">Dimension </td>
+			  </tr>
+			   <tr>  <td height="2" colspan="2" class="accelerate_body"><img src="images/green_line.png" alt="line" width="193" height="2"></td>    </tr>
+				  <tr>
+				<td height="11" class="Field_text2">9mm</td>
+				<td height="11" class="Field_text2">10in x 8ft</td>
+			  </tr>
+			  <tr>      <td height="2" colspan="2" class="accelerate_body"><img src="images/green_line.png" alt="line" width="193" height="2"></td>    </tr>
+			  <tr>
+				<td height="11" class="Field_text2">12mm</td>
+				<td height="11" class="Field_text2">10in x 8ft</td>
+			  </tr>
+			  <tr>
+				<td height="2" colspan="2" class="Field_text2"><img src="images/green_line.png" alt="line" width="193" height="2"></td>
+			  </tr>
+			  <tr>
+				<td height="11" class="Field_text2">12mm</td>
+				<td height="11" class="Field_text2">12in x 8ft</td>
+			  </tr>
+			  <tr>
+				<td height="2" colspan="2" class="Field_text2"><img src="images/green_line.png" alt="greenline" width="193" height="2"></td>
+			  </tr>
+			  <tr>
+				<td height="11" class="Field_text2">12mm</td>
+				<td height="11" class="Field_text2">12in x 12ft</td>
+			  </tr>
+			  <tr>
+				<td height="2" colspan="2" class="Field_text2"><img src="images/green_line.png" alt="line" width="193" height="2"></td>
+			  </tr>
+			</table>
+		</div>
 	</div>
 </div>
 

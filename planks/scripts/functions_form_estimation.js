@@ -56,7 +56,7 @@ estimate_project = function() {
 };
 
 calculate_labour_rate = function() {
-	var labour_painting_cost = parseFloat($("#labour\\[painting\\]").val());
+	/*var labour_painting_cost = parseFloat($("#labour\\[painting\\]").val());
 	var labour_cladding_cost = parseFloat($("#labour\\[cladding\\]").val());
 	var labour_cost = labour_painting_cost + labour_cladding_cost;
 	
@@ -65,7 +65,7 @@ calculate_labour_rate = function() {
 	}
 	else {
 		$("#labour\\[subtotal\\]").val("0");
-	}
+	}*/
 }
 
 /**

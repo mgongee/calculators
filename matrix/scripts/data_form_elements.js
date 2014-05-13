@@ -76,12 +76,6 @@ window.estimation_elements = {
 		"type": "text",
 		"units": "%",
 		"source": "db"
-	},	
-	"waste": {
-		"label": "Waste",
-		"type": "text",
-		"units": "%",
-		"source": "db"
 	},
 	"total_control_joints": {
 		"label": "Control joints",

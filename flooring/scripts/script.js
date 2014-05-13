@@ -278,7 +278,28 @@ $(document).ready(function(){
 		$("#back").click();
 	});
 	
-
+	/**** if no walls *****/
+	
+	$("#calcForm").on("submit", function(){
+		var walls = $("div#step2 table#add_areas_target tr.area_entry");
+		if (walls.length > 0) {
+			return true;
+		}
+		else {
+			alert('No walls entered. At least 1 wall needs to be entered.');
+			return false;
+		}
+	});
+	
+	/******************* Scrolling ************/
+	
+	var settings = {
+			showArrows: true,
+			autoReinitialise: true
+		};
+		
+	var scrollpanes = $('.scrolling');
+	scrollpanes.jScrollPane(settings);
 	
 	/*********** Code for Estimate page ************/
 	
@@ -290,14 +311,7 @@ $(document).ready(function(){
 		estimate_project();
 		create_bill_list();
 		calculate_labour_rate();
-		calculate_total_bill();
-
-		var settings = {
-			showArrows: true,
-			autoReinitialise: true
-		};
-		var scrollpanes = $('.scrolling');
-		scrollpanes.jScrollPane(settings);
+		calculate_total_bill();	
 	}
 	
 	/**
@@ -337,15 +351,15 @@ $(document).ready(function(){
 		calculate_total_bill();
 	});
 	
+	$(".show_labour_rates").on('click',function(){
+		$("#labour_rates_data").toggle();
+	});
+	
 	/**
 	 * Update labour cost when data is changed
 	 * in the 'Calculate labour rates' zone
 	 */
-	$("#labour_rates_data").on('keyup', "#labour\\[flooring\\]",function() {
-		calculate_labour_rate();
-		calculate_total_bill();
-	});
-	$("#labour_rates_data").on('keyup', "#labour\\[floor_finish\\]",function() {
+	$("#labour_rates_data").on('keyup', "#labour\\[subtotal\\]",function() {
 		calculate_labour_rate();
 		calculate_total_bill();
 	});
@@ -423,4 +437,15 @@ $(document).ready(function(){
 	  return false; 
 	});
 
+	/** Banner change on product select **/
+	
+	$("#step1_banner_target").html($("#template_step1_banner_choose").html());
+	
+	$('#step1\\[product\\]').on("change", function(){
+		var selected_product = $(this).val();
+		console.log(selected_product);
+		if (selected_product == 'hardieflex_flooring_16mm') {
+			$("#step1_banner_target").html($("#template_step1_banner_flooring").html());
+		}
+	});
 });

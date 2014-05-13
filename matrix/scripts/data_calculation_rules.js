@@ -66,33 +66,20 @@ window.calculation_rules =  {
 	},
 	"amount_of_sealant": function() {
 		/* Get initial parameters */
-		var number_of_planks = window.project_calculation['number_of_planks'];
+		var total_amount_of_sealant = 0;
+		var walls = get_saved_field_raw_value('walls');
 		
 		/* Calculate value */
-		var amount_of_sealant = number_of_planks * window.calculation_numbers["amount_of_sealant_per_plank"];
-		
-		//var amount_of_sealant = amount_of_sealant * ((allowance / 100) + 1);
-		
-		/* Set appropriate units */
-		var unit = 'mL';
-		var tube = window.calculation_numbers["amount_of_sealant_in_tube"];
-		var unit_cost_divider = 1;
-		
-		if (amount_of_sealant >= tube) {
-			amount_of_sealant = Math.ceil(amount_of_sealant / tube);
-			unit = 'tubes';
-			unit_cost_divider = 1;
+		for (var wall_number in walls) {
+			total_amount_of_sealant += +parseFloat(walls[wall_number]['amount_of_sealant']);
 		}
-		else {
-			unit = 'mL';
-			unit_cost_divider = tube;
+		
+		if (isNaN(total_amount_of_sealant)) {
+			total_amount_of_sealant = 0;
 		}
-		$("#units_amount_of_sealant").html(unit);
 		
 		/* Save results of calculation */
-		window.project_calculation["amount_of_sealant_units"] = unit;
-		window.project_calculation["sealant_unit_cost_divider"] = unit_cost_divider;
-		window.project_calculation['amount_of_sealant'] = amount_of_sealant;
+		window.project_calculation['amount_of_sealant'] = total_amount_of_sealant.toFixed(2);
 	},
 	"total_control_joints" : function() {
 		/* Get initial parameters */
@@ -119,8 +106,16 @@ window.wall_value_getters =  {
 		return $("#step1\\[product\\]").val();
 	},
 	'type_of_frame': function() {
+		var type_of_frame = $("#step1\\[type_of_frame\\]").val();
+		
+		// workaround for adding 'steel_080_160' frame type - which affects 'control joints' parameter only
+		if (type_of_frame == 'steel_080_160') { type_of_frame = 'steel'; }
+		
+		return type_of_frame;
+	}, 
+	'type_of_frame_for_control_joint': function() {
 		return $("#step1\\[type_of_frame\\]").val();
-	},
+	}, 		
 	'application': function() {
 		return $("#step1\\[application\\]").val();
 	},
@@ -300,9 +295,12 @@ window.wall_calculation_rules =  {
 		
 		/* Find target value */
 		if (typeof window.calculation_numbers['product_application_size_to_sealant_amount'][product][application][sheet_size] !== 'undefined') {
-			var amount_of_sealant_per_mm =  window.calculation_numbers['product_application_size_to_sealant_amount'][product][application][sheet_size];
-			var amount_of_sealant = wall_length * amount_of_sealant_per_mm;
-			return amount_of_sealant.toFixed(2); // mL
+			if (typeof window.calculation_numbers['sheet_size_to_thickness'][sheet_size] !== 'undefined') {
+				var thickness = window.calculation_numbers['sheet_size_to_thickness'][sheet_size];
+				var amount_of_sealant_per_mm =  window.calculation_numbers['product_application_size_to_sealant_amount'][product][application][sheet_size];
+				var amount_of_sealant = wall_length * amount_of_sealant_per_mm * thickness * thickness;
+				return amount_of_sealant.toFixed(2); // mL
+			}
 		}
 		else return false;
 	},
@@ -331,85 +329,44 @@ window.wall_calculation_rules =  {
 	},
 	'control_joints': function(wall_number) {
 		var sheet_size = get_wall_value('sheet_size', wall_number);
-		var type_of_frame = get_wall_value('type_of_frame');
+		var type_of_frame = get_wall_value('type_of_frame_for_control_joint');
 		var application = get_wall_value('application');
 		var orientation = get_wall_value('orientation', wall_number);
 		var wall_height = parseFloat(get_wall_value('height', wall_number));
 		var wall_length = parseFloat(get_wall_value('length', wall_number));
 		
 		var control_joints = 0;
-		
+		var vertical_control_joints_spacing = 6;
+		var horizontal_control_joints_spacing = 6;
 		
 		/* Calculate value */
 		if ((wall_height > 0) &&(wall_length > 0)) {
 			var sheet_length = window.calculation_numbers["sheet_length"][sheet_size]; // in mm
 			var sheet_width = window.calculation_numbers["sheet_width"][sheet_size];  // in mm
 		
-			// legacy code starts here. 
-			var IsTiled = false;														// strcontains($applic,"Tiled");
-			var IsUntiled = (application === 'wet_area_wall') ? true : false;			// strcontains($applic,"Untile");
-			var IsInsulCeil = false;													// strcontains($applic,"Insul");
-			var IsLess600 = (application === "ceiling_uninsulated") ? true : false;		// strcontains($applic, "<600");
-			var IsCeiling = (application === "ceiling_uninsulated") ? true : false;		// (strcontains($applic, "Ceiling"));
-			
-			var horizontal_control_joints_spacing = 3.6;
-			var vertical_control_joints_spacing = 0;
-
-			if (IsTiled) {
-				if (type_of_frame == "timber") {
-					vertical_control_joints_spacing = 4.2;
-				}
-				else {
-					vertical_control_joints_spacing = 4.8;
-				}
+			if (type_of_frame == "timber") {
+				vertical_control_joints_spacing = 7.2;
+				horizontal_control_joints_spacing = 7.2;
 			}
-			else if (IsUntiled) {
-				if (type_of_frame == "timber") {
-					vertical_control_joints_spacing = 7.2;
-				}
-				else if (type_of_frame == "steel") {
-					vertical_control_joints_spacing = 9;
-				}
-				else {
-					vertical_control_joints_spacing = 6;
-				}
+			else if (type_of_frame == "steel") { // "steel" : "Steel 0.55 to 0.75 mm BMT",
+				vertical_control_joints_spacing = 9;
+				horizontal_control_joints_spacing = 9;
 			}
-            else if (!IsInsulCeil && IsLess600) {
-				vertical_control_joints_spacing = 3.6; 
-				horizontal_control_joints_spacing = 3.6;
-			}
-			else if (IsInsulCeil && IsLess600) {
-				vertical_control_joints_spacing = 6; 
+			else { // "steel_080_160" : "Steel 0.80 to 1.60 mm BMT",
+				vertical_control_joints_spacing = 6;
 				horizontal_control_joints_spacing = 6;
 			}
-			else if (IsCeiling && !IsLess600) {
-				if (type_of_frame == "timber") {
-					vertical_control_joints_spacing = 7.2;
-				}
-				else if (type_of_frame == "steel") {
-					vertical_control_joints_spacing = 9;
-				}
-				else {
-					vertical_control_joints_spacing = 6;
-				}
-				horizontal_control_joints_spacing = vertical_control_joints_spacing;
-			}
+			
+			var vertical_control_joints_number = Math.ceil(wall_height / vertical_control_joints_spacing / 1000 - 1.001);
+			var vertical_control_joints_length = vertical_control_joints_number * wall_length / 1000;
+
+			var horizontal_control_joints_number = Math.ceil(wall_length / horizontal_control_joints_spacing / 1000 - 1.001);
+			var horizontal_control_joints_length = horizontal_control_joints_number * wall_height / 1000;
+
+			control_joints = vertical_control_joints_length + horizontal_control_joints_length;
+
 		}
 
-		if (!IsCeiling && (sheet_length < horizontal_control_joints_spacing)) { // is wall
-			if (orientation == 'v') {
-				horizontal_control_joints_spacing = sheet_length / 1000;
-			}
-		}
-		
-		var vertical_control_joints_number = Math.ceil(wall_height / vertical_control_joints_spacing / 1000 - 1.001);
-		var vertical_control_joints_length = vertical_control_joints_number * wall_length / 1000;
-		
-		var horizontal_control_joints_number = Math.ceil(wall_length / horizontal_control_joints_spacing / 1000 - 1.001);
-		var horizontal_control_joints_length = horizontal_control_joints_number * wall_height / 1000;
-		
-		control_joints = vertical_control_joints_length + horizontal_control_joints_length;
-		 
 		return control_joints;
 	}
 };

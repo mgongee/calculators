@@ -36,7 +36,7 @@ estimate_project = function() {
 };
 
 calculate_labour_rate = function() {
-	var labour_flooring_cost = parseFloat($("#labour\\[flooring\\]").val());
+	/*var labour_flooring_cost = parseFloat($("#labour\\[flooring\\]").val());
 	var labour_floor_finish = parseFloat($("#labour\\[floor_finish\\]").val());
 	var labour_cost = labour_flooring_cost + labour_floor_finish;
 	
@@ -45,7 +45,7 @@ calculate_labour_rate = function() {
 	}
 	else {
 		$("#labour\\[subtotal\\]").val("0");
-	}
+	}*/
 }
 
 /**
